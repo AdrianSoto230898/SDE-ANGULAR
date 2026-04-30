@@ -1,0 +1,28 @@
+@for (toast of toastService.toasts()(); track trackByFn($index, toast)) {
+@defer {
+<div [ngClass]="getPositionClass(toast)"
+  class="fixed space-y-2 min-w-[23rem] max-w-lg transition-transform duration-300 ease-in-out bottom-10 z-[1050]">
+  <div role="alert"
+    class="flex items-center justify-between p-3 border border-gray-100 divide-x rtl:divide-x-reverse divide-gray-200 dark:border-neutral-900  bg-white text-black dark:bg-neutral-900 dark:text-gray-100 rounded-full shadow-2xl"
+    [ngClass]="{
+            'opacity-100 translate-y-0 animate-slideInUp': toast.show,
+            'opacity-0 translate-y-4 animate-slideOutDown': !toast.show
+          }">
+
+    <div class="h-10 w-10 rounded-full flex items-center justify-center bg-gray-100 dark:bg-custom-dark mr-2">
+      <div class="flex items-center justify-center">
+        <span class="text-2xl" [ngClass]="{
+            'ph-fill ph-check-circle text-green-500': toast.type === 'success',
+            'ph-fill ph-warning-circle text-red-500': toast.type === 'error',
+            'ph-fill ph-warning text-amber-500': toast.type === 'warning'
+          }" role="img" aria-hidden="true"></span>
+      </div>
+    </div>
+
+    <div class="flex-1 px-2">
+      <p class="text-gray-800 dark:text-gray-100 text-sm font-bold mb-0">{{ toast.message }}</p>
+    </div>
+  </div>
+</div>
+}
+}

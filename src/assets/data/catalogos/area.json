@@ -1,0 +1,18 @@
+{
+    "data": [
+      {
+        "areaId": 1,
+        "areaName": "COMERCIAL"
+      },
+      {
+        "areaId": 2,
+        "areaName": "SISTEMAS COMERCIALES"
+      },
+      {
+        "areaId": 3,
+        "areaName": "SISTEMAS"
+      }
+    ],
+    "executionError": false,
+    "message": ""
+  }

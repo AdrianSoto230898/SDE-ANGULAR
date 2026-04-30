@@ -1,0 +1,4 @@
+:host {
+    display: block;   /* asegura bloque normal dentro de flex */
+    min-width: 0;     /* 👈 clave: permite encoger dentro de flex */
+  }

@@ -1,0 +1,312 @@
+<main class="min-h-screen bg-neutral-50 dark:bg-neutral-950">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+
+    <!-- ─── Page Header ─── -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-neutral-200 dark:border-neutral-800 pb-6 mb-6">
+      <div>
+        <h1 class="text-2xl font-bold text-neutral-900 dark:text-white">Documentos</h1>
+        <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-1">
+          Consulta, descarga y exporta documentos electrónicos desde el API de SDE.
+        </p>
+      </div>
+
+      <div class="flex flex-wrap gap-2">
+        <app-custom-button variant="outline" size="sm" icon="ph ph-microsoft-excel-logo" (clicked)="exportExcel()">
+          Exportar Excel
+        </app-custom-button>
+
+        <app-custom-button variant="outline" size="sm" icon="ph ph-file-text" (clicked)="exportConciliation()">
+          Conciliación
+        </app-custom-button>
+
+        <app-custom-button variant="primary" size="sm" icon="ph ph-archive-box" (clicked)="exportZip()">
+          ZIP filtrado
+        </app-custom-button>
+      </div>
+    </div>
+
+    <!-- ─── Action Message ─── -->
+    @if (actionMessage()) {
+    <div class="mb-6 rounded-xl p-4 border"
+      [ngClass]="{
+        'bg-success/10 border-success/20': actionMessage()?.kind === 'success',
+        'bg-error/10 border-error/20': actionMessage()?.kind === 'error',
+        'bg-info/10 border-info/20': actionMessage()?.kind === 'info'
+      }">
+
+      <p class="text-sm"
+        [ngClass]="{
+          'text-success': actionMessage()?.kind === 'success',
+          'text-error': actionMessage()?.kind === 'error',
+          'text-info': actionMessage()?.kind === 'info'
+        }">
+        {{ actionMessage()?.text }}
+      </p>
+    </div>
+    }
+
+    <!-- ─── Agrupador (SOC / ASN) ─── -->
+   @if (groupedDocumentTypeOptions().length > 0) {
+<div class="mb-6 bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-2xl">
+
+  <!-- Header -->
+  <button
+    type="button"
+    class="w-full flex items-center justify-between px-6 py-4 rounded-t-2xl"
+    [class.rounded-b-2xl]="!groupedDocExpanded()"
+    (click)="groupedDocExpanded.set(!groupedDocExpanded())">
+
+    <div class="flex items-center gap-3">
+      <div class="bg-neutral-100 dark:bg-neutral-800 p-2 rounded-lg flex items-center justify-center">
+        <span class="ph ph-files text-neutral-600 dark:text-neutral-400 text-lg"></span>
+      </div>
+
+      <div class="text-left">
+        <h2 class="text-sm font-semibold text-neutral-900 dark:text-white">Tipo de Doc agrupados</h2>
+        <p class="text-xs text-neutral-500 dark:text-neutral-400 mt-0.5">
+          Selecciona un tipo para cargar los filtros dinámicos.
+        </p>
+      </div>
+    </div>
+
+    <span
+      class="ph text-neutral-400 dark:text-neutral-500 text-lg transition-transform duration-200"
+      [ngClass]="groupedDocExpanded() ? 'ph-caret-up' : 'ph-caret-down'">
+    </span>
+  </button>
+
+  <!-- Body -->
+  @if (groupedDocExpanded()) {
+  <div class="border-t border-neutral-200 dark:border-neutral-800 px-6 pb-6 pt-4">
+    <div class="space-y-2">
+      <label class="block text-xs font-medium text-neutral-600 dark:text-neutral-400 uppercase tracking-wide">
+        Tipo de documento
+      </label>
+
+      <app-custom-select-search
+        class="w-full"
+        [options]="groupedDocumentTypeOptions()"
+        placeholder="Seleccionar tipo agrupado..."
+        [ngModel]="selectedGroupedDocumentTypeOption()"
+        (ngModelChange)="onGroupedDocumentTypeChange($event)">
+      </app-custom-select-search>
+    </div>
+  </div>
+  }
+</div>
+}
+
+    <!-- ─── Filtros ─── -->
+
+
+  <div class="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-2xl mb-6">
+
+  <!-- Header -->
+  <button
+    type="button"
+    class="w-full flex items-center justify-between px-6 py-4 rounded-t-2xl"
+    [class.rounded-b-2xl]="!filtersExpanded()"
+    (click)="filtersExpanded.set(!filtersExpanded())">
+
+    <div class="flex items-center gap-3">
+      <div class="bg-neutral-100 dark:bg-neutral-800 p-2 rounded-lg">
+        <span class="ph ph-funnel text-neutral-600 dark:text-neutral-400 text-lg"></span>
+      </div>
+
+      <div class="text-left">
+        <h2 class="text-sm font-semibold text-neutral-900 dark:text-white">Filtros</h2>
+        <p class="text-xs text-neutral-500 dark:text-neutral-400">
+          Ajusta la consulta antes de cargar la grilla.
+        </p>
+      </div>
+    </div>
+
+    <span class="ph text-neutral-400 dark:text-neutral-500 text-lg"
+      [ngClass]="filtersExpanded() ? 'ph-caret-up' : 'ph-caret-down'">
+    </span>
+  </button>
+
+  <!-- Body -->
+  @if (filtersExpanded()) {
+  <div class="border-t border-neutral-200 dark:border-neutral-800 px-6 pb-6 pt-4">
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-end">
+
+      <!-- Tipo de documento -->
+      @if (!hideFiltersByMenu()) {
+      <div class="space-y-1.5">
+        <label class="text-xs font-medium text-neutral-600 dark:text-neutral-400 uppercase tracking-wide">
+          Tipo de documento
+        </label>
+
+        @if (documentTypesResource.isLoading()) {
+          <div class="h-11 rounded-xl bg-neutral-100 dark:bg-neutral-800 animate-pulse"></div>
+        } @else {
+          <app-custom-select-search
+            [options]="documentTypeOptions()"
+            [ngModel]="selectedDocumentTypeOption()"
+            (ngModelChange)="onDocumentTypeChange($event)">
+          </app-custom-select-search>
+        }
+      </div>
+      }
+
+      <!-- Desde -->
+      <div class="space-y-1.5">
+        <label class="text-xs font-medium text-neutral-600 dark:text-neutral-400 uppercase tracking-wide">
+          Desde
+        </label>
+        <app-date-input mode="single" [(model)]="dateFrom" (modelChange)="onDateFromChange($event)">
+        </app-date-input>
+      </div>
+
+      <!-- Hasta -->
+      <div class="space-y-1.5">
+        <label class="text-xs font-medium text-neutral-600 dark:text-neutral-400 uppercase tracking-wide">
+          Hasta
+        </label>
+        <app-date-input mode="single" [(model)]="dateTo" (modelChange)="onDateToChange($event)">
+        </app-date-input>
+      </div>
+
+      <!-- Campos dinámicos -->
+      @for (field of visibleFields(); track field.id) {
+      <div class="space-y-1.5">
+        <label class="block text-xs font-medium text-neutral-600 dark:text-neutral-400 uppercase tracking-wide">
+          {{ field.friendlyName }}
+        </label>
+
+        @if (field.isAutoCompleteClient) {
+        <app-custom-input
+          list="documents-client-suggestions"
+          [placeholder]="'Buscar ' + field.friendlyName.toLowerCase()"
+          [ngModel]="getFilterValue(field)"
+          (ngModelChange)="updateFilter(field, $event)">
+        </app-custom-input>
+
+        @if (clientsResource.isLoading()) {
+        <p class="text-xs text-neutral-400">Buscando clientes...</p>
+        }
+        } @else {
+        <app-custom-input
+          [placeholder]="'Filtrar por ' + field.friendlyName.toLowerCase()"
+          [ngModel]="getFilterValue(field)"
+          (ngModelChange)="updateFilter(field, $event)">
+        </app-custom-input>
+        }
+      </div>
+      }
+
+    </div>
+
+    <datalist id="documents-client-suggestions">
+      @for (client of clientsResource.value(); track client.id + client.sap) {
+      <option [value]="client.sap || client.id">{{ client.text || client.name }}</option>
+      }
+    </datalist>
+
+    @if (fieldsErrorMessage()) {
+    <div class="mt-4 rounded-xl bg-error/10 border border-error/20 px-4 py-3">
+      <p class="text-xs text-error">{{ fieldsErrorMessage() }}</p>
+    </div>
+    }
+
+    <!-- Acciones -->
+    <div class="flex justify-end gap-2 mt-5">
+      <app-custom-button variant="outline" (clicked)="resetFilters()">
+        Limpiar filtros
+      </app-custom-button>
+
+      <app-custom-button variant="primary" (clicked)="applyFilters()">
+        Aplicar filtros
+      </app-custom-button>
+    </div>
+
+  </div>
+  }
+</div>
+
+@if (selectedDocumentType() === 'NCC') {
+  <div class="flex justify-end gap-2 mb-4">
+    <app-custom-button
+      variant="outline"
+      size="sm"
+      icon="ph ph-arrows-clockwise"
+      (clicked)="queueSelectedRegeneration()">
+      Recrear
+    </app-custom-button>
+
+    <app-custom-button
+      variant="primary"
+      size="sm"
+      icon="ph ph-download-simple"
+      (clicked)="downloadSelectedDocuments('Multi')">
+      Descargar
+    </app-custom-button>
+  </div>
+}
+
+    <!-- ─── Tabla ─── -->
+    <div class="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-2xl overflow-hidden">
+
+      <div class="px-6 py-4 border-b border-neutral-200 dark:border-neutral-800 flex justify-between">
+
+        <div>
+          <h2 class="text-sm font-semibold text-neutral-900 dark:text-white">
+            {{ documentTypeLabel() }}
+          </h2>
+          <p class="text-xs text-neutral-500 dark:text-neutral-400">
+            {{ startRecord() }}-{{ endRecord() }} de {{ totalRecords() }}
+          </p>
+        </div>
+
+      </div>
+      <!-- <app-custom-table
+        [columns]="tableColumns()"
+        [rows]="tableRows()"
+        [loading]="gridResource.isLoading()">
+      </app-custom-table> -->
+<div class="flex justify-end gap-2 mb-4">
+  <app-custom-button
+    variant="primary"
+    size="sm"
+    icon="ph ph-download-simple"
+    (clicked)="downloadMassiveSelected()">
+    Descarga Masiva
+  </app-custom-button>
+
+  <app-custom-button
+    variant="outline"
+    size="sm"
+    icon="ph ph-paper-plane-tilt"
+    (clicked)="sendMassiveSelected()">
+    Envío Masivo
+  </app-custom-button>
+</div>
+
+<app-custom-table
+  [columns]="tableColumns()"
+  [rows]="tableRows()"
+  [loading]="gridResource.isLoading()"
+  [itemsPerPage]="pageSize()"
+  [itemsPerPageOptions]="[10, 25, 50]"
+  searchPlaceholder="Buscar en resultados..."
+  (view)="onTableView($event)"
+  (edit)="onTableEdit($event)"
+  (xml)="onOpenXml($event)"
+  (send)="onSendDocument($event)"
+  (create)="onCreatePdf($event)"
+  (print)="onPrintDocument($event)"
+  (toggleAll)="toggleAllRows($event)"
+  (toggleOne)="toggleRow($any($event).row._rowRef, $any($event).checked)">
+</app-custom-table>
+<app-send-mail-modal
+  [visible]="showSendModal()"
+  [form]="sendMailForm()"
+  (close)="closeSendDialog()"
+  (accept)="acceptSendDialog()">
+</app-send-mail-modal>
+    </div>
+
+  </div>
+</main>

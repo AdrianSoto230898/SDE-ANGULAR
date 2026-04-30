@@ -1,0 +1,26 @@
+<div class="date-input-wrapper relative min-w-[13rem]">
+    <!-- pill -->
+    <button (click)="toggle()" class="text-xs w-full py-[0.85rem] px-3 rounded-xl
+             bg-neutral-100 dark:bg-neutral-800 
+             hover:bg-neutral-200 dark:hover:bg-neutral-700">
+        <div class="flex items-center justify-between gap-2">
+            <div class="flex items-center gap-2">
+                <span class="text-neutral-700 dark:text-neutral-200 ph ph-calendar-blank w-4 h-4"></span>
+                <span class="text-neutral-700 dark:text-neutral-200 text-xs">{{ label() }}</span>
+            </div>
+            <div class="flex items-center">
+                <span class="text-neutral-700 dark:text-neutral-200 ph ph-caret-down w-4 h-4"></span>
+            </div>
+        </div>
+
+    </button>
+
+    <!-- pop-over -->
+    @if (show()) {
+    <div class="absolute z-50 mt-2 animate-fadeIn" style="min-inline-size: 18rem;">
+        <app-custom-date [initial]="model?.start ?? null" [mode]="mode" [(model)]="model"
+            (modelChange)="onRangeSelected($event)" (cancel)="show.set(false)">
+        </app-custom-date>
+    </div>
+    }
+</div>

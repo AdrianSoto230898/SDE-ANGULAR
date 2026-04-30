@@ -1,0 +1,579 @@
+/* Import custom scss */
+@use 'assets/theme/custom.scss';
+@use "tailwindcss";
+@use 'quill/dist/quill.snow.css';
+
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+    --color-primary: #ff3300;
+    --color-primary-content: #ffffff;
+    --color-primary-hover: #ff4f23;
+    --color-primary-tint: #ff4f23;
+
+    --color-secondary: #017da6;
+    --color-secondary-content: #ffffff;
+    --color-secondary-hover: #0289b6;
+    --color-secondary-tint: #0289b6;
+
+    --color-accent: #003366;
+    --color-accent-content: #ffffff;
+    --color-accent-hover: #023f7c;
+    --color-accent-tint: #023f7c;
+
+    --color-success: #00B451;
+    --color-success-content: #ffffff;
+    --color-success-hover: #24b465;
+    --color-success-tint: #24b465;
+
+    --color-warning: #ff9900;
+    --color-warning-content: #050505;
+    --color-warning-hover: #fda41e;
+    --color-warning-tint: #fda41e;
+
+    --color-error: #ff2d49;
+    --color-error-content: #ffffff;
+    --color-error-hover: #ff435c;
+    --color-error-tint: #ff435c;
+
+    --color-neutral: #050505;
+    --color-neutral-content: #ffffff;
+    --color-neutral-hover: #1f1f1f;
+    --color-neutral-tint: #1f1f1f;
+
+    --color-base-100: #ffffff;
+    --color-base-200: #e9e9e9;
+    --color-base-content: #050505;
+
+    --color-muted: #D4D4D4;
+    --color-muted-content: #050505;
+    --color-muted-hover: #e4e4e4;
+    --color-muted-tint: #e4e4e4;
+
+    --color-info: #017da6;
+    --color-info-content: #ffffff;
+    --color-info-hover: #0289b6;
+    --color-info-tint: #0289b6;
+
+    --color-ternium: #ff3300;
+    --color-ternium-hover: #ff4f23;
+
+    --font-sans: 'DM Sans', sans-serif;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+}
+
+@layer utilities {
+
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes slideInUp {
+        0% {
+            transform: translateY(100%);
+            opacity: 0;
+        }
+
+        100% {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes slideOutDown {
+        0% {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        100% {
+            transform: translateY(100%);
+            opacity: 0;
+        }
+    }
+
+    @keyframes loaderIndeterminate {
+        0% {
+            left: -40%;
+            width: 40%;
+        }
+
+        50% {
+            left: 30%;
+            width: 60%;
+        }
+
+        100% {
+            left: 100%;
+            width: 40%;
+        }
+    }
+
+    @keyframes shake-rotate {
+
+        0%,
+        50%,
+        100% {
+            transform: rotate(0deg);
+        }
+
+        10% {
+            transform: rotate(8deg);
+        }
+
+        20% {
+            transform: rotate(-8deg);
+        }
+
+        30% {
+            transform: rotate(4deg);
+        }
+
+        40% {
+            transform: rotate(-4deg);
+        }
+    }
+
+    @keyframes uncover {
+        from {
+            width: 100%;
+        }
+
+        to {
+            width: 0%;
+        }
+    }
+
+    .animate-uncover {
+        animation: uncover 3s linear forwards;
+    }
+
+
+    .animate-fadeIn {
+        animation: fadeIn 0.3s ease-out forwards;
+    }
+
+    .animate-slideInUp {
+        animation: slideInUp 0.4s forwards;
+    }
+
+    .animate-slideOutDown {
+        animation: slideOutDown 0.4s forwards;
+    }
+
+    .animate-loaderIndeterminate {
+        animation: loaderIndeterminate 1.5s ease-in-out infinite;
+    }
+
+    .animate-shake-rotate {
+        display: inline-block;
+        animation: shake-rotate 1.2s ease-in-out infinite;
+    }
+
+    /* Espaciados */
+    .ml-3 {
+        margin-left: 0.75rem;
+    }
+
+    .mb-3 {
+        margin-bottom: 0.75rem;
+    }
+
+    .mt-4 {
+        margin-top: 1rem;
+    }
+
+    /* Dimensiones */
+    .w-12 {
+        width: 3rem;
+    }
+
+    .h-12 {
+        height: 3rem;
+    }
+
+    .min-w-12 {
+        min-width: 3rem;
+    }
+
+    .min-h-12 {
+        min-height: 3rem;
+    }
+
+    .w-280 {
+        width: 280px;
+    }
+
+    .w-320 {
+        width: 320px;
+    }
+
+    .w-200 {
+        width: 200px;
+    }
+
+    .w-160 {
+        width: 160px;
+    }
+
+    .w-80 {
+        width: 80px;
+    }
+
+    /* Bordes */
+    .rounded-xl {
+        border-radius: 0.75rem;
+    }
+
+    /* Colores y background */
+    .bg-blue-100 {
+        background-color: rgb(219 234 254);
+    }
+
+    /* tailwind default */
+    .text-blue-600 {
+        color: rgb(37 99 235);
+    }
+
+    .dark\:bg-blue-900 {
+        background-color: rgb(30 58 138);
+    }
+
+    .dark\:text-blue-400 {
+        color: rgb(96 165 250);
+    }
+
+    /* Textos */
+    .text-2xl {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+
+    // .text-black {
+    //     color: #000;
+    // }
+
+    // .dark\:text-white {
+    //     color: #fff;
+    // }
+
+    // .dark\:text-gray-400 {
+    //     color: rgb(156 163 175);
+    // }
+
+    // /* Fondos / bordes en modo dark */
+    // .dark\:bg-neutral-900 {
+    //     background-color: rgb(23 23 23);
+    // }
+
+    // .dark\:border-neutral-700 {
+    //     border-color: rgb(64 64 64);
+    // }
+
+    .shepherd-element {
+        @apply bg-white;
+    }
+
+    .dark .shepherd-element {
+        @apply bg-neutral-900;
+    }
+}
+
+
+:root {
+    scrollbar-color: #d2d2d2 #0000 !important;
+}
+
+.dark {
+    scrollbar-color: #2d2d2d rgba(0, 0, 0, 0) !important;
+}
+
+// Datepicker
+@tailwind utilities;
+
+
+// Safe List
+
+.btn-nav {
+    @apply w-7 h-7 rounded-full hover:bg-neutral-200 dark:hover:bg-neutral-700;
+}
+
+.btn-outline {
+    @apply px-4 py-1 rounded-lg border border-neutral-300 dark:border-neutral-600 text-neutral-700 dark:text-neutral-200 text-sm;
+}
+
+.btn-primary {
+    @apply px-4 py-1 rounded-lg bg-neutral-900 text-white text-sm;
+}
+
+.bg-primary-100 {
+    @apply bg-ternium/10 dark:bg-ternium/20;
+}
+
+.bg-primary-600 {
+    @apply bg-ternium dark:bg-ternium;
+}
+
+
+// Editor
+/* Colores en dark */
+.dark .ql-toolbar.ql-snow {
+    background: #262626;
+    border-color: #181818;
+    color: #ffffff;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    border: 0;
+    border-bottom: 1px solid #181818;
+}
+
+.dark .ql-container.ql-snow {
+    background: #262626;
+    border: none !important;
+    color: #e5e7eb;
+    border-radius: 1rem;
+}
+
+.dark .ql-snow .ql-stroke {
+    stroke: #e5e7eb;
+}
+
+.dark .ql-snow .ql-fill {
+    fill: #e5e7eb;
+}
+
+.dark .ql-editor {
+    color: #e5e7eb;
+}
+
+.ql-toolbar.ql-snow {
+    background: #f5f5f5;
+    border-color: #ffffff;
+    color: #202020;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+
+.ql-container.ql-snow {
+    background: #f5f5f5;
+    border-color: #f5f5f5;
+    color: #202020;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+.ql-snow .ql-stroke {
+    stroke: #202020;
+}
+
+.ql-snow .ql-fill {
+    fill: #202020;
+}
+
+.ql-snow .ql-tooltip {
+    left: 1rem !important;
+    border-radius: 2rem;
+    border: none !important;
+}
+
+.ql-editor {
+    color: #202020;
+}
+
+.ql-snow.ql-toolbar button:hover,
+.ql-snow .ql-toolbar button:hover,
+.ql-snow.ql-toolbar button:focus,
+.ql-snow .ql-toolbar button:focus,
+.ql-snow.ql-toolbar button.ql-active,
+.ql-snow .ql-toolbar button.ql-active,
+.ql-snow.ql-toolbar .ql-picker-label:hover,
+.ql-snow .ql-toolbar .ql-picker-label:hover,
+.ql-snow.ql-toolbar .ql-picker-label.ql-active,
+.ql-snow .ql-toolbar .ql-picker-label.ql-active,
+.ql-snow.ql-toolbar .ql-picker-item:hover,
+.ql-snow .ql-toolbar .ql-picker-item:hover,
+.ql-snow.ql-toolbar .ql-picker-item.ql-selected,
+.ql-snow .ql-toolbar .ql-picker-item.ql-selected {
+    color: #ff3300 !important;
+}
+
+.ql-snow.ql-toolbar button:hover .ql-stroke,
+.ql-snow .ql-toolbar button:hover .ql-stroke,
+.ql-snow.ql-toolbar button:focus .ql-stroke,
+.ql-snow .ql-toolbar button:focus .ql-stroke,
+.ql-snow.ql-toolbar button.ql-active .ql-stroke,
+.ql-snow .ql-toolbar button.ql-active .ql-stroke,
+.ql-snow.ql-toolbar .ql-picker-label:hover .ql-stroke,
+.ql-snow .ql-toolbar .ql-picker-label:hover .ql-stroke,
+.ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-stroke,
+.ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-stroke,
+.ql-snow.ql-toolbar .ql-picker-item:hover .ql-stroke,
+.ql-snow .ql-toolbar .ql-picker-item:hover .ql-stroke,
+.ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke,
+.ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke,
+.ql-snow.ql-toolbar button:hover .ql-stroke-miter,
+.ql-snow .ql-toolbar button:hover .ql-stroke-miter,
+.ql-snow.ql-toolbar button:focus .ql-stroke-miter,
+.ql-snow .ql-toolbar button:focus .ql-stroke-miter,
+.ql-snow.ql-toolbar button.ql-active .ql-stroke-miter,
+.ql-snow .ql-toolbar button.ql-active .ql-stroke-miter,
+.ql-snow.ql-toolbar .ql-picker-label:hover .ql-stroke-miter,
+.ql-snow .ql-toolbar .ql-picker-label:hover .ql-stroke-miter,
+.ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-stroke-miter,
+.ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-stroke-miter,
+.ql-snow.ql-toolbar .ql-picker-item:hover .ql-stroke-miter,
+.ql-snow .ql-toolbar .ql-picker-item:hover .ql-stroke-miter,
+.ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke-miter,
+.ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke-miter {
+    stroke: #ff3300 !important;
+}
+
+// ImputChat
+@layer components {
+    .article-content {
+        /* Wrapper general */
+        @apply space-y-8 text-neutral-800 dark:text-neutral-200 text-sm leading-relaxed mt-4 overflow-y-auto;
+    }
+
+    .article-content p,
+    .article-content ul,
+    .article-content ol {
+        /* Separación extra entre párrafos y listas */
+        @apply mb-6;
+    }
+
+    .article-content h1 {
+        @apply text-xl md:text-2xl font-bold mt-8 mb-4 text-black dark:text-white;
+    }
+
+    .article-content h2 {
+        @apply text-base md:text-xl font-bold mt-6 mb-3 border-b border-neutral-200 dark:border-neutral-700 pb-1;
+    }
+}
+
+/* Variable personalizada */
+@property --angle {
+    syntax: "<angle>";
+    inherits: false;
+    initial-value: 0turn;
+}
+
+/* Animación: rota solo el gradiente */
+@keyframes spin-border {
+    to {
+        --angle: 1turn;
+    }
+}
+
+.gradient-border {
+    padding: 1px;
+    /* ancho del borde */
+    border-radius: 1rem;
+    background: conic-gradient(from var(--angle),
+            #ff230f,
+            #ff8b32,
+            #eed622,
+            #ff0b0b);
+    animation: spin-border 5s linear infinite;
+
+    /* Solo muestra el borde */
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    mask-clip: content-box, border-box;
+}
+
+.btn-secondary {
+    border: 1px solid var(--color-primary);
+    background-color: transparent !important;
+    border-radius: 2rem;
+    color: #171717;
+}
+
+.dark .btn-secondary {
+    border: 1px solid var(--color-primary);
+    background-color: transparent !important;
+    border-radius: 2rem;
+    color: #fff;
+}
+
+.btn-secondary:not(:disabled):hover {
+    background: var(--color-primary) !important;
+    color: #fff !important;
+}
+
+.btn-primary {
+    background: var(--color-primary);
+    border-radius: 2rem;
+    color: #fff;
+}
+
+.btn-primary:not(:disabled):hover {
+    background: var(--color-primary) !important;
+    color: #fff !important;
+}
+
+
+.shepherd-enabled.shepherd-element {
+    border-radius: 1rem !important;
+}
+
+
+/* Light mode */
+.shepherd-element {
+    background: #fff !important;
+}
+
+/* Dark mode */
+.dark .shepherd-element {
+    background: #171717 !important;
+    /* Igual que .dark:bg-neutral-900 */
+}
+
+.shepherd-arrow:before {
+    background: #fff !important;
+}
+
+.dark .shepherd-arrow:before {
+    background: #171717 !important;
+    /* Igual que .dark:bg-neutral-900 */
+}
+
+.shepherd-text {
+    color: #171717 !important;
+}
+
+.dark .shepherd-text {
+    color: #fff !important;
+    /* Igual que .dark:bg-neutral-900 */
+}
+
+
+/* Light */
+.shepherd-cancel-icon:before {
+    color: #171717 !important;
+}
+
+/* Dark */
+.dark .shepherd-cancel-icon {
+    color: #a3a3a3 !important;
+}
+
+.dark .shepherd-cancel-icon:hover {
+    color: #fff !important;
+}

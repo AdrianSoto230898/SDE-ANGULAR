@@ -1,0 +1,111 @@
+<section class="w-full">
+    <!-- Titulo -->
+    <h1 class="text-base font-bold mb-4 text-black dark:text-white">{{ title() }}</h1>
+
+    <!-- Barra de búsqueda -->
+    @if (search()) {
+    <div class="w-full md:max-w-lg m-auto mb-4">
+        <div class="flex items-center bg-white dark:bg-black rounded-full text-sm w-full px-4 py-1">
+
+            <input type="text" [(ngModel)]="searchQuery" placeholder="Escribe aquí para buscar"
+                class="bg-transparent flex-grow focus:outline-none text-neutral-900 dark:text-neutral-100 placeholder-neutral-500"
+                (input)="onSearch()" />
+
+            <button
+                class="w-10 h-10 rounded-full bg-transparent flex items-center justify-center text-neutral-500 hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-black transition-colors duration-300 cursor-pointer"
+                (click)="cleanSearch()">
+                <span [ngClass]="{
+                           'ph ph-magnifying-glass': !searching,
+                           'ph ph-x': searching,
+                           'rotate-0': !searching,
+                           'rotate-90': searching
+                         }" class="text-xl transition-transform duration-300 ease-in-out" role="img"
+                    aria-hidden="true">
+                </span>
+            </button>
+        </div>
+    </div>
+    }
+
+    <!-- Listado de opciones -->
+    <ul class="max-w-lg overflow-y-auto" [ngClass]="{
+                'h-[24rem]': search(),      
+                'max-h-none': !search()    
+              }">
+        @if (!modalServide.loading()) {
+        @for (option of optionsFiltered; track $index) {
+        <li #listItem (click)="selectOption($index)" [ngClass]="{
+                              'bg-white dark:bg-black': selectedOption() === option.value
+                            }"
+            class="cursor-pointer flex items-center space-x-4 p-4 rounded-2xl transition hover:bg-white dark:hover:bg-black dark:active:bg-black mb-2">
+            <!-- Imagen -->
+            @if (option.image) {
+            <div class="flex-shrink-0">
+                <img [src]="option.image" alt="{{ option.label }}" class="w-12 h-12 rounded-full object-cover" />
+            </div>
+            }
+
+            <!-- Detalles -->
+            <div class="flex-1 min-w-0">
+                <p class="text-xs font-medium text-neutral-900 dark:text-white">{{ option.label }}</p>
+                @if (option.description) {
+                <p class="text-xs text-neutral-500 truncate dark:text-neutral-400">
+                    {{ option.description }}
+                </p>
+                }
+            </div>
+
+            <!-- Radio Personalizado -->
+            <div class="w-6 h-6 flex items-center justify-center">
+                <div class="w-6 h-6 rounded-full border-2 flex items-center justify-center transition" [ngClass]="{
+                              'bg-ternium border-ternium dark:bg-ternium dark:border-ternium': selectedOption() === option.value,
+                              'border-neutral-300 dark:border-neutral-600': selectedOption() !== option.value
+                            }">
+                    @if (selectedOption() === option.value) {
+                    <span class="ph ph-check text-white" role="img" aria-hidden="true"></span>
+                    }
+                </div>
+            </div>
+        </li>
+        }@empty {
+        <div class="bg-white dark:bg-black rounded-2xl p-4 mb-4 relative" #refAnime>
+            <div class="text-center">
+                <section>
+                    <span class="ph-fill ph-file-text text-xl text-neutral-300 dark:text-neutral-500" role="img"
+                        aria-hidden="true"></span>
+                </section>
+                <section>
+                    <span class="text-sm text-neutral-400 dark:text-neutral-500 mb-0">
+                        No se encontraron resultados para tu búsqueda
+                    </span>
+                </section>
+            </div>
+        </div>
+        }
+        } @else {
+        @for (option of optionsFilteredSkeleton; track $index) {
+        <li #listItem class="cursor-pointer flex items-center space-x-4 px-4 py-2 rounded-2xl animate-fadeIn">
+            <!-- Detalles -->
+            <div class="flex-1 min-w-0">
+                <div class="animate-pulse">
+                    <div class="w-full h-12 bg-neutral-200 dark:bg-black/40 rounded-2xl"></div>
+                </div>
+            </div>
+        </li>
+        }
+        }
+    </ul>
+
+    <!-- Botones de Acción -->
+    <div class="grid grid-cols-2 gap-4 mt-4">
+        <button (click)="onCancel()"
+            class="w-full px-4 py-3 rounded-full text-neutral-950 dark:text-neutral-50 bg-neutral-200 dark:bg-neutral-700 text-dark font-base text-sm hover:bg-neutral-300 hover:dark:bg-neutral-600 outline-none no-focus cursor-pointer cursor-pointer">
+            Cancelar
+        </button>
+        <button (click)="onOk()"
+            class="w-full px-4 py-3 rounded-full bg-ternium text-white font-base text-sm hover:bg-ternium-hover outline-none no-focus cursor-pointer cursor-pointer">
+            Aceptar
+        </button>
+    </div>
+
+</section>

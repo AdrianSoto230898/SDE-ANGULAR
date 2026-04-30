@@ -1,0 +1,81 @@
+<div class="flex justify-center px-4 md:px-6 pt-6 overflow-y-auto bg-white dark:bg-neutral-900">
+  <div class="w-full max-w-4xl space-y-8 text-gray-800 text-sm leading-relaxed">
+
+    @if (isLoading()) {
+    <!-- Skeleton mejorado -->
+    <div class="space-y-6 animate-pulse">
+      <!-- Etiqueta tipo ID -->
+      <div class="h-6 w-32 rounded-full bg-gray-200 dark:bg-neutral-700"></div>
+
+      <!-- Título principal -->
+      <div class="h-8 w-3/4 rounded-full bg-gray-300 dark:bg-neutral-600"></div>
+
+      <!-- Subtítulo y ruta -->
+      <div class="flex gap-2">
+        <div class="h-4 w-24 rounded-full bg-gray-200 dark:bg-neutral-700"></div>
+        <div class="h-4 w-4 rounded-full bg-gray-200 dark:bg-neutral-700"></div>
+        <div class="h-4 w-40 rounded-full bg-gray-200 dark:bg-neutral-700"></div>
+      </div>
+
+      <!-- Emulación de secciones -->
+      <div class="space-y-4">
+        <!-- Título h2 -->
+        <div class="h-5 w-36 rounded-full bg-gray-300 dark:bg-neutral-700"></div>
+
+        <!-- Lista -->
+        <div class="space-y-2">
+          <div class="h-4 w-full bg-gray-200 dark:bg-neutral-700 rounded-full"></div>
+          <div class="h-4 w-full bg-gray-200 dark:bg-neutral-700 rounded-full"></div>
+        </div>
+
+        <!-- Otro título h2 -->
+        <div class="h-5 w-24 rounded-full bg-gray-300 dark:bg-neutral-700 mt-4"></div>
+        <div class="h-4 w-3/4 bg-gray-200 dark:bg-neutral-700 rounded-full"></div>
+
+        <!-- Otro título h2 -->
+        <div class="h-5 w-40 rounded-full bg-gray-300 dark:bg-neutral-700 mt-4"></div>
+        <div class="space-y-2">
+          <div class="h-4 w-full bg-gray-200 dark:bg-neutral-700 rounded-full"></div>
+          <div class="h-4 w-full bg-gray-200 dark:bg-neutral-700 rounded-full"></div>
+        </div>
+
+        <!-- Otro título h2 -->
+        <div class="h-5 w-24 rounded-full bg-gray-300 dark:bg-neutral-700 mt-4"></div>
+        <div class="space-y-2">
+          <div class="h-4 w-full bg-gray-200 dark:bg-neutral-700 rounded-full"></div>
+          <div class="h-4 w-full bg-gray-200 dark:bg-neutral-700 rounded-full"></div>
+          <div class="h-4 w-full bg-gray-200 dark:bg-neutral-700 rounded-full"></div>
+        </div>
+
+        <!-- Imagen centrada simulada -->
+        <div class="flex justify-center mt-4">
+          <div class="h-[20rem] w-full bg-gray-200 dark:bg-neutral-700 rounded-3xl"></div>
+        </div>
+
+        <!-- Línea final -->
+        <div class="h-4 w-3/4 mt-4 bg-gray-200 dark:bg-neutral-700 rounded-full"></div>
+      </div>
+    </div>
+    } @else {
+    @for (item of articulo; track $index) {
+    <div class="mb-4">
+      <div class="flex items-center justify-start mb-2">
+        <span
+          class="flex items-center border border-primary text-black dark:text-white text-xs font-medium px-3 py-1 rounded-full shadow-sm animate-fadeIn">
+          ID: {{item.articuloId}}
+        </span>
+      </div>
+      <h1 class="text-xl font-bold text-black dark:text-white">{{item.titulo}}</h1>
+      <div class="flex items-center gap-2">
+        <span class="text-sm text-gray-500 dark:text-gray-400">{{item.articuloTipoNombre}}</span>
+        <span class="ph ph-caret-right text-gray-500 dark:text-gray-400"></span>
+        <span class="text-sm text-gray-500 dark:text-gray-400">{{item.areaSubprocesoNombre}}</span>
+      </div>
+    </div>
+    <div class="article-content">
+      <div [innerHTML]="item.contenidoHTML"></div>
+    </div>
+    }
+    }
+  </div>
+</div>

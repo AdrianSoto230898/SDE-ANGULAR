@@ -1,0 +1,82 @@
+/* ─── Fuente global ─── */
+html,
+body {
+  font-family: 'DM Sans', sans-serif;
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* ─── Cursor pointer global ─── */
+button,
+a[routerLink],
+a[href],
+a[role="button"] {
+  cursor: pointer !important;
+}
+
+/* ─── Scroll modal/drawer fixes ─── */
+:root:has(:is(.modal-open, .modal:target, .modal-toggle:checked + .modal, .modal[open])) {
+  scrollbar-gutter: auto !important;
+}
+
+html:has(.drawer-toggle:checked) {
+  scrollbar-gutter: auto !important;
+}
+
+/* ─── Toast animations ─── */
+@keyframes slideInUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutDown {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  to {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+.toast-enter {
+  animation: slideInUp 0.5s forwards;
+}
+
+.toast-leave {
+  animation: slideOutDown 0.5s forwards;
+  pointer-events: none;
+}
+
+/* ─── Botón base ─── */
+.btn {
+  font-weight: 500 !important;
+  border: none;
+}
+
+.btn:hover {
+  font-weight: 500 !important;
+  border: none;
+}

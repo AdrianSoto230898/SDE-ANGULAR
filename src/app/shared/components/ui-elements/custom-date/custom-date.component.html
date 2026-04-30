@@ -1,0 +1,51 @@
+<!-- Contenedor -->
+<div class="w-72 rounded-xl bg-white dark:bg-neutral-800 p-4 shadow-lg">
+  <!-- Header -->
+  <div class="flex items-center justify-between mb-2">
+    <!-- Anterior -->
+    <button class="btn-nav flex items-center justify-center" (click)="prevMonth()">
+      <span class="ph-fill ph-caret-left"></span>
+    </button>
+
+    <span class="text-xs font-semibold text-neutral-700 dark:text-neutral-300">{{ header() }}</span>
+
+    <!-- Siguiente -->
+    <button class="btn-nav flex items-center justify-center" (click)="nextMonth()">
+      <span class="ph-fill ph-caret-right"></span>
+    </button>
+  </div>
+
+  <!-- Días de la semana -->
+  <div class="grid grid-cols-7 text-center text-xs font-semibold text-neutral-500 dark:text-neutral-300 mb-1">
+    @for (d of ['Su','Mo','Tu','We','Th','Fr','Sa']; track d) {
+    <span>{{ d }}</span>
+    }
+  </div>
+
+  <!-- Celdas -->
+  <div class="grid grid-cols-7 gap-1 text-center text-sm">
+    @for (cell of cells(); track $index) {
+    @if (cell.day) {
+    <button class="h-8 rounded-md text-neutral-700 dark:text-neutral-200" [class.bg-primary-600]="isSelected(cell.date)"
+      [class.text-white]="isSelected(cell.date)" [class.bg-primary-100]="!isSelected(cell.date) && isInRange(cell.date)"
+      (click)="onSelect(cell)">
+      {{ cell.day }}
+    </button>
+    } @else {
+    <span class="h-8"></span>
+    }
+    }
+  </div>
+
+  <!-- Acciones -->
+  <div class="mt-4">
+    <div class="grid grid-cols-2 gap-2">
+      <button
+        class="w-full px-5 py-2 bg-transparent border border-solid text-sm border-primary text-primary hover:bg-primary hover:text-white rounded-full dark:border-primary dark:text-primary dark:hover:bg-primary-hover dark:hover:text-white transition duration-200 ease-in-out transform active:scale-95 cursor-pointer"
+        (click)="clear()">Cancelar</button>
+      <button
+        class="w-full px-6 py-2 text-white text-sm rounded-full shadow-none border-primary bg-primary hover:bg-primary-hover hover:border-primary-hover disabled:opacity-50 transition duration-200 ease-in-out transform hover:scale-100 active:scale-95 cursor-pointer"
+        (click)="apply()">Aplicar</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,78 @@
+{
+    "data": [
+      {
+        "areaProcesoId": 1,
+        "areaProcesoName": "INTRODUCCIÓN"
+      },
+      {
+        "areaProcesoId": 2,
+        "areaProcesoName": "NEGOCIACION"
+      },
+      {
+        "areaProcesoId": 3,
+        "areaProcesoName": "ADMINISTRACION DE DATOS MAESTROS"
+      },
+      {
+        "areaProcesoId": 4,
+        "areaProcesoName": "GESTION DE CREDITOS"
+      },
+      {
+        "areaProcesoId": 5,
+        "areaProcesoName": "INGRESO DE PEDIDOS Y ACEPTACION"
+      },
+      {
+        "areaProcesoId": 6,
+        "areaProcesoName": "SEGUIMIENTO PEDIDOS Y COMUNICACION CLIENTES"
+      },
+      {
+        "areaProcesoId": 7,
+        "areaProcesoName": "FACTURACION"
+      },
+      {
+        "areaProcesoId": 8,
+        "areaProcesoName": "COBRANZA"
+      },
+      {
+        "areaProcesoId": 9,
+        "areaProcesoName": "POSTVENTA"
+      },
+      {
+        "areaProcesoId": 10,
+        "areaProcesoName": "TRADUCTOR DE PRODUCTOS"
+      },
+      {
+        "areaProcesoId": 11,
+        "areaProcesoName": "GOVERNANCE"
+      },
+      {
+        "areaProcesoId": 12,
+        "areaProcesoName": "REQUERIMIENTOS ESPECIFICOS IATF"
+      },
+      {
+        "areaProcesoId": 13,
+        "areaProcesoName": "B2B"
+      },
+      {
+        "areaProcesoId": 14,
+        "areaProcesoName": "B2B"
+      },
+      {
+        "areaProcesoId": 15,
+        "areaProcesoName": "SDE"
+      },
+      {
+        "areaProcesoId": 16,
+        "areaProcesoName": "TERNIUM ACTIVO"
+      },
+      {
+        "areaProcesoId": 17,
+        "areaProcesoName": "NEGOCIACION \\ PRECIOS"
+      },
+      {
+        "areaProcesoId": 18,
+        "areaProcesoName": "PRONÓSTICOS "
+      }
+    ],
+    "executionError": false,
+    "message": ""
+  }

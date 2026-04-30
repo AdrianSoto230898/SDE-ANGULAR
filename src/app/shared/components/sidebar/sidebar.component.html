@@ -1,0 +1,31 @@
+<!-- Logo y nombre -->
+<div class="flex items-center gap-4 p-4">
+    <img class="w-8 h-8" src="./assets/images/logos/ternium-square.png" alt="Ternium Logo">
+    <div class="font-medium">
+        <h5 class="font-bold mb-0 text-neutral-800 dark:text-neutral-200">Ternium</h5>
+    </div>
+</div>
+
+<!-- Menú de navegación -->
+<nav class="flex-1 px-4 space-y-4 mt-4">
+    <a class="flex items-center px-4 py-3 text-neutral-700 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-900 rounded-full"
+        [routerLink]="['/main']" routerLinkActive="bg-neutral-100 dark:bg-neutral-900">
+        <span class="ph-fill ph-house text-xl" role="img" aria-hidden="true" routerLinkActive="text-ternium"></span>
+        <span class="ml-3" routerLinkActive="font-bold">Inicio</span>
+    </a>
+    <a class="flex items-center px-4 py-3 text-neutral-700 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-900 rounded-full"
+        [routerLink]="['/orders']" routerLinkActive="bg-neutral-100 dark:bg-neutral-900">
+        <span class="ph-fill ph-file-text text-xl" role="img" aria-hidden="true" routerLinkActive="text-ternium"></span>
+        <span class="ml-3" routerLinkActive="font-bold">Órdenes de Compra</span>
+    </a>
+    <a class="flex items-center px-4 py-3 text-neutral-700 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-900 rounded-full"
+        [routerLink]="['/reports']" routerLinkActive="bg-neutral-100 dark:bg-neutral-900">
+        <span class="ph-fill ph-chart-bar text-xl" role="img" aria-hidden="true"></span>
+        <span class="ml-3">Reportes</span>
+    </a>
+    <a class="flex items-center px-4 py-3 text-neutral-700 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-900 rounded-full"
+        [routerLink]="['/settings']" routerLinkActive="bg-neutral-100 dark:bg-neutral-900">
+        <span class="ph-fill ph-gear text-xl" role="img" aria-hidden="true"></span>
+        <span class="ml-3">Configuración</span>
+    </a>
+</nav>

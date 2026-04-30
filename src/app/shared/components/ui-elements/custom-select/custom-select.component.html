@@ -1,0 +1,23 @@
+<div class="relative" (click)="showModal()">
+    <select [disabled]="isDisabled" [value]="value" (change)="changeValue($event)" (mousedown)="preventOpen($event)"
+        class="block text-xs w-full py-3 px-3 cursor-pointer border text-neutral-700 dark:text-neutral-300 border-neutral-300 dark:border-neutral-600 bg-white dark:bg-black rounded-xl focus:outline-none focus:ring-ternium focus:border-ternium dark:focus:border-ternium-hover dark:focus:ring-ternium-hover hover:bg-white appearance-none pr-10">
+        <option class="text-neutral-700 dark:text-neutral-300 text-xs" value="">{{ placeholder() }}</option>
+        @for (option of options(); track $index) {
+        <option [value]="option.value" class="text-neutral-700 dark:text-neutral-300 text-xs">{{ option.label }}
+        </option>
+        }
+    </select>
+    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center h-full pr-3">
+        <span class="ph ph-caret-down text-neutral-400 dark:text-neutral-600" role="img" aria-hidden="true"></span>
+    </div>
+</div>
+
+<!-- Modal -->
+<dialog #myModal class="modal">
+    <div class="modal-box bg-neutral-100 dark:bg-neutral-900 max-w-[28rem]">
+        @defer {
+        <app-modal [title]="'login'" [size]="'small'" [options]="options()" (optionSelected)="onOptionSelected($event)"
+            (cancel)="onCancel()" (ok)="onOk()" />
+        }
+    </div>
+</dialog>

@@ -1,0 +1,118 @@
+<!-- <ion-content [fullscreen]="true" [scrollY]="false" class="!p-0" style="--offset-top:0;--offset-bottom:0;"></ion-content> -->
+<div>
+  <!-- Fondo principal que cubre toda la pantalla, igual que en Glosario -->
+  <div class="bg-white dark:bg-neutral-900 p-0 h-full">
+    <div
+      class="h-min-[100vh] flex flex-col justify-between bg-white dark:bg-neutral-900 text-neutral-900 pb-8 pt-0 overflow-y-hidden rounded-[0rem]">
+
+      <!-- Wrapper centrado con max-width igual que Glosario -->
+      <div class="max-w-4xl mx-auto px-6">
+
+        <!-- ══════════════════ HEADER ══════════════════ -->
+        <div class="flex flex-col items-center pt-10 pb-2">
+          <h1 class="text-2xl font-black text-black dark:text-white mb-3 text-center">
+            Procesos
+          </h1>
+          <p class="text-neutral-500 dark:text-neutral-400 mb-6 text-sm text-center max-w-xl">
+            Selecciona un área para ver sus procesos y subprocesos con artículos.
+          </p>
+        </div>
+
+        <!-- ══════════════════ Selector de Áreas (“chips”) ══════════════════ -->
+        <div class="flex flex-wrap gap-1 mb-8 justify-center">
+          @for (area of areasData(); track area.areaId) {
+          <button class="px-5 py-2 rounded-full font-bold text-sm transition
+                   border-2 border-transparent
+                   text-neutral-500 dark:text-neutral-400
+                   bg-neutral-100 dark:bg-neutral-800
+                   hover:text-primary hover:bg-primary/10" [ngClass]="{
+              'bg-primary/10 text-primary border-primary dark:bg-primary/10 dark:text-primary dark:border-primary': selectedAreaId() === area.areaId
+            }" (click)="selectArea(area.areaId)">
+            {{ area.areaNombre }}
+          </button>
+          }
+        </div>
+
+        <!-- ══════════════════ Lista de Procesos (área seleccionada) ══════════════════ -->
+        @if (selectedArea()) {
+        <div class="space-y-6 max-w-2xl mx-auto mb-20 min-h-[35rem]">
+
+          <!--  Si el área tiene procesos -->
+          @if (selectedArea()!.procesos.length > 0) {
+          @for (proc of selectedArea()!.procesos; track proc.areaProcesoId) {
+
+          <!-- Card de cada Proceso -->
+          <div class="relative group rounded-2xl bg-white dark:bg-neutral-800
+                       border border-neutral-200 dark:border-neutral-700
+                       shadow-sm px-6 py-4 transition hover:shadow-lg">
+
+            <!-- Título del Proceso + botón de toggle -->
+            <div class="flex items-center gap-4 min-w-0 cursor-pointer" (click)="toggleProc(proc.areaProcesoId)">
+              <div class="font-bold text-black dark:text-white text-base flex-1">
+                {{ proc.areaProcesoNombre }}
+              </div>
+              <button
+                class="w-10 h-10 rounded-full hover:bg-neutral-200 dark:hover:bg-neutral-700 flex items-center justify-center"
+                tabindex="-1">
+                <span [class.rotate-180]="expandedProcs()[proc.areaProcesoId]" class="ph ph-caret-down
+                             text-3xl text-neutral-700 dark:text-neutral-400"></span>
+              </button>
+            </div>
+
+            <!-- Subprocesos (si está expandido) -->
+            @if (expandedProcs()[proc.areaProcesoId]) {
+            <div class="pt-5 mt-5 text-neutral-700 text-sm dark:text-neutral-200
+                           animate-fade-in border-t border-neutral-200 dark:border-neutral-700">
+
+              <!-- Si el proceso tiene subprocesos -->
+              @if (proc.subprocesos.length > 0) {
+              @for (sub of proc.subprocesos; track sub.areaSubprocesoId) {
+              <div class="mb-4">
+                <div class="font-medium text-neutral-800 dark:text-neutral-200 mb-1">
+                  {{ sub.areaSubprocesoNombre }}
+                </div>
+
+                <!-- Lista de artículos -->
+                @if (sub.articulos.length > 0) {
+                <ul class="list-disc ml-6 text-neutral-500 text-xs dark:text-neutral-400">
+                  @for (art of sub.articulos; track art.articuloId) {
+                  <li class="py-1">
+                    <a class="hover:text-black hover:font-normal dark:hover:text-white dark:hover:font-normal cursor-pointer"
+                      (click)="openArticleById(art.articuloId)">{{ art.articuloNombre }}</a>
+                  </li>
+                  }
+                </ul>
+                } @else {
+                <div class="text-xs text-neutral-400 ml-2">Sin artículos registrados.</div>
+                }
+              </div>
+              }
+              } @else {
+              <div class="text-xs text-neutral-400">Sin subprocesos registrados.</div>
+              }
+
+            </div>
+            }
+
+          </div>
+
+          }
+          } @else {
+          <!-- Si el área no tiene procesos -->
+          <div class="text-neutral-400 text-center pt-10 text-sm">
+            Sin procesos en esta área.
+          </div>
+          }
+
+        </div>
+        } @else {
+        <!-- Mientras carga / no hay área seleccionada -->
+        <div class="text-center py-10 text-neutral-400 min-h-[38rem]">
+          Cargando procesos…
+        </div>
+        }
+
+      </div>
+    </div>
+  </div>
+</div>

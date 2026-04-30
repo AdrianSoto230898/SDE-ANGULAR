@@ -1,0 +1,18 @@
+{
+    "data": [
+      {
+        "articuloTipoId": 1,
+        "articuloTipoName": "Guía de Usuario"
+      },
+      {
+        "articuloTipoId": 2,
+        "articuloTipoName": "Documento de Proceso"
+      },
+      {
+        "articuloTipoId": 3,
+        "articuloTipoName": "Documento de Soporte"
+      }
+    ],
+    "executionError": false,
+    "message": ""
+  }

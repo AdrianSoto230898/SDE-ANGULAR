@@ -1,0 +1,27 @@
+<label class="inline-flex items-center gap-3 cursor-pointer" [class.opacity-60]="disabled() || isDisabled"
+    [class.cursor-not-allowed]="disabled() || isDisabled">
+    <!-- Toggle Switch -->
+    <div class="relative w-11 h-6 rounded-full transition-colors duration-300 ease-in-out" [ngClass]="{
+         'bg-primary': checked(),
+         'bg-neutral-300 dark:bg-neutral-600': !checked(),
+         'ring-2 ring-primary/30 ring-offset-1 dark:ring-offset-neutral-900': focused && !disabled() && !isDisabled
+       }" (click)="toggle($event)">
+
+        <input type="checkbox" class="sr-only" [checked]="checked()" [disabled]="disabled() || isDisabled"
+            (focus)="focused = true" (blur)="focused = false">
+
+        <!-- Circle/Knob -->
+        <div class="absolute top-1 left-1 bg-white border border-neutral-200 dark:border-neutral-500 rounded-full h-4 w-4 transition-transform duration-300 ease-in-out shadow-sm"
+            [ngClass]="{
+           'translate-x-5': checked(),
+           'translate-x-0': !checked()
+         }">
+        </div>
+    </div>
+
+    @if (label()) {
+    <span class="text-sm font-medium text-neutral-700 dark:text-neutral-200 select-none" (click)="toggle($event)">
+        {{ label() }}
+    </span>
+    }
+</label>

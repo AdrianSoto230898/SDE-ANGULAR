@@ -1,0 +1,21 @@
+<button [type]="type()" [class]="buttonClasses" [disabled]="disabled() || loading()" (click)="onClick($event)">
+
+    @if (loading()) {
+    <!-- SVG spinner: reemplaza icono + texto mientras carga -->
+    <svg class="animate-spin shrink-0" [class]="size() === 'sm' ? 'w-4 h-4' : size() === 'lg' ? 'w-6 h-6' : 'w-5 h-5'"
+        viewBox="0 0 48 48" fill="none" style="animation-duration:900ms" aria-hidden="true">
+        <circle cx="24" cy="24" r="20" stroke-width="4" stroke="currentColor" opacity="0.25" />
+        <circle cx="24" cy="24" r="20" stroke-width="4" stroke-linecap="round" stroke-dasharray="125.6"
+            stroke-dashoffset="94" stroke="currentColor" transform="rotate(-90 24 24)" />
+    </svg>
+    <span>{{ loadingText() }}</span>
+
+    } @else {
+    <!-- Estado normal: icono opcional + contenido proyectado -->
+    @if (icon()) {
+    <span class="shrink-0 text-lg" role="img" aria-hidden="true" [ngClass]="icon()"></span>
+    }
+    <ng-content />
+    }
+
+</button>

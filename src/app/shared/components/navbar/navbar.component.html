@@ -1,0 +1,77 @@
+<div class="navbar bg-white dark:bg-black flex items-center justify-between px-3">
+  <!-- Botón del menú para dispositivos móviles -->
+  <div class="flex-1">
+    <label for="my-drawer" role="button"
+      class="w-12 h-12 rounded-full bg-transparent hover:bg-neutral-100 dark:hover:bg-neutral-900 flex items-center justify-center 2xl:hidden cursor-pointer">
+      <span class="icon-[solar--sidebar-minimalistic-bold-duotone] text-2xl text-primary"></span>
+    </label>
+  </div>
+
+  <div class="flex items-center gap-1">
+    <button (click)="toggleDarkMode()"
+      class="w-12 h-12 rounded-full bg-transparent hover:bg-neutral-100 dark:hover:bg-neutral-900 flex items-center justify-center transition-transform duration-300 ease-in-out cursor-pointer"
+      [ngClass]="{
+    'rotate-90': !isDarkMode,
+    'rotate-0': isDarkMode
+  }">
+      @if (isDarkMode) {
+        <span class="icon-[solar--moon-bold] text-2xl text-neutral-500 dark:text-neutral-300"></span>
+      }
+      @if (!isDarkMode) {
+        <span
+        class="icon-[solar--sun-2-bold-duotone] text-2xl text-neutral-500 dark:text-neutral-300  cursor-pointer"></span>
+      }
+    </button>
+
+    <!-- Botón de Notificaciones -->
+    <button
+      class="w-12 h-12 rounded-full bg-transparent hover:bg-neutral-100 dark:hover:bg-neutral-900 flex items-center justify-center cursor-pointer">
+      <span class="icon-[solar--chat-round-line-bold] text-2xl text-neutral-500 dark:text-neutral-300"></span>
+    </button>
+
+    <!-- Avatar del Usuario y Dropdown -->
+    <div class="relative flex">
+      <button (click)="toggleDropdown()"
+        class="w-12 h-12 rounded-full bg-transparent hover:bg-neutral-100 dark:hover:bg-neutral-900 flex items-center justify-center cursor-pointer">
+        <span class="icon-[solar--user-bold] text-2xl text-neutral-500 dark:text-neutral-300" role="img"
+        aria-hidden="true"></span>
+      </button>
+
+      <!-- Dropdown -->
+      @if (isOpen) {
+        <div
+          class="absolute right-0 z-10 mt-12 mr-4 w-[340px] origin-top-right rounded-xl shadow-xl bg-white dark:bg-black border border-neutral-100 dark:border-neutral-800">
+          <div class="p-4">
+            <div class="flex items-center mt-4 mb-4">
+              <!-- Imagen del usuario -->
+              <div>
+                <img [src]="user.avatar ? user.avatar : 'assets/images/illustrations/avatar.svg'" alt="User avatar"
+                  class="w-[80px] h-auto object-cover rounded-full overflow-hidden" />
+                </div>
+                <!-- Nombre y puesto del usuario -->
+                <div class="ml-4">
+                  <h2 class="text-sm font-bold text-neutral-800 dark:text-neutral-200 truncate w-[230px]">
+                    {{ user.displayName || 'Nombre de usuario' }}
+                  </h2>
+                  <p class="text-sm text-neutral-500 dark:text-neutral-400">
+                    {{ user.mail || 'Email no especificado' }}
+                  </p>
+                </div>
+              </div>
+              <div class="border-t border-neutral-200 dark:border-neutral-700 mt-8 mb-6"></div>
+              <!-- Opciones del menú -->
+              <ul class="space-y-2">
+                <li
+                  class="flex items-center p-3 hover:bg-neutral-200 dark:hover:bg-neutral-700 rounded-full transition-colors duration-200 cursor-pointer"
+                  role="button" (click)="logout()">
+                  <span class="icon-[solar--logout-2-bold] text-neutral-500 dark:text-neutral-300 text-2xl mr-3" role="img"
+                  aria-hidden="true"></span>
+                  <span class="text-neutral-700 dark:text-neutral-300">Cerrar Sesión</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>

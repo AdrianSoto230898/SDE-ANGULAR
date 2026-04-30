@@ -1,0 +1,174 @@
+{
+    "data": [
+      {
+        "areaSubprocesoId": 1,
+        "areaSubprocesoName": "Alta de ejecutivos comerciales"
+      },
+      {
+        "areaSubprocesoId": 2,
+        "areaSubprocesoName": "FACTIBILIDAD DE PRODUCTO"
+      },
+      {
+        "areaSubprocesoId": 3,
+        "areaSubprocesoName": "PRECIOS"
+      },
+      {
+        "areaSubprocesoId": 4,
+        "areaSubprocesoName": "INGENIERIA DE PRODUCTO"
+      },
+      {
+        "areaSubprocesoId": 5,
+        "areaSubprocesoName": "REQUERIMIENTOS ESPECIFICOS DE CLIENTE (IATF)"
+      },
+      {
+        "areaSubprocesoId": 6,
+        "areaSubprocesoName": "ALTA DE CLIENTES"
+      },
+      {
+        "areaSubprocesoId": 7,
+        "areaSubprocesoName": "LIMITE CREDITICIO"
+      },
+      {
+        "areaSubprocesoId": 8,
+        "areaSubprocesoName": "PEDIDOS"
+      },
+      {
+        "areaSubprocesoId": 9,
+        "areaSubprocesoName": "B2B"
+      },
+      {
+        "areaSubprocesoId": 10,
+        "areaSubprocesoName": "PEDIDOS"
+      },
+      {
+        "areaSubprocesoId": 11,
+        "areaSubprocesoName": "FACTURAS"
+      },
+      {
+        "areaSubprocesoId": 12,
+        "areaSubprocesoName": "NOTAS DE CARGO Y CREDITO"
+      },
+      {
+        "areaSubprocesoId": 13,
+        "areaSubprocesoName": "B2B / SDE"
+      },
+      {
+        "areaSubprocesoId": 14,
+        "areaSubprocesoName": "PAGOS"
+      },
+      {
+        "areaSubprocesoId": 15,
+        "areaSubprocesoName": "INSATISFACCIONES"
+      },
+      {
+        "areaSubprocesoId": 16,
+        "areaSubprocesoName": "SCORECARDS"
+      },
+      {
+        "areaSubprocesoId": 17,
+        "areaSubprocesoName": "Carga de órdenes de compra"
+      },
+      {
+        "areaSubprocesoId": 18,
+        "areaSubprocesoName": "Solicitudes Governance"
+      },
+      {
+        "areaSubprocesoId": 19,
+        "areaSubprocesoName": "Respuesta a requerimientos"
+      },
+      {
+        "areaSubprocesoId": 20,
+        "areaSubprocesoName": "Excel Addin"
+      },
+      {
+        "areaSubprocesoId": 21,
+        "areaSubprocesoName": "Excel Addin"
+      },
+      {
+        "areaSubprocesoId": 22,
+        "areaSubprocesoName": "Administración de accesos"
+      },
+      {
+        "areaSubprocesoId": 23,
+        "areaSubprocesoName": "Configuración de documentos"
+      },
+      {
+        "areaSubprocesoId": 24,
+        "areaSubprocesoName": "Administración de accesos"
+      },
+      {
+        "areaSubprocesoId": 25,
+        "areaSubprocesoName": "Suscripción a mensajería"
+      },
+      {
+        "areaSubprocesoId": 26,
+        "areaSubprocesoName": "Configuración base"
+      },
+      {
+        "areaSubprocesoId": 27,
+        "areaSubprocesoName": "Bonificaciones y extras"
+      },
+      {
+        "areaSubprocesoId": 28,
+        "areaSubprocesoName": "Flete por cobrar y contable"
+      },
+      {
+        "areaSubprocesoId": 29,
+        "areaSubprocesoName": "Precios negociados con cliente"
+      },
+      {
+        "areaSubprocesoId": 30,
+        "areaSubprocesoName": "Esquema de precios MI"
+      },
+      {
+        "areaSubprocesoId": 31,
+        "areaSubprocesoName": "Condiciones manuales y redeterminación en pedidos"
+      },
+      {
+        "areaSubprocesoId": 32,
+        "areaSubprocesoName": "Circuito de autorización WF"
+      },
+      {
+        "areaSubprocesoId": 33,
+        "areaSubprocesoName": "Cotización de precios web"
+      },
+      {
+        "areaSubprocesoId": 34,
+        "areaSubprocesoName": "Gestión de información"
+      },
+      {
+        "areaSubprocesoId": 35,
+        "areaSubprocesoName": "Negociaciones con cliente"
+      },
+      {
+        "areaSubprocesoId": 36,
+        "areaSubprocesoName": "Inicio"
+      },
+      {
+        "areaSubprocesoId": 37,
+        "areaSubprocesoName": "Información de Referencia"
+      },
+      {
+        "areaSubprocesoId": 38,
+        "areaSubprocesoName": "Importancia de Catálogo Comercial"
+      },
+      {
+        "areaSubprocesoId": 39,
+        "areaSubprocesoName": "Captura de Pronóstico"
+      },
+      {
+        "areaSubprocesoId": 40,
+        "areaSubprocesoName": "Control de Pronóstico"
+      },
+      {
+        "areaSubprocesoId": 41,
+        "areaSubprocesoName": "Generación de Pedidos desde Pronóstico"
+      },
+      {
+        "areaSubprocesoId": 42,
+        "areaSubprocesoName": "Generalidades"
+      }
+    ],
+    "executionError": false,
+    "message": ""
+  }

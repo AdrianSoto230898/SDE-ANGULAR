@@ -1,0 +1,96 @@
+<!-- <ion-content [fullscreen]="true" [scrollY]="false" class="!p-0" style="--offset-top:0;--offset-bottom:0;"></ion-content> -->
+<div>
+  <div class="bg-white dark:bg-neutral-900 p-0 h-full">
+    <div
+      class="h-min-[100vh] flex flex-col justify-between bg-white dark:bg-neutral-900 text-neutral-900 pb-8 pt-0 overflow-y-hidden rounded-[0rem]">
+      <div class="max-w-4xl mx-auto px-6">
+        <!-- Encabezado centrado -->
+        <div class="flex flex-col items-center pt-10 pb-2">
+          <h1 class="text-2xl font-black text-black dark:text-white mb-3 text-center">Glosario</h1>
+          <p class="text-neutral-500 dark:text-neutral-400 mb-6 text-sm font-normal text-center max-w-xl">
+            Explora los términos más utilizados, aprende sobre conceptos clave y encuentra recursos útiles.
+          </p>
+          <!-- Search centrado -->
+          <div class="relative w-full max-w-xl mb-8">
+            <span class="absolute left-4 top-1/2 -translate-y-1/2 text-neutral-400">
+              <svg width="22" height="22" fill="none" viewBox="0 0 24 24">
+                <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2" />
+                <path d="M20 20l-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+              </svg>
+            </span>
+            <input type="text" [value]="searchTerm()" (input)="onInput($event)" placeholder="Buscar término..."
+              class="w-full py-3 pl-12 text-sm pr-4 rounded-xl border border-neutral-200 dark:border-neutral-700 bg-gray-50 dark:bg-neutral-800 text-black dark:text-white placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-primary" />
+          </div>
+        </div>
+
+        <!-- Alfabeto -->
+        <div class="flex flex-wrap gap-1 mb-8 justify-center">
+          @for (letter of alphabet; track letter) {
+          <button
+            class="w-8 h-8 rounded-xl flex items-center justify-center font-bold text-base transition text-neutral-400 hover:text-primary hover:bg-primary/10"
+            [ngClass]="{
+              'text-primary bg-primary/10 shadow': activeLetter() === letter
+            }" (click)="selectLetter(letter)">{{ letter }}</button>
+          }
+        </div>
+
+        <!-- Lista de términos -->
+        <div class="space-y-6 max-w-2xl mx-auto mb-20 min-h-[29rem]">
+          @if (filteredTerms().length > 0) {
+          @for (term of filteredTerms(); track term) {
+          <div
+            class="relative group rounded-2xl bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 shadow-sm px-6 py-4 transition hover:shadow-lg">
+            <div class="flex items-center gap-4 min-w-0">
+              <div class="min-w-0 flex-1">
+                <div class="font-bold text-black dark:text-white text-base break-words line-clamp-2">
+                  {{ term.term }}
+                </div>
+                @if (term.subtitle) {
+                <div class="text-neutral-400 text-xs font-medium truncate">
+                  {{ term.subtitle }}
+                </div>
+                }
+                @if (term.resources) {
+                <div class="text-neutral-400 text-xs mt-1">
+                  {{ term.resources }}
+                </div>
+                }
+              </div>
+              <!-- Flecha despliegue -->
+              <button (click)="toggleTerm(term)"
+                class="w-10 h-10 rounded-full hover:bg-neutral-200 dark:hover:bg-neutral-700 flex items-center justify-center"
+                tabindex="-1">
+                <span [class.rotate-180]="term.open" class="icon-[material-symbols--keyboard-arrow-down-rounded]
+                       text-3xl text-neutral-700 dark:text-neutral-400
+                       transition-transform"></span>
+              </button>
+            </div>
+            <!-- Definición expandida DENTRO del card -->
+            @if (term.open) {
+            <div
+              class="pt-5 mt-5 text-neutral-700 text-sm dark:text-neutral-200 animate-fade-in border-t border-neutral-200 dark:border-neutral-700">
+              {{ term.definition }}
+            </div>
+            @if (term.url) {
+            <div>
+              <div
+                class="bg-blue-200 h-8 rounded-full w-fit px-2 text-blue-600 mt-4 flex items-center gap-2 cursor-pointer"
+                (click)="navigateToUrl(term.url)">
+                <span class="icon-[tabler--world] text-xl"></span>
+                <span class="text-xs">Navegar al sitio</span>
+              </div>
+            </div>
+            }
+            }
+          </div>
+          }
+          } @else {
+          <div class="text-neutral-400 text-center pt-10 text-sm">No se encontraron términos para esta letra o búsqueda.
+          </div>
+          }
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

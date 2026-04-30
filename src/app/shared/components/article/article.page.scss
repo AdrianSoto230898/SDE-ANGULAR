@@ -1,0 +1,28 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 20px;
+  }
+  h1, h2 {
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+  }
+  p {
+    margin-bottom: 1em;
+  }
+  ul, ol {
+    margin: 0.5em 0 1em 2em;
+  }
+  figure {
+    margin: 1em 0;
+    text-align: center;
+  }
+  figcaption {
+    font-size: 0.9em;
+    color: #555;
+  }
+  section {
+    margin-top: 2em;
+    padding-top: 1em;
+    border-top: 1px solid #ccc;
+  }

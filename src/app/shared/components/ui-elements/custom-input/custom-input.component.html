@@ -1,0 +1,13 @@
+<div class="relative flex items-center">
+  <!-- Campo de texto -->
+  <input [type]="type()" [placeholder]="placeholder()" [value]="value()" (input)="updateValue($event)"
+    [disabled]="isDisabled()"
+    class="block w-full py-3 px-3 border border-neutral-100 dark:border-neutral-800 rounded-xl focus:outline-none focus:ring-primary focus:border-primary dark:focus:border-primary-hover dark:focus:ring-primary-hover text-xs"
+    [ngClass]="{'bg-neutral-100 dark:bg-neutral-800 text-neutral-500 dark:text-neutral-400': isDisabled(), 'bg-neutral-100 dark:bg-neutral-800 dark:text-neutral-300': !isDisabled()}" />
+  @if (icon()!='') {
+  <!-- Icono del input -->
+  <span class="text-2xl text-neutral-400 dark:text-neutral-600" role="img" aria-hidden="true"
+    [ngClass]="icon() ? icon() : ''">
+  </span>
+  }
+</div>

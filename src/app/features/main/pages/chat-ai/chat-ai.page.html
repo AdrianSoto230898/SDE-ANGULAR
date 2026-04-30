@@ -1,0 +1,112 @@
+@if(type() === 'grouped-articles') {
+<div class="flex items-start gap-2.5 mt-2 animate-slideInUp pe-4">
+  <!-- SIEMPRE renderizado -->
+  <div class="relative min-w-10 min-h-10 w-10 h-10 flex items-center justify-center rounded-full bg-neutral-100 dark:bg-neutral-800">
+  
+    <!-- Borde giratorio -->
+    <div #geminiBorder class="absolute inset-0 rounded-full z-0"
+         style="
+           background: conic-gradient(#f9ac41, #f94141);
+           mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #000 0);
+           -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #000 0);
+           display:none;
+         ">
+    </div>
+  
+    <!-- Ícono central -->
+    <span class="z-10 icon-[streamline--star-2] text-neutral-600 dark:text-neutral-400 text-lg pointer-events-none"></span>
+  </div>
+
+  <div
+    class="flex flex-col w-full max-w-[320px] leading-1.5 px-4 py-2 border-neutral-200 dark:border-neutral-700 bg-neutral-100 dark:bg-neutral-800 rounded-e-xl rounded-es-xl">
+    @if(!isLoading()) {
+    <div class="flex items-center space-x-2 rtl:space-x-reverse">
+      <span class="text-sm font-semibold text-black dark:text-white">Ternium AI</span>
+      <span class="text-xs font-normal text-neutral-500 dark:text-neutral-400">{{ timeStr() }}</span>
+    </div>
+    }
+
+    <!-- Encabezado del mensaje -->
+    <div class="text-sm font-normal py-2.5 text-black dark:text-white whitespace-pre-line">
+      @if(text() && !isLoading()) {
+        <div class="ai-text" [innerText]="text()"></div>
+      }
+      @if(isLoading()) {
+      <div class="flex gap-1">
+        <div class="w-2 h-2 rounded-full bg-primary animate-bounce [animation-delay:0ms]"></div>
+        <div class="w-2 h-2 rounded-full bg-primary animate-bounce [animation-delay:200ms]"></div>
+        <div class="w-2 h-2 rounded-full bg-primary animate-bounce [animation-delay:400ms]"></div>
+      </div>
+      }
+    </div>
+
+    <!-- Lista de artículos -->
+    @for (article of articles(); track $index) {
+    <div class="text-sm font-normal py-1 text-black dark:text-white cursor-pointer"
+      (click)="openArticleById(article.id)">
+      <div
+        class="flex items-center justify-between px-4 py-3 bg-white dark:bg-neutral-900 border border-gray-200 dark:border-neutral-700 rounded-xl shadow-sm hover:shadow mt-1">
+        <div class="flex items-center gap-3">
+          <div
+            class="w-12 h-12 min-w-12 min-h-12 rounded-xl bg-primary-100 dark:bg-primary-100 flex items-center justify-center">
+            <span class="icon-[solar--document-linear] text-primary dark:text-primary text-2xl"></span>
+          </div>
+          <div class="text-left">
+            <p class="text-sm font-medium text-black dark:text-white">{{ article.titulo }}</p>
+            <p class="text-xs text-gray-500 dark:text-gray-400">ID: {{ article.id }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+</div>
+}
+
+@if(type() === 'text') {
+<div class="flex items-start gap-2.5 mt-2 animate-slideInUp pe-4">
+
+  <!-- SIEMPRE renderizado -->
+  <div class="relative min-w-10 min-h-10 w-10 h-10 flex items-center justify-center rounded-full bg-neutral-100 dark:bg-neutral-800">
+  
+    <!-- Borde giratorio -->
+    <div #geminiBorder class="absolute inset-0 rounded-full z-0"
+         style="
+           background: conic-gradient(#f9ac41, #f94141);
+           mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #000 0);
+           -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #000 0);
+           display:none;
+         ">
+    </div>
+  
+    <!-- Ícono central -->
+    <span class="z-10 icon-[streamline--star-2] text-neutral-600 dark:text-neutral-400 text-lg pointer-events-none"></span>
+  </div>
+
+
+
+  <div
+    class="flex flex-col w-full max-w-[320px] leading-1.5 px-4 py-2 border-neutral-200 dark:border-neutral-700 bg-neutral-100 dark:bg-neutral-800 rounded-e-xl rounded-es-xl">
+    @if(!isLoading()) {
+    <div class="flex items-center space-x-2 rtl:space-x-reverse">
+      <span class="text-sm font-semibold text-black dark:text-white">Ternium AI</span>
+      <span class="text-xs font-normal text-neutral-500 dark:text-neutral-400">{{ timeStr() }}</span>
+    </div>
+    }
+    <div class="text-sm font-normal py-2.5 text-black dark:text-white whitespace-pre-line">
+      @if(text() && !isLoading()) {
+        <div class="ai-text" [innerHTML]="text()"></div>
+      }
+      @if(isLoading()) {
+      <div class="flex gap-1">
+        <div class="w-2 h-2 rounded-full bg-neutral-500 dark:bg-neutral-400 animate-bounce [animation-delay:0ms]"></div>
+        <div class="w-2 h-2 rounded-full bg-neutral-500 dark:bg-neutral-400 animate-bounce [animation-delay:200ms]">
+        </div>
+        <div class="w-2 h-2 rounded-full bg-neutral-500 dark:bg-neutral-400 animate-bounce [animation-delay:400ms]">
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+</div>
+}

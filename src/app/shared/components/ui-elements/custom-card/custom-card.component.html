@@ -1,0 +1,12 @@
+<div [class]="cardClasses">
+    <!-- header -->
+    <ng-content select="[card-header]"></ng-content>
+
+    <!-- body -->
+    <div [class]="bodyClasses">
+        <ng-content></ng-content>
+    </div>
+
+    <!-- footer -->
+    <ng-content select="[card-footer]"></ng-content>
+</div>

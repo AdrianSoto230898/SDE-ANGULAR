@@ -1,0 +1,318 @@
+<div>
+  <div class="bg-neutral-100 dark:bg-neutral-800 p-0 h-full">
+    <div class="h-min-[100vh] bg-neutral-100 dark:bg-neutral-800 text-neutral-900 rounded-[0rem]">
+
+      <div class="max-w-4xl mx-auto px-4 pt-4">
+        <!-- Header -->
+        <div class="mb-6 flex flex-col md:flex-row md:items-center md:justify-between gap-3 md:gap-2">
+          <div class="min-w-0">
+            <h1 class="text-xl font-black text-black dark:text-white">Configuración de Artículos</h1>
+            <p class="text-sm text-neutral-500 dark:text-neutral-400">
+              Crea, edita y administra artículos con la estructura y el contenido necesarios para su publicación.
+            </p>
+          </div>
+
+          <!-- Acciones -->
+          <div class="flex gap-2 w-full md:w-auto md:shrink-0">
+            <button (click)="goList()" id="btn-listado"
+              class="h-10 px-3 md:px-4 rounded-xl border border-solid border-primary text-black dark:text-white text-sm w-1/2 md:w-auto">
+              Listado
+            </button>
+            <button (click)="guardar()" id="btn-guardar"
+              class="h-10 px-3 md:px-4 rounded-xl bg-primary text-white hover:opacity-90 disabled:opacity-50 text-sm w-1/2 md:w-auto"
+              [disabled]="form.invalid || saving">
+              Guardar
+            </button>
+          </div>
+        </div>
+
+        <!-- Body con scroll -->
+        <div class="flex-1 min-h-0 overflow-y-auto pb-8">
+          <form [formGroup]="form"
+            class="rounded-2xl border border-neutral-200 dark:border-neutral-700 p-5 bg-white dark:bg-neutral-900 space-y-5">
+
+            <!-- Título -->
+            <div>
+              <label class="block text-xs font-semibold text-neutral-600 dark:text-neutral-300 mb-1">Título</label>
+              <app-custom-input [type]="'text'" formControlName="titulo" />
+              @if (form.controls['titulo'].invalid && form.controls['titulo'].touched) {
+                <div class="text-xs text-red-500 mt-1">Requerido</div>
+              }
+            </div>
+
+            <!-- Tipo + Usuario referente -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-semibold text-neutral-600 dark:text-neutral-300 mb-1">Área
+                Subproceso</label>
+                <app-custom-select-search formControlName="areaSubprocesoId" [options]="subprocesos"
+                  [placeholder]="'Todos'" />
+                </div>
+
+                <div>
+                  <label class="block text-xs font-semibold text-neutral-600 dark:text-neutral-300 mb-1">Articulo
+                  Tipo</label>
+                  <div class="w-full relative">
+                    <app-custom-select-search formControlName="articuloTipoId" [options]="articuloTipos"
+                      [placeholder]="'Todos'" />
+                    </div>
+                  </div>
+
+                  <!-- <div>
+                  <label class="block text-xs font-semibold text-neutral-600 dark:text-neutral-300 mb-1">Usuario referente
+                  (ID)</label>
+                  <app-custom-input [type]="'number'" formControlName="usuarioReferenteId" />
+                </div> -->
+              </div>
+
+              <!-- Área / Proceso / Subproceso -->
+              <!-- <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div>
+                <label class="block text-xs font-semibold text-neutral-600 dark:text-neutral-300 mb-1">Área</label>
+                <app-custom-select-search formControlName="selAreaId" [options]="areas"
+                  [placeholder]="'Todos'" />
+                </div>
+
+                <div>
+                  <label class="block text-xs font-semibold text-neutral-600 dark:text-neutral-300 mb-1">Proceso</label>
+                  <app-custom-select-search formControlName="selProcesoId" [options]="procesos"
+                    [placeholder]="'Todos'" />
+                  </div>
+                </div> -->
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label class="block text-xs font-semibold text-neutral-600 dark:text-neutral-300 mb-1">Keywords</label>
+                    <app-custom-input [type]="'text'" formControlName="keywords" [placeholder]="'soc, nca, addin...'" />
+                  </div>
+                  <div>
+                    <label class="block text-xs font-semibold text-neutral-600 dark:text-neutral-300 mb-1">Fecha
+                      Publicación <span>(opcional)</span></label>
+                      <app-date-input mode="single" [(model)]="dateStart" class="w-full" />
+                    </div>
+                  </div>
+
+                  <!-- Keywords / Orden / Publicación -->
+                  <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div>
+                      <label class="block text-xs font-semibold text-neutral-600 dark:text-neutral-300 mb-1">Versión</label>
+                      <app-custom-input [type]="'number'" formControlName="version" />
+                    </div>
+                    <div>
+                      <label class="block text-xs font-semibold text-neutral-600 dark:text-neutral-300 mb-1">Orden</label>
+                      <app-custom-input [type]="'number'" formControlName="orden" />
+                    </div>
+                  </div>
+
+                  <!-- Editor -->
+                  <div>
+                    <!-- Contenido -->
+                    <div class="flex items-center justify-between">
+                      <label class="block text-xs font-semibold text-neutral-600 dark:text-neutral-300 mb-1">
+                        Contenido (HTML)
+                      </label>
+
+                      <div class="flex items-center gap-3">
+                  <button type="button" (click)="toggleFull()" id="btn-full-editor" class="flex items-center text-xs font-semibold text-black dark:text-white border border-solid border-primary px-3 py-1 rounded-full hover:bg-primary hover:text-white
+                    outline-none no-focus cursor-pointer">
+                          {{ full ? 'Salir de pantalla completa' : 'Pantalla completa' }}
+                          <span class="icon-[solar--full-screen-bold] text-base ml-2"></span>
+                        </button>
+                        <!-- <button type="button" (click)="limpiarFormato()"
+                        class="text-xs text-neutral-600 dark:text-neutral-300 hover:underline">
+                        Limpiar formato
+                      </button> -->
+                    </div>
+                  </div>
+
+                  <!-- Contenedor del editor -->
+                  <div [class.fixed]="full" [class.inset-0]="full" [class.z-50]="full"
+                    class="rounded-[1rem] bg-white dark:bg-neutral-800 mt-3">
+                    @if (full) {
+                <div class="sticky top-0 inset-x-0 z-[60] border-b border-neutral-200 dark:border-neutral-700
+                              bg-white/90 dark:bg-neutral-900/90 backdrop-blur px-3 py-2
+                              flex items-center justify-between">
+                        <span class="text-xs text-neutral-600 dark:text-neutral-300">Editor en pantalla completa</span>
+                        <button type="button" (click)="toggleFull()"
+                          class="text-xs font-semibold text-black dark:text-white border border-solid border-primary px-3 py-1 rounded-full hover:bg-primary hover:text-white">
+                          Salir (Esc)
+                        </button>
+                      </div>
+                    }
+                    <div #qlEditor id="editor-html" class="h-[300px] bg-white px-0"></div>
+                  </div>
+
+                  <div class="mt-2 text-xs text-neutral-500 dark:text-neutral-400">
+                    <span class="ml-2 px-2 py-0.5 rounded-full bg-neutral-100 dark:bg-neutral-800">
+                      {{ form.value.contenidoSinFormato?.length || 0 }} caracteres
+                    </span>
+                  </div>
+                </div>
+
+                <!-- Adjuntos -->
+                <!-- <div class="pt-2">
+                <div class="flex items-center justify-between mb-2">
+                  <div class="text-sm font-semibold text-neutral-700 dark:text-neutral-200">Adjuntos</div>
+                  <button type="button" (click)="openAdjuntoModal()"
+                    class="px-3 h-9 rounded-lg bg-neutral-100 dark:bg-neutral-900 text-neutral-700 dark:text-neutral-200">Subir
+                  archivo</button>
+                </div>
+
+                <div
+                  class="rounded-xl border border-neutral-200 dark:border-neutral-700 divide-y divide-neutral-200/70 dark:divide-neutral-700/70">
+                  @if (!adjuntos.length) {
+                    <div class="p-4 text-sm text-neutral-500 dark:text-neutral-400">Sin adjuntos.</div>
+                  } @else {
+                    @for (ad of adjuntos; track ad.articuloAdjuntoId) {
+                      <div class="p-3 flex items-center justify-between">
+                        <div class="truncate">
+                          <div class="text-sm text-neutral-800 dark:text-neutral-200 truncate">{{ ad.titulo }}</div>
+                          <div class="text-xs text-neutral-500 dark:text-neutral-400">.{{ ad.extension }} • {{ ad.tamanoKB }}
+                          KB</div>
+                        </div>
+                        <button type="button" class="text-xs text-red-600 hover:underline"
+                        (click)="eliminarAdjunto(ad.articuloAdjuntoId)">Eliminar</button>
+                      </div>
+                    }
+                  }
+                </div>
+              </div> -->
+
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Ionic para subir adjunto -->
+  <!-- [isOpen]="adjuntoOpen" -->
+  <div (didDismiss)="adjuntoOpen=false">
+    <ng-template>
+      <div class="p-5 bg-white dark:bg-neutral-900 min-h-[40vh]">
+        <h2 class="text-lg font-bold text-black dark:text-white mb-4">Subir adjunto</h2>
+
+        <div class="space-y-3">
+          <input type="text" [(ngModel)]="adjuntoTitulo" placeholder="Título (opcional)"
+            class="w-full h-11 rounded-xl bg-neutral-100 dark:bg-neutral-800 px-3">
+            <input type="text" [(ngModel)]="adjuntoDescripcion" placeholder="Descripción (opcional)"
+              class="w-full h-11 rounded-xl bg-neutral-100 dark:bg-neutral-800 px-3">
+              <input type="file" (change)="onFile($event)" class="w-full text-sm">
+              @if (fileToSend) {
+                <div class="text-xs text-neutral-500">
+                  {{ fileToSend.name }} ({{ (fileToSend.size/1024 | number:'1.0-0') }} KB)
+                </div>
+              }
+            </div>
+
+            <div class="mt-6 flex justify-end gap-2">
+              <button class="px-4 h-10 rounded-xl bg-neutral-100 dark:bg-neutral-800"
+              (click)="adjuntoOpen=false">Cancelar</button>
+              <button class="px-4 h-10 rounded-xl bg-primary text-white disabled:opacity-50"
+                [disabled]="!fileToSend || uploading">
+                {{ uploading ? 'Subiendo…' : 'Subir' }}
+              </button>
+            </div>
+          </div>
+        </ng-template>
+      </div>
+
+
+      <dialog #myModal class="modal">
+        <div class="modal-box modal-box w-11/12 max-w-2xl bg-white dark:bg-neutral-800 rounded-lg shadow-lg p-2">
+          <!-- Header -->
+          <div class="flex items-center justify-end border-b border-neutral-200 dark:border-neutral-700 p-2">
+            <button (click)="closeWelcome()"
+              class="w-12 h-12 rounded-full bg-transparent hover:bg-neutral-100 dark:hover:bg-neutral-900 flex items-center justify-center cursor-pointer">
+              <span class="icon-[material-symbols--close-rounded] text-2xl text-neutral-500 dark:text-neutral-300"></span>
+            </button>
+          </div>
+
+          <!-- Body -->
+          <div class="px-6 py-6 gap-4">
+            <div class="mb-6">
+              <div class="m-auto">
+                <img class="w-auto h-[15rem] object-cover m-auto" src="assets/images/illustrations/escenes/tutorial.png"
+                  alt="welcome">
+                </div>
+                <div class="text-center">
+                  <h2 class="text-xl font-bold text-black dark:text-white">¡Bienvenido a la Gestión de Artículos!</h2>
+                  <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-1">
+                    Descubre todas las herramientas para crear contenido excepcional.
+                  </p>
+                </div>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div
+                  class="p-4 rounded-xl border border-neutral-200 dark:border-neutral-700 shadow-sm hover:shadow-md transition">
+                  <div class="flex items-start gap-3">
+                    <div class="p-2 rounded-lg bg-primary/10 w-10 h-10 min-w-10 min-h-10 flex items-center justify-center">
+                      <span class="icon-[proicons--file] text-primary"></span>
+                    </div>
+                    <div>
+                      <h3 class="font-semibold text-sm text-black dark:text-white">Crear Artículos</h3>
+                      <p class="text-xs text-neutral-600 dark:text-neutral-400">Redacta contenido con nuestro editor intuitivo
+                      y herramientas avanzadas.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  class="p-4 rounded-xl border border-neutral-200 dark:border-neutral-700 shadow-sm hover:shadow-md transition">
+                  <div class="flex items-start gap-3">
+                    <div class="p-2 rounded-lg bg-primary/10 w-10 h-10 min-w-10 min-h-10 flex items-center justify-center">
+                      <span class="icon-[ci--edit-pencil-02] text-primary"></span>
+                    </div>
+                    <div>
+                      <h3 class="font-semibold text-sm text-black dark:text-white">Editar Contenido</h3>
+                      <p class="text-xs text-neutral-600 dark:text-neutral-400">Modifica y mejora tus artículos con facilidad
+                      y precisión.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Check custom -->
+                <div class="flex items-center justify-between text-sm">
+                  <label class="flex items-center gap-3 cursor-pointer text-neutral-600 dark:text-neutral-400"
+                    (click)="dontShowAgain = !dontShowAgain">
+                    <!-- Circle -->
+                    <div class="w-6 h-6 flex items-center justify-center">
+              <div class="w-6 h-6 rounded-full border-2 flex items-center justify-center transition" [ngClass]="{
+                         'bg-primary border-primary dark:bg-primary dark:border-primary': dontShowAgain,
+                         'border-neutral-300 dark:border-neutral-600': !dontShowAgain
+                       }">
+                        @if (dontShowAgain) {
+                          <span class="icon-[material-symbols--check-rounded] text-white text-lg" role="img"
+                          aria-hidden="true"></span>
+                        }
+                      </div>
+                    </div>
+                    No volver a mostrar
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="border-t border-neutral-200 dark:border-neutral-700 px-6 py-6 space-y-4">
+
+              <!-- Botones -->
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+                <button (click)="closeWelcome()"
+                  class="w-full px-6 h-12 rounded-full text-neutral-950 dark:text-neutral-50 bg-neutral-200 dark:bg-neutral-700 text-sm hover:bg-neutral-300 hover:dark:bg-neutral-600 transition">
+                  Omitir por ahora
+                </button>
+
+                <button (click)="startTour()"
+                  class="flex items-center justify-center gap-2 w-full px-6 h-12 text-sm rounded-full text-white bg-primary hover:bg-primary-hover transition active:scale-95 disabled:opacity-50">
+                  Comenzar Tutorial
+                  <span class="icon-[solar--arrow-right-linear] text-lg"></span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </dialog>
+
+        <app-toast />

@@ -1,0 +1,256 @@
+{
+    "data": [
+      {
+        "areaId": 1,
+        "areaNombre": "COMERCIAL",
+        "procesos": [
+          {
+            "areaProcesoId": 1,
+            "areaProcesoNombre": "PRERREQUISITOS",
+            "subprocesos": [
+              {
+                "areaSubprocesoId": 1,
+                "areaSubprocesoNombre": "Alta de ejecutivos comerciales",
+                "articulos": [
+                  {
+                    "articuloId": 16,
+                    "articuloNombre": "Alta de usuario nuevo en Ternium Activo"
+                  },
+                  {
+                    "articuloId": 17,
+                    "articuloNombre": "Creación y configuración de un nuevo Agente de Ventas"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "areaProcesoId": 2,
+            "areaProcesoNombre": "NEGOCIACION",
+            "subprocesos": [
+              {
+                "areaSubprocesoId": 2,
+                "areaSubprocesoNombre": "FACTIBILIDAD DE PRODUCTO",
+                "articulos": [
+                  {
+                    "articuloId": 20,
+                    "articuloNombre": "Carga de Órdenes de Compra de Cliente en el Sistema de Traducción de Producto"
+                  },
+                  {
+                    "articuloId": 21,
+                    "articuloNombre": "Proceso de Traducción de Producto"
+                  },
+                  {
+                    "articuloId": 22,
+                    "articuloNombre": "Extracción de Números de Parte en el Sistema de Traducción de Producto"
+                  },
+                  {
+                    "articuloId": 23,
+                    "articuloNombre": "Traducción de Número de Parte en el Sistema de Traducción de Producto"
+                  }
+                ]
+              },
+              {
+                "areaSubprocesoId": 3,
+                "areaSubprocesoNombre": "PRECIOS",
+                "articulos": []
+              },
+              {
+                "areaSubprocesoId": 4,
+                "areaSubprocesoNombre": "INGENIERIA DE PRODUCTO",
+                "articulos": [
+                  {
+                    "articuloId": 2,
+                    "articuloNombre": "Solicitudes Governance (Alta)"
+                  },
+                  {
+                    "articuloId": 3,
+                    "articuloNombre": "Solicitudes Governance (Baja)"
+                  },
+                  {
+                    "articuloId": 4,
+                    "articuloNombre": "Solicitud Governance (Activar)"
+                  },
+                  {
+                    "articuloId": 5,
+                    "articuloNombre": "Solicitud Governance (Modificar)"
+                  }
+                ]
+              },
+              {
+                "areaSubprocesoId": 5,
+                "areaSubprocesoNombre": "REQUERIMIENTOS ESPECIFICOS DE CLIENTE (IATF)",
+                "articulos": [
+                  {
+                    "articuloId": 14,
+                    "articuloNombre": "Respuestas a Requerimientos IATF"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "areaProcesoId": 3,
+            "areaProcesoNombre": "ADMINISTRACION DE DATOS MAESTROS",
+            "subprocesos": [
+              {
+                "areaSubprocesoId": 6,
+                "areaSubprocesoNombre": "ALTA DE CLIENTES",
+                "articulos": [
+                  {
+                    "articuloId": 18,
+                    "articuloNombre": "Alta Cliente Común en NCA"
+                  },
+                  {
+                    "articuloId": 19,
+                    "articuloNombre": "Asignación de Nuevo Cliente Común a Grupo Económico en NCA"
+                  }
+                ]
+              },
+              {
+                "areaSubprocesoId": 13,
+                "areaSubprocesoNombre": "B2B / SDE",
+                "articulos": [
+                  {
+                    "articuloId": 15,
+                    "articuloNombre": "Solicitudes de Permiso SDE"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "areaProcesoId": 4,
+            "areaProcesoNombre": "GESTION DE CREDITOS",
+            "subprocesos": [
+              {
+                "areaSubprocesoId": 7,
+                "areaSubprocesoNombre": "LIMITE CREDITICIO",
+                "articulos": []
+              }
+            ]
+          },
+          {
+            "areaProcesoId": 5,
+            "areaProcesoNombre": "INGRESO DE PEDIDOS Y ACEPTACION",
+            "subprocesos": [
+              {
+                "areaSubprocesoId": 8,
+                "areaSubprocesoNombre": "PEDIDOS",
+                "articulos": [
+                  {
+                    "articuloId": 1,
+                    "articuloNombre": "Configuración de SOC sin precios"
+                  }
+                ]
+              },
+              {
+                "areaSubprocesoId": 9,
+                "areaSubprocesoNombre": "B2B",
+                "articulos": [
+                  {
+                    "articuloId": 8,
+                    "articuloNombre": "Instalación de Addin B2B en Clientes - Tenigal"
+                  },
+                  {
+                    "articuloId": 9,
+                    "articuloNombre": "Instalación de Addin B2B en Clientes "
+                  },
+                  {
+                    "articuloId": 10,
+                    "articuloNombre": "Instalación de Addin B2STK (Interno Ternium)"
+                  },
+                  {
+                    "articuloId": 24,
+                    "articuloNombre": "Captura de Pedidos B2B Excel Addin"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "areaProcesoId": 6,
+            "areaProcesoNombre": "SEGUIMIENTO PEDIDOS Y COMUNICACION CLIENTES",
+            "subprocesos": [
+              {
+                "areaSubprocesoId": 10,
+                "areaSubprocesoNombre": "PEDIDOS",
+                "articulos": [
+                  {
+                    "articuloId": 6,
+                    "articuloNombre": "Suscripción de Mensajería"
+                  },
+                  {
+                    "articuloId": 7,
+                    "articuloNombre": "Mensajería (Crear Mensaje)"
+                  },
+                  {
+                    "articuloId": 11,
+                    "articuloNombre": "Generación de Entregas"
+                  },
+                  {
+                    "articuloId": 12,
+                    "articuloNombre": "Pantalla de Generación de Entregas"
+                  },
+                  {
+                    "articuloId": 13,
+                    "articuloNombre": "Bloqueo de Generación de Entrega"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "areaProcesoId": 7,
+            "areaProcesoNombre": "FACTURACION",
+            "subprocesos": [
+              {
+                "areaSubprocesoId": 11,
+                "areaSubprocesoNombre": "FACTURAS",
+                "articulos": []
+              },
+              {
+                "areaSubprocesoId": 12,
+                "areaSubprocesoNombre": "NOTAS DE CARGO Y CREDITO",
+                "articulos": []
+              }
+            ]
+          },
+          {
+            "areaProcesoId": 8,
+            "areaProcesoNombre": "COBRANZA",
+            "subprocesos": [
+              {
+                "areaSubprocesoId": 14,
+                "areaSubprocesoNombre": "PAGOS",
+                "articulos": []
+              }
+            ]
+          },
+          {
+            "areaProcesoId": 9,
+            "areaProcesoNombre": "POSTVENTA",
+            "subprocesos": [
+              {
+                "areaSubprocesoId": 15,
+                "areaSubprocesoNombre": "INSATISFACCIONES",
+                "articulos": []
+              },
+              {
+                "areaSubprocesoId": 16,
+                "areaSubprocesoNombre": "SCORECARDS",
+                "articulos": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "areaId": 2,
+        "areaNombre": "SISTEMAS",
+        "procesos": []
+      }
+    ],
+    "error": false,
+    "mensaje": "Consulta exitosa"
+  }

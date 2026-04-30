@@ -1,0 +1,51 @@
+<!-- Contenedor -->
+<div class="relative w-full" [ngClass]="{'opacity-50 cursor-not-allowed pointer-events-none': disabled}">
+  <!-- Trigger -->
+  <div class="block text-xs w-full py-3 px-3 cursor-pointer border text-neutral-700 dark:text-neutral-300
+         border-neutral-100 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-800 rounded-xl
+         focus:outline-none hover:border-primary dark:hover:border-primary-hover appearance-none pr-10 relative"
+    [ngClass]="{
+    'border-primary dark:border-primary-hover': openDropdown
+  }" (click)="toggleDropdown()">
+    <span class="text-neutral-700 dark:text-neutral-300 text-xs">
+      {{ selectedLabel || placeholder }}
+    </span>
+    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center h-full pr-3">
+      <span class="ph ph-caret-down w-4 h-4"></span>
+    </div>
+  </div>
+
+  <!-- Dropdown ANCLADO DEBAJO -->
+  @if (openDropdown) {
+  <div class="absolute left-0 right-0 top-full mt-1
+       bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800
+              rounded-xl z-50 shadow-lg max-h-[20rem] flex flex-col animate-fadeIn">
+    <div class="p-2 border-b border-neutral-200 dark:border-neutral-800">
+      <input [(ngModel)]="searchTerm" type="text" placeholder="Buscar..." autocomplete="off" class="w-full text-xs py-3 px-3 rounded-xl text-neutral-800 dark:text-neutral-200
+                    bg-white dark:bg-neutral-800 focus:outline-none focus:ring-1 focus:ring-primary" />
+    </div>
+    <div class="flex-1 overflow-auto">
+      <ul class="px-2 my-2">
+        @for (opt of filteredOptions; track opt) {
+        <li (click)="selectOption(opt)" class="p-4 cursor-pointer hover:bg-neutral-200 dark:hover:bg-neutral-800
+                   text-neutral-800 dark:text-neutral-200 text-xs rounded-xl mb-1"
+          [ngClass]="{'bg-neutral-200 dark:bg-neutral-800 text-black dark:text-white': isOptionSelected(opt)}">
+          <span class="font-medium">{{ opt.label || opt.name }}</span>
+        </li>
+        }
+        @if (filteredOptions.length === 0) {
+        <li class="p-2 text-neutral-400 text-xs text-center">
+          No hay resultados
+        </li>
+        }
+      </ul>
+    </div>
+    <div class="border-t border-neutral-200 dark:border-neutral-800 p-2">
+      <button (click)="onClearSelected()" class="w-full px-3 py-2 text-xs text-neutral-800 dark:text-neutral-200
+                      bg-white dark:bg-neutral-800 rounded-full">
+        Limpiar
+      </button>
+    </div>
+  </div>
+  }
+</div>

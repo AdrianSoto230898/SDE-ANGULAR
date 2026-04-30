@@ -1,0 +1,43 @@
+<div class="min-h-screen w-full bg-neutral-100 dark:bg-neutral-900">
+  <section class="absolute top-8 left-8 mb-4">
+    <div class="flex justify-center items-center">
+      <div class="flex-shrink-0">
+        <img src="assets/images/logos/ternium-square.png" class="w-8 h-auto object-cover" alt="Ternium Logo">
+      </div>
+      <div class="ml-2 font-bold">
+        <span class="text-neutral-900 dark:text-neutral-50">Ternium</span>
+      </div>
+    </div>
+  </section>
+  <form class="flex items-center justify-center min-h-screen" autocomplete="off">
+    <div class="w-full max-w-sm text-center px-4">
+      <div class="py-5">
+        <div>
+          <!-- Imagen de acceso denegado -->
+          <img src="assets/images/illustrations/denied.png" alt="Denied User"
+            class="w-full h-96 object-cover rounded-lg mb-4">
+
+          <!-- Sección de Movilidad Comercial -->
+          <section class="mb-3">
+            <span class="inline-block bg-ternium/10 text-ternium text-sm font-medium px-3 py-1 rounded-full">Traductor de Producto</span>
+          </section>
+
+          <!-- Título de Acceso Restringido -->
+          <h1 class="text-xl font-bold text-neutral-800 dark:text-neutral-100">Acceso Restringido</h1>
+
+          <!-- Mensaje de acceso restringido -->
+          <p class="text-neutral-600 dark:text-neutral-400 mt-3 text-sm">
+            Lo sentimos, no tienes los permisos necesarios para acceder a esta sección de la aplicación. Si crees que
+            esto es un error, por favor contacta al administrador del sistema para obtener asistencia.
+          </p>
+
+          <button type="button" [routerLink]="['/access/auth']" routerLinkActive="router-link-active"
+            class="mt-8 w-full px-6 py-3 text-white rounded-full shadow-none border-ternium bg-ternium hover:bg-ternium-hover hover:border-ternium-hover transition duration-200 ease-in-out transform active:scale-95 cursor-pointer">
+            <span>Autenticarme</span>
+          </button>
+
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
