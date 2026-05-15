@@ -62,7 +62,7 @@
       </div>
 
       <div class="text-left">
-        <h2 class="text-sm font-semibold text-neutral-900 dark:text-white">Tipo de Doc agrupados</h2>
+        <h2 class="text-sm font-semibold text-neutral-900 dark:text-white">Documentos Relacionados</h2>
         <p class="text-xs text-neutral-500 dark:text-neutral-400 mt-0.5">
           Selecciona un tipo para cargar los filtros dinámicos.
         </p>
@@ -227,23 +227,42 @@
 </div>
 
 @if (selectedDocumentType() === 'NCC') {
-  <div class="flex justify-end gap-2 mb-4">
-    <app-custom-button
-      variant="outline"
-      size="sm"
-      icon="ph ph-arrows-clockwise"
-      (clicked)="queueSelectedRegeneration()">
-      Recrear
-    </app-custom-button>
 
-    <app-custom-button
-      variant="primary"
-      size="sm"
-      icon="ph ph-download-simple"
-      (clicked)="downloadSelectedDocuments('Multi')">
-      Descargar
-    </app-custom-button>
-  </div>
+<div class="flex justify-end gap-2 mb-4">
+
+  <!-- NUEVO -->
+  <app-custom-button
+    variant="outline"
+    size="sm"
+    icon="ph ph-file-pdf"
+    (clicked)="generateLegacyPdfSelected()">
+
+    Generar/Recrear Masivo
+
+  </app-custom-button>
+
+  <!-- ORIGINAL -->
+  <app-custom-button
+    variant="outline"
+    size="sm"
+    icon="ph ph-arrows-clockwise"
+    (clicked)="queueSelectedRegeneration()">
+
+    Cola Recreación
+
+  </app-custom-button>
+
+  <app-custom-button
+    variant="primary"
+    size="sm"
+    icon="ph ph-download-simple"
+    (clicked)="downloadSelectedDocuments('Multi')">
+
+    Descargar
+
+  </app-custom-button>
+
+</div>
 }
 
     <!-- ─── Tabla ─── -->
@@ -267,11 +286,20 @@
         [loading]="gridResource.isLoading()">
       </app-custom-table> -->
 <div class="flex justify-end gap-2 mb-4">
+
+  <app-custom-button
+    variant="outline"
+    size="sm"
+    icon="ph ph-file-pdf"
+    (clicked)="generateLegacyPdfSelected()">
+    Generar/Recrear Masivo
+  </app-custom-button>
+
   <app-custom-button
     variant="primary"
     size="sm"
     icon="ph ph-download-simple"
-    (clicked)="downloadMassiveSelected()">
+    (clicked)="downloadSelectedDocuments('Multi')">
     Descarga Masiva
   </app-custom-button>
 
@@ -282,6 +310,7 @@
     (clicked)="sendMassiveSelected()">
     Envío Masivo
   </app-custom-button>
+
 </div>
 
 <app-custom-table

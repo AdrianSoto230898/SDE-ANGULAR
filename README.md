@@ -13,19 +13,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Build App Production
-Run `ng build -c production`
-
-### Build App development MDW
-Run `ng build --base-href "/Traductor_Productos/" -c development`
-
-### Build App qa MDW
-Run `ng build --base-href "/Traductor_Productos/" -c qa`
-
-### Build App production MDW
-Run `ng build --base-href "/Traductor_Productos/" -c production`
-
-## New Build App WEB01
+## New Build App WEB02
 ### Build App qa
 Run `ng build -c qa`
 

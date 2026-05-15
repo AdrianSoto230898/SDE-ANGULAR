@@ -1,7 +1,8 @@
 import { HttpClient, HttpParams, HttpResponse } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
-import { SendMailConfigResponse } from '../models/documents.models';
+import { DocumentQueueBulkRequest, LegacyPdfRequest } from '../models/documents.models';
+import { SendMailConfigResponse, SendMailResponse } from '../../../shared/models/popSend/popSend.model';
 import { environment } from '../../../../environments/environment';
 import JSZip from 'jszip';
 import FileSaver, { saveAs } from 'file-saver';
@@ -889,9 +890,34 @@ startxref
 
   return new Blob([content], { type: 'application/pdf' });
 }
-  async exportExcel(request: DocumentExportRequest): Promise<void> {
-    await this.downloadPost('api/documentos/export/excel', request, 'Documentos.xlsx');
+async exportExcel(
+  request: DocumentExportRequest,
+  fileName = 'Documentos.xlsx'
+): Promise<void> {
+  console.group('📡 API EXPORT EXCEL');
+  console.log('🌐 Endpoint', this.buildUrl('api/documentos/export/excel'));
+  console.log('📤 Request', request);
+  console.log('🗂️ FileName', fileName);
+
+  try {
+    console.time('⏱️ api exportExcel');
+
+    await this.downloadPost(
+      'api/documentos/export/excel',
+      request,
+      fileName
+    );
+
+    console.timeEnd('⏱️ api exportExcel');
+    console.log('✅ API exportExcel finalizado');
+
+  } catch (error) {
+    console.error('❌ Error API exportExcel', error);
+    throw error;
+  } finally {
+    console.groupEnd();
   }
+}
 
   async exportConciliation(request: DocumentExportRequest): Promise<void> {
     await this.downloadPost('api/documentos/export/conciliacion', request, 'ReporteConciliacion.zip');
@@ -901,10 +927,66 @@ startxref
     await this.downloadPost('api/documentos/zip', request, 'Documentos.zip');
   }
 
-  async downloadMultifile(request: DocumentMultifileRequest): Promise<void> {
-    const fallbackName = request.type === 'Multi' ? 'Documentos.zip' : 'Documentos.pdf';
-    await this.downloadPost('api/documentos/multifile', request, fallbackName);
+  // async downloadMultifile(request: DocumentMultifileRequest): Promise<void> {
+  //   const fallbackName = request.type === 'Multi' ? 'Documentos.zip' : 'Documentos.pdf';
+  //   await this.downloadPost('api/documentos/multifile', request, fallbackName);
+  // }
+
+async downloadMultifile(
+  request: DocumentMultifileRequest,
+  fallbackName: string
+): Promise<void> {
+
+  debugger;
+
+  console.group('📦 DOWNLOAD MULTIFILE');
+
+  console.log('📤 Endpoint',
+    this.buildUrl('api/documentos/multifile'));
+
+  console.log('📄 Request', request);
+
+  console.log('🗂️ Fallback FileName', fallbackName);
+
+  console.log('📊 Total items',
+    request.items?.length ?? 0);
+
+  console.table(
+    (request.items ?? []).map(x => ({
+      id: x.id,
+      remision: x.remision
+    }))
+  );
+
+  try {
+
+    console.time('⏱️ downloadMultifile');
+
+    await this.downloadPost(
+      'api/documentos/multifile',
+      request,
+      fallbackName
+    );
+
+    console.timeEnd('⏱️ downloadMultifile');
+
+    console.log('✅ Descarga completada');
+
   }
+  catch (error) {
+
+    console.error(
+      '❌ Error downloadMultifile',
+      error
+    );
+
+    throw error;
+  }
+  finally {
+
+    console.groupEnd();
+  }
+}
 
   queueRegeneration(items: { id: number; remision: string }[]): Promise<DocumentQueueResponse> {
     return firstValueFrom(
@@ -1412,48 +1494,152 @@ private getXmlDocumentType(documentType: string): string {
   return map[documentType] ?? documentType;
 }
 
-getSendMailConfig(request: {
+// getSendMailConfig(request: {
+//   docType: string;
+//   doId: string;
+//   doNumber: string;
+// }): Promise<SendMailConfigResponse> {
+
+//   /* ==================== 🔸 MODO MOCK 🔸 ==================== */
+//   if (!environment.production) {
+//     return Promise.resolve({
+//       docType: request.docType,
+//       doId: request.doId,
+//       doNumber: request.doNumber,
+
+//       tipodeEnvio: 'Mail',
+//       tipodeEnvioList: [
+//         { value: 'Mail', text: 'Mail' },
+//         { value: 'FTP', text: 'FTP' },
+//         { value: 'COPY', text: 'Copy' },
+//         { value: 'SFTP', text: 'SFTP' },
+//         { value: 'WS', text: 'Web Service' }
+//       ],
+
+//       para: 'cliente@correo.com',
+//       subject: `TERNIUM - Documento ${request.docType}`,
+//       body: `Estimado Cliente:\n\nSe adjunta documento.\n\nSaludos.`,
+//       datoAdjunto: `${request.doNumber}.pdf, X${request.doNumber}.xml`
+//     });
+//   }
+
+//   /* ==================== 🔸 API REAL 🔸 ==================== */
+//   return firstValueFrom(
+//     this.http.get<SendMailConfigResponse>(
+//       this.buildUrl('api/send-mail/config'),
+//       {
+//         params: {
+//           docType: request.docType,
+//           doId: request.doId,
+//           doNumber: request.doNumber
+//         }
+//       }
+//     )
+//   );
+// }
+
+async getSendMailConfig(request: {
   docType: string;
   doId: string;
   doNumber: string;
 }): Promise<SendMailConfigResponse> {
 
-  /* ==================== 🔸 MODO MOCK 🔸 ==================== */
-  if (!environment.production) {
-    return Promise.resolve({
-      docType: request.docType,
-      doId: request.doId,
-      doNumber: request.doNumber,
+  console.group('📧 GET SEND MAIL CONFIG');
 
-      tipodeEnvio: 'Mail',
-      tipodeEnvioList: [
-        { value: 'Mail', text: 'Mail' },
-        { value: 'FTP', text: 'FTP' },
-        { value: 'COPY', text: 'Copy' },
-        { value: 'SFTP', text: 'SFTP' },
-        { value: 'WS', text: 'Web Service' }
-      ],
+  console.log('📤 Endpoint',
+    this.buildUrl('api/documentos/send-mail/modal-data'));
 
-      para: 'cliente@correo.com',
-      subject: `TERNIUM - Documento ${request.docType}`,
-      body: `Estimado Cliente:\n\nSe adjunta documento.\n\nSaludos.`,
-      datoAdjunto: `${request.doNumber}.pdf, X${request.doNumber}.xml`
-    });
-  }
+  console.log('📄 Request', request);
 
-  /* ==================== 🔸 API REAL 🔸 ==================== */
-  return firstValueFrom(
-    this.http.get<SendMailConfigResponse>(
-      this.buildUrl('api/send-mail/config'),
-      {
-        params: {
-          docType: request.docType,
-          doId: request.doId,
-          doNumber: request.doNumber
+  try {
+    console.time('⏱️ getSendMailConfig');
+
+    if (!environment.production) {
+      const mockResponse: SendMailConfigResponse = {
+  docType: request.docType,
+  doId: request.doId,
+  doNumber: request.doNumber,
+
+  tipodeEnvio: 'Mail',
+  tipodeEnvioList: [
+    { value: 'Mail', text: 'Mail' },
+    { value: 'FTP', text: 'FTP' },
+    { value: 'Copy', text: 'Copy' },
+    { value: 'SFTP', text: 'SFTP' },
+    { value: 'WS', text: 'WS' }
+  ],
+
+  para: 'cliente@correo.com',
+  subject: `TERNIUM - Documento ${request.docType}`,
+  body: `Estimado Cliente:\n\nSe adjunta documento.\n\nSaludos.`,
+  datoAdjunto: `${request.doNumber}.pdf, X${request.doNumber}.xml`,
+  from: 'notificaciones@ternium.com',
+
+  pnlCombo: true,
+  pnlHome: true,
+  pnlFTP: false,
+  pnlCOPY: false,
+  pnlSFTP: false,
+  pnlWS: false,
+  pnlVar: false,
+
+  hostFTP: '',
+  userFTP: '',
+  pathFTP: '',
+  filesFTP: '',
+
+  rutaDestino: '',
+  filesCopy: '',
+
+  key: '',
+  pathFrom: '',
+  pathTo: '',
+  serverTo: '',
+
+  files: [
+    {
+      fileName: `${request.doNumber}.pdf`,
+      mimeType: 'application/pdf',
+      mimeName: 'PDF'
+    },
+    {
+      fileName: `X${request.doNumber}.xml`,
+      mimeType: 'text/xml',
+      mimeName: 'XML'
+    }
+  ]
+};
+
+      console.log('🧪 MockResponse', mockResponse);
+      console.timeEnd('⏱️ getSendMailConfig');
+      return mockResponse;
+    }
+
+    const response = await firstValueFrom(
+      this.http.get<SendMailConfigResponse>(
+        this.buildUrl('api/documentos/send-mail/modal-data'),
+        {
+          params: {
+            docType: request.docType,
+            doId: request.doId,
+            doNumber: request.doNumber
+          }
         }
-      }
-    )
-  );
+      )
+    );
+
+    console.log('✅ Response getSendMailConfig', response);
+    console.timeEnd('⏱️ getSendMailConfig');
+
+    return response;
+  }
+  catch (error) {
+    console.error('❌ Error getSendMailConfig', error);
+    throw error;
+  }
+  finally {
+    console.groupEnd();
+  }
 }
 
 async downloadMassiveZip(request: any): Promise<void> {
@@ -1539,5 +1725,169 @@ private getMockXmlType(docType: string): string {
   return map[docType] ?? 'FE';
 }
 
+async generateLegacyPdf(
+  request: LegacyPdfRequest
+): Promise<DocumentQueueResponse> {
+
+  debugger;
+
+  console.group('🚀 GENERATE LEGACY PDF');
+
+  console.log(
+    '📤 Endpoint',
+    this.buildUrl('api/documentos/legacy/pdf')
+  );
+
+  console.log('📄 Request', request);
+
+  console.log('📌 DocumentType', request.documentType);
+
+  console.log('🆔 DocumentId', request.documentId);
+
+  console.log('🔢 DocumentNumber', request.documentNumber);
+
+  console.log('👤 UserId', request.userId);
+
+  try {
+
+    // if (!environment.production) {
+
+    //   console.warn('⚠️ MOCK MODE ENABLED');
+
+    //   const mockResponse = {
+    //     error: false,
+    //     message: 'PDF legacy mock generado para el documento.'
+    //   };
+
+    //   console.log('✅ MockResponse', mockResponse);
+
+    //   return Promise.resolve(mockResponse);
+    // }
+
+    // console.time('⏱️ generateLegacyPdf');
+
+    const response = await firstValueFrom(
+      this.http.post<DocumentQueueResponse>(
+        this.buildUrl('api/documentos/legacy/pdf'),
+        request
+      )
+    );
+
+    console.timeEnd('⏱️ generateLegacyPdf');
+
+    console.log('✅ Response generateLegacyPdf', response);
+
+    return response;
+
+  }
+  catch (error) {
+
+    console.error(
+      '❌ Error generateLegacyPdf',
+      error
+    );
+
+    throw error;
+  }
+  finally {
+
+    console.groupEnd();
+  }
+}
+
+async addDocumentsQueueBulk(
+  request: DocumentQueueBulkRequest
+): Promise<DocumentQueueResponse> {
+
+  debugger;
+
+  console.group('📨 ADD DOCUMENTS QUEUE BULK');
+
+  console.log('📤 Endpoint',
+    this.buildUrl('api/documentos/queue/add-bulk'));
+
+  console.log('📄 Request', request);
+
+  console.log('📊 Total items',
+    request.items?.length ?? 0);
+
+  console.table(
+    (request.items ?? []).map(x => ({
+      dqNumber: x.dqNumber,
+      dqDocId: x.dqDocId,
+      dqDocTypeId: x.dqDocTypeId,
+      dqAction: x.dqAction
+    }))
+  );
+
+  try {
+
+    console.time('⏱️ addDocumentsQueueBulk');
+
+    const response = await firstValueFrom(
+  this.http.post<DocumentQueueResponse>(
+    this.buildUrl('api/documentos/queue/add-bulk'),
+    request
+  )
+);
+
+    
+
+    console.timeEnd('⏱️ addDocumentsQueueBulk');
+
+    console.log('✅ Response', response);
+
+    return response;
+
+  }
+  catch (error) {
+
+    console.error(
+      '❌ Error addDocumentsQueueBulk',
+      error
+    );
+
+    throw error;
+  }
+  finally {
+
+    console.groupEnd();
+  }
+}
+
+async sendMail(
+  request: SendMailConfigResponse
+): Promise<SendMailResponse> {
+
+  console.group('📧 SEND MAIL');
+
+  console.log('📤 Endpoint',
+    this.buildUrl('api/documentos/send-mail/send'));
+
+  console.log('📄 Request', request);
+
+  try {
+    console.time('⏱️ sendMail');
+
+    const response = await firstValueFrom(
+      this.http.post<SendMailResponse>(
+        this.buildUrl('api/documentos/send-mail/send'),
+        request
+      )
+    );
+
+    console.timeEnd('⏱️ sendMail');
+    console.log('✅ Response sendMail', response);
+
+    return response;
+  }
+  catch (error) {
+    console.error('❌ Error sendMail', error);
+    throw error;
+  }
+  finally {
+    console.groupEnd();
+  }
+}
 
 }

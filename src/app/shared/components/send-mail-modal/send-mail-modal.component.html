@@ -1,4 +1,4 @@
-@if (visible) {
+@if (visible && form) {
   <div class="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4">
     <div class="bg-white w-[760px] max-w-[95vw] resize overflow-auto rounded-sm shadow-xl border border-neutral-300 min-w-[420px] min-h-[420px] max-h-[90vh]">
 
@@ -19,67 +19,240 @@
       <!-- Body -->
       <div class="px-4 py-5 space-y-3">
 
-        <div>
-          <label class="block text-sm font-bold text-neutral-600 mb-2">
-            Seleccione el tipo de Envio
-          </label>
+        @if (form.pnlCombo) {
+          <div>
+            <label class="block text-sm font-bold text-neutral-600 mb-2">
+              Seleccione el tipo de Envio
+            </label>
 
-          <select
-            [(ngModel)]="form.tipoEnvio"
-            class="w-full h-11 rounded border border-neutral-300 px-3 text-neutral-600 focus:outline-none focus:ring-1 focus:ring-blue-400">
-            <option value="Mail">Mail</option>
-            <option value="Impresion">Impresión</option>
-            <option value="Ambos">Ambos</option>
-          </select>
-        </div>
+            <select
+              [(ngModel)]="form.tipodeEnvio"
+              (change)="onSendTypeChange()"
+              class="w-full h-11 rounded border border-neutral-300 px-3 text-neutral-600 focus:outline-none focus:ring-1 focus:ring-blue-400">
 
-        <div>
-          <label class="block text-sm font-bold text-neutral-600 mb-2">
-            Para
-          </label>
+              @for (item of form.tipodeEnvioList; track item.value) {
+                <option [value]="item.value">
+                  {{ item.text }}
+                </option>
+              }
 
-          <input
-            type="text"
-            [(ngModel)]="form.para"
-            class="w-full h-11 rounded border border-neutral-300 px-3 text-neutral-600 focus:outline-none focus:ring-1 focus:ring-blue-400"
-          />
-        </div>
+            </select>
+          </div>
+        }
 
-        <div>
-          <label class="block text-sm font-bold text-neutral-600 mb-2">
-            Subject
-          </label>
+        <!-- MAIL -->
+        @if (form.pnlHome) {
+          <div>
+            <label class="block text-sm font-bold text-neutral-600 mb-2">
+              Para
+            </label>
 
-          <input
-            type="text"
-            [(ngModel)]="form.subject"
-            class="w-full h-11 rounded border border-neutral-300 px-3 text-neutral-600 focus:outline-none focus:ring-1 focus:ring-blue-400"
-          />
-        </div>
+            <input
+              type="text"
+              [(ngModel)]="form.para"
+              class="w-full h-11 rounded border border-neutral-300 px-3 text-neutral-600 focus:outline-none focus:ring-1 focus:ring-blue-400"
+            />
+          </div>
 
-        <div>
-          <label class="block text-sm font-bold text-neutral-600 mb-2">
-            Body
-          </label>
+          <div>
+            <label class="block text-sm font-bold text-neutral-600 mb-2">
+              Subject
+            </label>
 
-          <textarea
-            [(ngModel)]="form.body"
-            rows="5"
-            class="w-full min-h-[100px] rounded border border-neutral-300 px-3 py-2 text-neutral-600 resize both focus:outline-none focus:ring-1 focus:ring-blue-400">
-          </textarea>
-        </div>
+            <input
+              type="text"
+              [(ngModel)]="form.subject"
+              class="w-full h-11 rounded border border-neutral-300 px-3 text-neutral-600 focus:outline-none focus:ring-1 focus:ring-blue-400"
+            />
+          </div>
 
-        <div>
-          <label class="block text-sm font-bold text-neutral-600 mb-2">
-            Dato Adjunto
-          </label>
+          <div>
+            <label class="block text-sm font-bold text-neutral-600 mb-2">
+              Body
+            </label>
 
-          <input
-            type="text"
-            [(ngModel)]="form.adjunto"
-            class="w-full h-11 rounded border border-neutral-300 px-3 text-neutral-600 focus:outline-none focus:ring-1 focus:ring-blue-400"
-          />
-        </div>
+            <textarea
+              [(ngModel)]="form.body"
+              rows="5"
+              class="w-full min-h-[100px] rounded border border-neutral-300 px-3 py-2 text-neutral-600 resize both focus:outline-none focus:ring-1 focus:ring-blue-400">
+            </textarea>
+          </div>
+
+          <div>
+            <label class="block text-sm font-bold text-neutral-600 mb-2">
+              Dato Adjunto
+            </label>
+
+           <input
+  type="text"
+  [(ngModel)]="form!.datoAdjunto"
+  readonly
+  class="w-full h-11 rounded border border-neutral-300 px-3 text-neutral-600 bg-neutral-100"
+/>
+          </div>
+        }
+
+        <!-- FTP -->
+        @if (form.pnlFTP) {
+          <div>
+            <label class="block text-sm font-bold text-neutral-600 mb-2">
+              Host:
+            </label>
+
+            <input
+              type="text"
+              [(ngModel)]="form.hostFTP"
+              class="w-full h-11 rounded border border-neutral-300 px-3 text-neutral-600 focus:outline-none focus:ring-1 focus:ring-blue-400"
+            />
+          </div>
+
+          <div>
+            <label class="block text-sm font-bold text-neutral-600 mb-2">
+              Usuario:
+            </label>
+
+            <input
+              type="text"
+              [(ngModel)]="form.userFTP"
+              class="w-full h-11 rounded border border-neutral-300 px-3 text-neutral-600 focus:outline-none focus:ring-1 focus:ring-blue-400"
+            />
+          </div>
+
+          <div>
+            <label class="block text-sm font-bold text-neutral-600 mb-2">
+              Path Destino:
+            </label>
+
+            <input
+              type="text"
+              [(ngModel)]="form.pathFTP"
+              class="w-full h-11 rounded border border-neutral-300 px-3 text-neutral-600 focus:outline-none focus:ring-1 focus:ring-blue-400"
+            />
+          </div>
+
+          <div>
+            <label class="block text-sm font-bold text-neutral-600 mb-2">
+              Archivos:
+            </label>
+
+            <input
+              type="text"
+              [(ngModel)]="form.filesFTP"
+              readonly
+              class="w-full h-11 rounded border border-neutral-300 px-3 text-neutral-600 bg-neutral-100"
+            />
+          </div>
+        }
+
+        <!-- COPY -->
+        @if (form.pnlCOPY) {
+          <div>
+            <label class="block text-sm font-bold text-neutral-600 mb-2">
+              Ruta Destino:
+            </label>
+
+            <input
+              type="text"
+              [(ngModel)]="form.rutaDestino"
+              class="w-full h-11 rounded border border-neutral-300 px-3 text-neutral-600 focus:outline-none focus:ring-1 focus:ring-blue-400"
+            />
+          </div>
+
+          <div>
+            <label class="block text-sm font-bold text-neutral-600 mb-2">
+              Archivos:
+            </label>
+
+            <input
+              type="text"
+              [(ngModel)]="form.filesCopy"
+              readonly
+              class="w-full h-11 rounded border border-neutral-300 px-3 text-neutral-600 bg-neutral-100"
+            />
+          </div>
+        }
+
+        <!-- SFTP -->
+        @if (form.pnlSFTP) {
+          <div>
+            <label class="block text-sm font-bold text-neutral-600 mb-2">
+              Ruta de Llave:
+            </label>
+
+            <input
+              type="text"
+              [(ngModel)]="form.key"
+              class="w-full h-11 rounded border border-neutral-300 px-3 text-neutral-600 focus:outline-none focus:ring-1 focus:ring-blue-400"
+            />
+          </div>
+
+          <div>
+            <label class="block text-sm font-bold text-neutral-600 mb-2">
+              Ruta Origen:
+            </label>
+
+            <input
+              type="text"
+              [(ngModel)]="form.pathFrom"
+              class="w-full h-11 rounded border border-neutral-300 px-3 text-neutral-600 focus:outline-none focus:ring-1 focus:ring-blue-400"
+            />
+          </div>
+
+          <div>
+            <label class="block text-sm font-bold text-neutral-600 mb-2">
+              Ruta Destino:
+            </label>
+
+            <input
+              type="text"
+              [(ngModel)]="form.pathTo"
+              class="w-full h-11 rounded border border-neutral-300 px-3 text-neutral-600 focus:outline-none focus:ring-1 focus:ring-blue-400"
+            />
+          </div>
+
+          <div>
+            <label class="block text-sm font-bold text-neutral-600 mb-2">
+              Server Destino:
+            </label>
+
+            <input
+              type="text"
+              [(ngModel)]="form.serverTo"
+              class="w-full h-11 rounded border border-neutral-300 px-3 text-neutral-600 focus:outline-none focus:ring-1 focus:ring-blue-400"
+            />
+          </div>
+        }
+
+        <!-- VAR -->
+        @if (form.pnlVar) {
+          <div class="rounded border border-neutral-300 bg-neutral-50 px-4 py-3 text-neutral-700">
+            Se insertó el evento de envío.
+          </div>
+        }
+
+        <!-- WS -->
+        @if (form.pnlWS) {
+          <div class="rounded border border-neutral-300 bg-neutral-50 px-4 py-3 text-neutral-700">
+            Envío por Web Service.
+          </div>
+        }
+
+        <!-- FILES
+        @if (form.files?.length) {
+          <div class="border rounded p-3 bg-neutral-50">
+            <div class="font-semibold text-sm mb-2 text-neutral-700">
+              Archivos adjuntos
+            </div>
+
+            <ul class="space-y-1">
+              @for (file of form.files; track file.fileName) {
+                <li class="text-sm text-neutral-700">
+                  📄 {{ file.fileName }}
+                </li>
+              }
+            </ul>
+          </div>
+        } -->
 
       </div>
 
@@ -87,7 +260,7 @@
       <div class="flex justify-end gap-3 px-4 py-4 bg-neutral-100 border-t border-neutral-200">
         <button
           type="button"
-          (click)="accept.emit()"
+          (click)="accept.emit(form)"
           class="px-5 py-2 rounded bg-slate-700 text-white font-semibold hover:bg-slate-800">
           Aceptar
         </button>

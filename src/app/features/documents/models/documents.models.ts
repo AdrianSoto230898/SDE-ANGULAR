@@ -113,3 +113,20 @@ export interface SendMailConfigResponse {
   doId: string;
   doNumber: string;
 }
+export interface LegacyPdfRequest {
+  documentType: string;
+  documentNumber: string;
+  documentId: string;
+  userId: string;
+} 
+
+export interface DocumentQueueRequest {
+  dqNumber: string;
+  dqDocId: number;
+  dqDocTypeId: string;
+  dqAction: string;
+}
+
+export interface DocumentQueueBulkRequest {
+  items: DocumentQueueRequest[];
+}

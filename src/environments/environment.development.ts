@@ -1,7 +1,7 @@
 export const environment = {
   production: false,
-  URL_API: 'https://localhost:44364/',
-  URL_API_SDE: 'https://localhost:44394/',
+  URL_API: 'https://localhost:5001/',
+  URL_API_SDE: 'https://localhost:5001/',
   APP_ID: 'e6e4a920-725e-4a9d-9f9f-3bbcb8baf7e2',
   USER_CLAIMS: 'e9348a0f-d0b1-4ed7-bd5e-6906719c6fc9',
   AZURE_AD: 'c180e540-dd75-48c5-af5f-dcc3e210504b',

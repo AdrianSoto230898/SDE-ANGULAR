@@ -10,6 +10,7 @@ import {
   DocumentGridItem,
   DocumentGridPageResponse,
   DocumentMultifileRequest,
+  DocumentQueueBulkRequest,
   DocumentTypeOption,
 } from '../models/documents.models';
 import { DocumentsApiService } from '../services/documents-api.service';
@@ -21,6 +22,7 @@ import { CustomInputComponent } from '../../../shared/components/ui-elements/cus
 import { DateInputComponent } from '../../../shared/components/ui-elements/date-input/date-input.component';
 import { DateRange } from '../../../shared/components/ui-elements/custom-date/custom-date.component';
 import { SendMailModalComponent } from '../../../shared/components/send-mail-modal/send-mail-modal.component';
+import { SendMailConfigResponse } from '../../../shared/models/popSend/popSend.model';
 
 const EMPTY_FIELDS_RESPONSE: DocumentFieldsResponse = {
   documentType: '',
@@ -86,13 +88,7 @@ readonly groupedFilterHeaders = signal<DocumentField[]>([]);
 
 
 readonly showSendModal = signal(false);
-readonly sendMailForm = signal({
-  tipoEnvio: 'Mail',
-  para: '',
-  subject: '',
-  body: '',
-  adjunto: ''
-});
+readonly sendMailForm = signal<SendMailConfigResponse | null>(null);
 
   private readonly DUMMY_DOCUMENT_TYPES: DocumentTypeOption[] = [
     { code: 'FAC', name: 'Factura' },
@@ -325,11 +321,11 @@ readonly tableColumns = computed<ColumnDef[]>(() => {
       header: 'Crear',
       type: 'text'
     },
-    {
-      key: 'imprimir',
-      header: 'Imprimir',
-      type: 'text'
-    },
+    // {
+    //   key: 'imprimir',
+    //   header: 'Imprimir',
+    //   type: 'text'
+    // },
     ...dynCols
   );
 
@@ -466,14 +462,58 @@ async onGroupedDocumentTypeChange(option: MyOptionType | null): Promise<void> {
 
   this.gridResource.reload();
 }
-  async exportExcel(): Promise<void> {
-    try {
-      await this.documentsApi.exportExcel(this.buildExportRequest());
-      this.actionMessage.set({ kind: 'success', text: 'Se genero el archivo de Excel con los filtros actuales.' });
-    } catch (error) {
-      this.handleActionError('No fue posible exportar a Excel.', error);
-    }
+async exportExcel(): Promise<void> {
+  const request = this.buildExportRequest();
+
+  const documentTypeAgr =
+    this.selectedMenuLabel()?.trim() ||
+    this.selectedDocumentType()?.trim() ||
+    'DOCUMENTOS';
+
+  const subDocument =
+    this.selectedGroupedDocumentType()?.trim();
+
+  const fileName = subDocument
+    ? `${documentTypeAgr}_${subDocument}_Excel.xlsx`
+    : `${documentTypeAgr}_Excel.xlsx`;
+
+  console.group('📊 EXPORT EXCEL');
+  console.log('📤 Request', request);
+  console.log('📌 DocumentType', request.documentType);
+  console.log('📅 DateFrom', request.dateFrom);
+  console.log('📅 DateTo', request.dateTo);
+  console.log('🔎 Filters', request.filters);
+  console.log('👤 UserId', request.userId);
+  console.log('🗂️ FileName', fileName);
+
+  try {
+    console.time('⏱️ exportExcel');
+
+    await this.documentsApi.exportExcel(
+      request,
+      fileName
+    );
+
+    console.timeEnd('⏱️ exportExcel');
+
+    console.log('✅ Excel descargado correctamente');
+
+    this.actionMessage.set({
+      kind: 'success',
+      text: 'Se generó el archivo de Excel con los filtros actuales.'
+    });
+
+  } catch (error) {
+    console.error('❌ Error exportExcel', error);
+
+    this.handleActionError(
+      'No fue posible exportar a Excel.',
+      error
+    );
+  } finally {
+    console.groupEnd();
   }
+}
 
   async exportConciliation(): Promise<void> {
     try {
@@ -493,33 +533,155 @@ async onGroupedDocumentTypeChange(option: MyOptionType | null): Promise<void> {
     }
   }
 
-  async downloadSelectedDocuments(type: 'Multi' | 'Pdf'): Promise<void> {
-    const items = this.selectedMultifileItems();
-    if (items.length === 0) {
-      this.actionMessage.set({ kind: 'info', text: 'Selecciona al menos un documento para la descarga multiple.' });
-      return;
-    }
+//  async downloadSelectedDocuments(
+//   type: 'Multi' | 'Pdf'
+// ): Promise<void> {
 
-    const request: DocumentMultifileRequest = {
-      type,
-      documentType: this.selectedDocumentType(),
-      userId: this.currentUserEmail(),
-      items
-    };
+//   const items = this.selectedMultifileItems();
 
-    try {
-      await this.documentsApi.downloadMultifile(request);
-      this.actionMessage.set({
-        kind: 'success',
-        text: type === 'Multi'
-          ? 'Se descargo el ZIP de los documentos seleccionados.'
-          : 'Se genero el PDF combinado de los documentos seleccionados.'
-      });
-    } catch (error) {
-      this.handleActionError('No fue posible descargar los documentos seleccionados.', error);
-    }
+//   if (items.length === 0) {
+
+//     this.actionMessage.set({
+//       kind: 'info',
+//       text: 'Selecciona al menos un documento para la descarga múltiple.'
+//     });
+
+//     return;
+//   }
+
+//   const request: DocumentMultifileRequest = {
+//     type,
+//     documentType: this.selectedDocumentType(),
+//     userId: this.currentUserEmail(),
+//     items
+//   };
+
+//   const documentTypeAgr =
+//     this.selectedMenuLabel()?.trim() ||
+//     this.selectedDocumentType()?.trim() ||
+//     'DOCUMENTOS';
+
+//   const subDocument =
+//     this.selectedGroupedDocumentType()?.trim();
+
+//   const fileName = subDocument
+//     ? `${documentTypeAgr}_${subDocument}_Masivo.zip`
+//     : `${documentTypeAgr}_Masivo.zip`;
+
+//   console.group('📦 DESCARGA MASIVA');
+
+//   console.log('📤 Request', request);
+
+//   console.log('🗂️ FileName', fileName);
+
+//   try {
+
+//     await this.documentsApi.downloadMultifile(
+//       request,
+//       fileName
+//     );
+
+//     console.log('✅ Descarga completada');
+
+//     this.actionMessage.set({
+//       kind: 'success',
+//       text: 'Se descargó el ZIP de los documentos seleccionados.'
+//     });
+
+//   }
+//   catch (error) {
+
+//     console.error(
+//       '❌ Error descarga masiva',
+//       error
+//     );
+
+//     this.handleActionError(
+//       'No fue posible descargar los documentos seleccionados.',
+//       error
+//     );
+//   }
+//   finally {
+
+//     console.groupEnd();
+//   }
+// }
+async downloadSelectedDocuments(
+  type: 'Multi' | 'Pdf'
+): Promise<void> {
+
+  const selectedItems = this.selectedMultifileItems();
+
+  if (selectedItems.length === 0) {
+
+    this.actionMessage.set({
+      kind: 'info',
+      text: 'Selecciona al menos un documento.'
+    });
+
+    return;
   }
 
+  const request: DocumentMultifileRequest = {
+
+    type,
+
+    userId: this.currentUserEmail(),
+
+    documentType: this.selectedDocumentType(),
+
+    items: selectedItems.map(x => ({
+      id: Number(x.id),
+      remision: String(x.remision)
+    }))
+  };
+
+  const documentTypeAgr =
+    this.selectedMenuLabel()?.trim() ||
+    this.selectedDocumentType();
+
+  const subDocument =
+    this.selectedGroupedDocumentType()?.trim();
+
+  const fileName = subDocument
+    ? `${documentTypeAgr}_${subDocument}_Masivo.zip`
+    : `${documentTypeAgr}_Masivo.zip`;
+
+  console.group('📦 REQUEST DESCARGA MASIVA');
+
+  console.log(request);
+
+  console.log('🗂️ fileName', fileName);
+
+  try {
+
+    await this.documentsApi.downloadMultifile(
+      request,
+      fileName
+    );
+
+    this.selectedRows.set({});
+
+    this.actionMessage.set({
+      kind: 'success',
+      text: 'Descarga completada.'
+    });
+
+  }
+  catch (error) {
+
+    console.error(error);
+
+    this.handleActionError(
+      'No fue posible descargar los documentos.',
+      error
+    );
+  }
+  finally {
+
+    console.groupEnd();
+  }
+}
   async queueSelectedRegeneration(): Promise<void> {
     const items = this.selectedQueueItems();
     if (items.length === 0) {
@@ -538,6 +700,7 @@ async onGroupedDocumentTypeChange(option: MyOptionType | null): Promise<void> {
     }
   }
 
+  
   onTableView(row: any): void {
     debugger;
     const item = row._rowRef as DocumentGridItem;
@@ -626,6 +789,23 @@ async setDocumentTypeFromMenu(type: string): Promise<void> {
   applyFilters(): void {
     debugger;
     console.log('filtros');
+
+  const fromDate = new Date(this.draftDateFrom());
+  const toDate = new Date(this.draftDateTo());
+
+  const diffMonths =
+    (toDate.getFullYear() - fromDate.getFullYear()) * 12 +
+    (toDate.getMonth() - fromDate.getMonth());
+
+  if (diffMonths > 3) {
+
+    this.actionMessage.set({
+      kind: 'error',
+      text: 'El rango entre DESDE y HASTA no puede superar 3 meses.'
+    });
+
+    return;
+  }
     this.submittedDateFrom.set(this.draftDateFrom());
     this.submittedDateTo.set(this.draftDateTo());
     this.submittedFilters.set(this.cleanFilters(this.draftFilters()));
@@ -957,24 +1137,68 @@ onSendDocument(row: any): void {
 //   }
 // }
 
+// async onCreatePdf(row: any): Promise<void> {
+//   const item = row._rowRef as DocumentGridItem;
+
+//   try {
+//     // await this.documentsApi.makePdf({
+//     //   documentType: (item as any).docType ?? this.selectedDocumentType(),
+//     //   documentId: this.parseDocumentId(item.documentId),
+//     //   documentNumber: item.documentNumber
+//     // });
+
+//     this.actionMessage.set({
+//       kind: 'success',
+//       text: 'El documento se envió a generación/recreación.'
+//     });
+
+//     this.gridResource.reload();
+//   } catch (error) {
+//     this.handleActionError('No fue posible generar/recrear el PDF.', error);
+//   }
+// }
+
 async onCreatePdf(row: any): Promise<void> {
-  const item = row._rowRef as DocumentGridItem;
+  debugger;
+
+  console.group('🚀 ON CREATE PDF');
+
+  console.log('📥 Row recibido', row);
+
+  const request = {
+    documentType: this.selectedDocumentType(),
+    documentId: String(row.id),
+    documentNumber: String(row.nro_pedido),
+    userId: this.currentUserEmail?.() ?? ''
+  };
+
+  console.log('📤 Request generateLegacyPdf', request);
 
   try {
-    // await this.documentsApi.makePdf({
-    //   documentType: (item as any).docType ?? this.selectedDocumentType(),
-    //   documentId: this.parseDocumentId(item.documentId),
-    //   documentNumber: item.documentNumber
-    // });
+    console.time('⏱️ generateLegacyPdf');
+
+    const response = await this.documentsApi.generateLegacyPdf(request);
+
+    console.timeEnd('⏱️ generateLegacyPdf');
+
+    console.log('✅ Response generateLegacyPdf', response);
 
     this.actionMessage.set({
-      kind: 'success',
-      text: 'El documento se envió a generación/recreación.'
+      kind: response.error ? 'error' : 'success',
+      text: response.message || 'PDF generado/recreado correctamente.'
     });
 
     this.gridResource.reload();
+
   } catch (error) {
-    this.handleActionError('No fue posible generar/recrear el PDF.', error);
+    console.error('❌ Error onCreatePdf', error);
+
+    this.handleActionError(
+      'No fue posible generar/recrear el PDF.',
+      error
+    );
+  } finally {
+    console.groupEnd();
   }
 }
 
@@ -1185,38 +1409,110 @@ private buildXmlFileRequest(item: DocumentGridItem) {
     userId: this.currentUserEmail()
   };
 }
+async openSendDialog(item: DocumentGridItem): Promise<void> {
 
-openSendDialog(item: DocumentGridItem): void {
-  this.sendMailForm.set({
-    tipoEnvio: 'Mail',
-    para: item.dynamicItems?.['email'] ?? 'c.ralvag@ternium.com.mx',
-    subject: `TERNIUM Notificación - Solicitudes de Ordenes de Compra (${item.documentType}).SOC NCA`,
-    body: `Estimado Cliente: A continuación le anexo el set de documentos de su mercancía.
+  console.group('📧 OPEN SEND DIALOG');
 
-En caso de que considere improcedente lo contenido en este correo electrónico, favor de responderlo especificando el motivo.
+  console.log('📄 Item', item);
 
-Saludos Cordiales`,
-    adjunto: `${item.documentNumber}.pdf, XC${item.documentNumber}.xml`
-  });
+  try {
 
-  this.showSendModal.set(true);
+    const response = await this.documentsApi.getSendMailConfig({
+      docType: (item as any).docType ?? item.documentType,
+      doId: String(item.documentId),
+      doNumber: item.documentNumber
+    });
+
+    console.log('✅ SendMailConfigResponse', response);
+
+    this.sendMailForm.set(response);
+
+    this.showSendModal.set(true);
+
+  }
+  catch (error) {
+
+    console.error('❌ Error openSendDialog', error);
+
+    this.handleActionError(
+      'No fue posible cargar el popup de envío.',
+      error
+    );
+  }
+  finally {
+
+    console.groupEnd();
+  }
 }
 
 closeSendDialog(): void {
   this.showSendModal.set(false);
 }
 
-acceptSendDialog(): void {
-  const data = this.sendMailForm();
+async acceptSendDialog(): Promise<void> {
 
-  console.log('ENVIAR MAIL 👉', data);
+  console.group('📧 ACCEPT SEND DIALOG');
 
-  // aquí después llamas tu API
-  // await this.documentsApi.sendMail(data);
+  const model = this.sendMailForm();
 
-  this.showSendModal.set(false);
+  console.log('📄 Model', model);
+
+  if (!model) {
+
+    console.warn('⚠️ No existe modelo para enviar.');
+
+    console.groupEnd();
+
+    return;
+  }
+
+  try {
+
+    console.time('⏱️ acceptSendDialog');
+
+    console.log('📤 Enviando documento...');
+    console.log('📄 DocType', model.docType);
+    console.log('🆔 DoId', model.doId);
+    console.log('🔢 DoNumber', model.doNumber);
+    console.log('📨 TipoEnvio', model.tipodeEnvio);
+    console.log('👤 Para', model.para);
+
+    const response =
+      await this.documentsApi.sendMail(model);
+
+    console.log('✅ Response sendMail', response);
+
+    this.actionMessage.set({
+      kind: response.error ? 'error' : 'success',
+      text: response.detail || response.message
+    });
+
+    if (!response.error) {
+
+      console.log('🔄 Cerrando modal...');
+      console.log('🔄 Recargando grid...');
+
+      this.showSendModal.set(false);
+
+      this.gridResource.reload();
+    }
+
+    console.timeEnd('⏱️ acceptSendDialog');
+  }
+  catch (error) {
+
+    console.error('❌ Error acceptSendDialog', error);
+
+    this.handleActionError(
+      'No fue posible enviar el documento.',
+      error
+    );
+  }
+  finally {
+
+    console.groupEnd();
+  }
 }
-
 readonly selectedDocumentsForMassive = computed(() =>
   this.gridRows()
     .filter((item: any) => this.isRowSelected(item))
@@ -1261,6 +1557,28 @@ readonly selectedDocumentsForMassive = computed(() =>
 //   }
 // }
 
+// async sendMassiveSelected(): Promise<void> {
+//   const documents = this.selectedDocumentsForMassive();
+
+//   if (documents.length === 0) {
+//     this.actionMessage.set({
+//       kind: 'info',
+//       text: 'Selecciona al menos un documento para envío masivo.'
+//     });
+//     return;
+//   }
+
+//   console.log('ENVÍO MASIVO 👉', documents);
+
+//   // Luego aquí llamas API:
+//   // await this.documentsApi.sendMassive({ documents, userId: this.currentUserEmail() });
+
+//   this.actionMessage.set({
+//     kind: 'info',
+//     text: 'Envío masivo preparado.'
+//   });
+// }
+
 async sendMassiveSelected(): Promise<void> {
   const documents = this.selectedDocumentsForMassive();
 
@@ -1272,55 +1590,240 @@ async sendMassiveSelected(): Promise<void> {
     return;
   }
 
-  console.log('ENVÍO MASIVO 👉', documents);
+  const request: DocumentQueueBulkRequest = {
+    items: documents.map(x => ({
+      dqNumber: String(x.doNumber),
+      dqDocId: Number(x.doId),
+      dqDocTypeId: String(x.docType),
+      dqAction: 'SEND'
+    }))
+  };
 
-  // Luego aquí llamas API:
-  // await this.documentsApi.sendMassive({ documents, userId: this.currentUserEmail() });
+  console.group('📨 ENVÍO MASIVO');
+  console.log('📤 Request', request);
+  console.table(request.items);
 
-  this.actionMessage.set({
-    kind: 'info',
-    text: 'Envío masivo preparado.'
-  });
+  try {
+    const response = await this.documentsApi.addDocumentsQueueBulk(request);
+
+    this.actionMessage.set({
+      kind: response.error ? 'error' : 'success',
+      text: response.message || (
+        response.error
+          ? 'No fue posible enviar los documentos.'
+          : 'Documentos enviados a cola de envío masivo.'
+      )
+    });
+
+    if (!response.error) {
+      this.selectedRows.set({});
+      this.gridResource.reload();
+    }
+
+  } catch (error) {
+    console.error('❌ Error envío masivo', error);
+
+    this.handleActionError(
+      'No fue posible ejecutar el envío masivo.',
+      error
+    );
+  } finally {
+    console.groupEnd();
+  }
 }
 
-async downloadMassiveSelected(): Promise<void> {
+// async downloadMassiveSelected(): Promise<void> {
+//   debugger;
+//   const documents = this.selectedDocumentsForMassive();
+// // const documentTypeC = this.selectedDocumentType();   // ejemplo: SOC
+//   if (documents.length === 0) {
+//     this.actionMessage.set({
+//       kind: 'info',
+//       text: 'Selecciona al menos un documento.'
+//     });
+//     return;
+//   }
+// const documentTypeAgr = this.selectedMenuLabel() || this.selectedDocumentType();
+// const subDocument = this.selectedGroupedDocumentType();
+// const fileName = `${documentTypeAgr}_${subDocument}_Masivo.zip`;
+
+//   const request = {
+//     documentTypeAgrup: documentTypeAgr,
+//     documentType: subDocument,
+//     userId: this.currentUserEmail(),
+//     documents,
+//     fileName
+//   };
+
+
+
+
+//   // 🔥 PRINT BONITO
+//   console.log('📦 REQUEST DESCARGA MASIVA 👉');
+//   console.log(JSON.stringify(request, null, 2));
+
+//   try {
+//     await this.documentsApi.downloadMassiveZip(request);
+
+//     this.actionMessage.set({
+//       kind: 'success',
+//       text: 'Se generó la descarga masiva.'
+//     });
+//   } catch (error) {
+//     this.handleActionError('Error en descarga masiva', error);
+//   }
+// }
+
+// async generateLegacyPdfSelected(): Promise<void> {
+
+//   console.group('🚀 GENERATE LEGACY PDF MASSIVE');
+
+//   const items = this.selectedQueueItems();
+
+//   console.log('📦 selectedQueueItems()', items);
+
+//   if (items.length === 0) {
+
+//     console.warn('⚠️ No hay documentos seleccionados.');
+
+//     this.actionMessage.set({
+//       kind: 'info',
+//       text: 'Selecciona al menos un documento.'
+//     });
+
+//     console.groupEnd();
+
+//     return;
+//   }
+
+//  const request = {
+
+//     documentType: this.selectedDocumentType(),
+
+//     documentIds: items.map(x => String(x.id)),
+
+//     documentNumbers: items.map(x => String(x.remision)),
+
+//     userId: this.currentUserEmail()
+//   };
+
+//   console.log('📤 Request generateLegacyPdf', request);
+
+//   try {
+
+//     console.time('⏱️ generateLegacyPdf');
+
+//     const response =
+//       await this.documentsApi.generateLegacyPdf(request);
+
+//     console.timeEnd('⏱️ generateLegacyPdf');
+
+//     console.log('✅ Response generateLegacyPdf', response);
+
+//     this.actionMessage.set({
+//       kind: response.error ? 'error' : 'success',
+//       text:
+//         response.message ||
+//         'PDF generado/recreado correctamente.'
+//     });
+
+//     console.log('🔄 Reloading gridResource...');
+
+//     this.gridResource.reload();
+
+//     console.log('✅ gridResource reloaded');
+
+//   }
+//   catch (error) {
+
+//     console.error(
+//       '❌ Error generateLegacyPdfSelected',
+//       error
+//     );
+
+//     this.handleActionError(
+//       'No fue posible generar/recrear los PDF.',
+//       error
+//     );
+//   }
+//   finally {
+
+//     console.groupEnd();
+//   }
+// }
+
+async generateLegacyPdfSelected(): Promise<void> {
+
+  console.group('🚀 GENERAR/RECREAR MASIVO');
+
   const documents = this.selectedDocumentsForMassive();
-// const documentTypeC = this.selectedDocumentType();   // ejemplo: SOC
+
   if (documents.length === 0) {
+
     this.actionMessage.set({
       kind: 'info',
       text: 'Selecciona al menos un documento.'
     });
+
+    console.groupEnd();
+
     return;
   }
-const documentTypeAgr = this.selectedMenuLabel() || this.selectedDocumentType();
-const subDocument = this.selectedGroupedDocumentType();
-const fileName = `${documentTypeAgr}_${subDocument}_Masivo.zip`;
 
-  const request = {
-    documentTypeAgrup: documentTypeAgr,
-    documentType: subDocument,
-    userId: this.currentUserEmail(),
-    documents,
-    fileName
+  const request: DocumentQueueBulkRequest = {
+    items: documents.map(x => ({
+      dqNumber: String(x.doNumber),
+      dqDocId: Number(x.doId),
+      dqDocTypeId: String(x.docType),
+      dqAction: 'PDF'
+    }))
   };
 
-
-
-
-  // 🔥 PRINT BONITO
-  console.log('📦 REQUEST DESCARGA MASIVA 👉');
-  console.log(JSON.stringify(request, null, 2));
+  console.log('📤 Request', request);
 
   try {
-    await this.documentsApi.downloadMassiveZip(request);
+
+    console.time('⏱️ generate/recreate');
+
+    const response =
+      await this.documentsApi.addDocumentsQueueBulk(request);
+
+    console.timeEnd('⏱️ generate/recreate');
+
+    console.log('✅ Response', response);
 
     this.actionMessage.set({
-      kind: 'success',
-      text: 'Se generó la descarga masiva.'
+      kind: response.error ? 'error' : 'success',
+      text:
+        response.message ||
+        (
+          response.error
+            ? 'No fue posible generar/recrear.'
+            : 'Documentos enviados a cola de generación/recreación.'
+        )
     });
-  } catch (error) {
-    this.handleActionError('Error en descarga masiva', error);
+
+    if (!response.error) {
+      this.selectedRows.set({});
+      this.gridResource.reload();
+    }
+
+  }
+  catch (error) {
+
+    console.error(
+      '❌ Error generateLegacyPdfSelected',
+      error
+    );
+
+    this.handleActionError(
+      'No fue posible generar/recrear los PDF.',
+      error
+    );
+  }
+  finally {
+
+    console.groupEnd();
   }
 }
 
