@@ -10,7 +10,7 @@
       Principal
     </h6>
 
-    <!-- DASHBOARD -->
+    <!-- f -->
     <a [routerLink]="'/main/dashboard'" routerLinkActive="bg-white text-neutral-900 dark:bg-neutral-700 dark:text-white"
       [routerLinkActiveOptions]="{ exact: true }"
       class="group flex items-center gap-3 px-3 py-2 rounded-full text-neutral-600 dark:text-neutral-300 hover:bg-white dark:hover:bg-neutral-700 transition-colors">
@@ -44,6 +44,12 @@
    routerLinkActive="bg-white dark:bg-neutral-700 text-neutral-900 dark:text-white"
    class="flex items-center gap-2 px-2.5 py-2 rounded-lg text-neutral-600 dark:text-neutral-300 hover:bg-white dark:hover:bg-neutral-700 transition-colors text-sm">
   ASN
+</a>
+<a [routerLink]="'/documents'"
+   [queryParams]="{ type: 'DR' }"
+   routerLinkActive="bg-white dark:bg-neutral-700 text-neutral-900 dark:text-white"
+   class="flex items-center gap-2 px-2.5 py-2 rounded-lg text-neutral-600 dark:text-neutral-300 hover:bg-white dark:hover:bg-neutral-700 transition-colors text-sm">
+  Documentos Relacionados
 </a>
 
   </div>
