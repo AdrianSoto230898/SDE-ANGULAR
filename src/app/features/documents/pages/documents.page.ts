@@ -304,23 +304,23 @@ readonly tableColumns = computed<ColumnDef[]>(() => {
     },
     {
       key: 'acciones',
-      header: 'Status',
+      header: 'Estatus',
       widthClass: 'w-28',
       // actions: [
       //   { id: 'view', icon: 'ph ph-file-pdf', click: (_row: any) => {} },
       //   { id: 'edit', icon: 'ph ph-download-simple', click: (_row: any) => {} }
       // ]
     },
-{
-  key: 'enviar',
-  header: 'Enviar',
-  type: 'text'
-},
-    {
-      key: 'crear',
-      header: 'Crear',
-      type: 'text'
-    },
+// {
+//   key: 'enviar',
+//   header: 'Enviar',
+//   type: 'text'
+// },
+//     {
+//       key: 'crear',
+//       header: 'Crear',
+//       type: 'text'
+//     },
     // {
     //   key: 'imprimir',
     //   header: 'Imprimir',
