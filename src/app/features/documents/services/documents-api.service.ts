@@ -72,22 +72,67 @@ export class DocumentsApiService {
     );
   }
 
-  getGridPage(request: DocumentGridPageRequest): Promise<DocumentGridPageResponse> {
-    debugger;
-    /* ==================== 🔸 MODO MOCK 🔸 ==================== */
+getGridPage(request: DocumentGridPageRequest): Promise<DocumentGridPageResponse> {
+  debugger;
+
+  const payload = {
+    ...request,
+    sqlWhere: request.sqlWhere ?? '',
+    userId: request.userId ?? ''
+  };
+
+  console.log('==============================');
+  console.log('📦 GRID REQUEST');
+  console.log('==============================');
+  console.log('➡️ REQUEST ORIGINAL 👉', request);
+  console.log('➡️ PAYLOAD FINAL 👉', payload);
+  console.log('➡️ DOCUMENT TYPE 👉', payload.documentType);
+  console.log('➡️ FILTERS 👉', payload.filters);
+  console.log('➡️ SQL WHERE 👉', payload.sqlWhere);
+  console.log('➡️ USER ID 👉', payload.userId);
+
+  /* ==================== 🔸 MODO MOCK 🔸 ==================== */
   if (!environment.production) {
-    return Promise.resolve(this.getMockGridPage(request));
+    const response = this.getMockGridPage(payload);
+
+    console.log('==============================');
+    console.log('🧪 GRID MOCK RESPONSE');
+    console.log('==============================');
+    console.log('✅ RESPONSE MOCK 👉', response);
+    console.log('✅ DATA MOCK 👉', response.data);
+    console.log('✅ TOTAL MOCK 👉', response.recordsFiltered);
+
+    return Promise.resolve(response);
   }
 
-    /* ==================== 🔸 API REAL 🔸 ==================== */
-    return firstValueFrom(
-      this.http.post<DocumentGridPageResponse>(this.buildUrl('api/documentos/grid'), {
-        ...request,
-        sqlWhere: request.sqlWhere ?? '',
-        userId: request.userId ?? ''
-      })
-    );
-  }
+  /* ==================== 🔸 API REAL 🔸 ==================== */
+  console.log('🌐 GRID API URL 👉', this.buildUrl('api/documentos/grid'));
+
+  return firstValueFrom(
+    this.http.post<DocumentGridPageResponse>(
+      this.buildUrl('api/documentos/grid'),
+      payload
+    )
+  )
+    .then(response => {
+      console.log('==============================');
+      console.log('✅ GRID API RESPONSE');
+      console.log('==============================');
+      console.log('✅ RESPONSE 👉', response);
+      console.log('✅ DATA 👉', response.data);
+      console.log('✅ TOTAL 👉', response.recordsFiltered);
+
+      return response;
+    })
+    .catch(error => {
+      console.log('==============================');
+      console.log('❌ GRID API ERROR');
+      console.log('==============================');
+      console.error('❌ ERROR 👉', error);
+
+      throw error;
+    });
+}
 
   private getMockGridPage(
   request: DocumentGridPageRequest
@@ -1292,28 +1337,74 @@ if (!environment.production) {
 async openDocumentXml(request: DocumentFileRequest): Promise<void> {
   const xmlDocumentType = this.getXmlDocumentType(request.documentType);
 
+  console.log('📄 openDocumentXml - request original:', request);
+  console.log('📄 openDocumentXml - xmlDocumentType:', xmlDocumentType);
+  console.log('📄 environment.production:', environment.production);
+
   if (!environment.production) {
+    console.log('🧪 MODO MOCK XML');
+
     const blob = this.getMockXml(request);
+
+    console.log('📦 Mock blob generado:', blob);
+    console.log('📦 Mock blob size:', blob.size);
+    console.log('📦 Mock blob type:', blob.type);
+
     this.openBlob(blob, `${xmlDocumentType}${request.documentNumber}.xml`);
     return;
   }
 
-  const response = await firstValueFrom(
-    this.http.get(this.buildUrl('api/documentos/xml'), {
-      params: this.toHttpParams({
-        documentType: xmlDocumentType,
-        documentNumber: request.documentNumber,
-        userId: request.userId ?? '',
-        documentId: request.documentId ?? '',
-        invoiceClass: request.invoiceClass ?? ''
-      }),
-      observe: 'response',
-      responseType: 'blob'
-    })
-  );
+  const params = this.toHttpParams({
+    documentType: xmlDocumentType,
+    documentNumber: request.documentNumber,
+    userId: request.userId ?? '',
+    documentId: request.documentId ?? '',
+    invoiceClass: request.invoiceClass ?? ''
+  });
 
-  const blob = response.body ?? new Blob([], { type: 'text/xml' });
-  this.openBlob(blob, `${xmlDocumentType}${request.documentNumber}.xml`);
+  console.log('🌐 XML params:', {
+    documentType: xmlDocumentType,
+    documentNumber: request.documentNumber,
+    userId: request.userId ?? '',
+    documentId: request.documentId ?? '',
+    invoiceClass: request.invoiceClass ?? ''
+  });
+
+  const url = this.buildUrl('api/documentos/archivo');
+
+  console.log('🌐 XML URL:', url);
+
+  try {
+    const response = await firstValueFrom(
+      this.http.get(url, {
+        params,
+        observe: 'response',
+        responseType: 'blob'
+      })
+    );
+
+    console.log('✅ XML response completa:', response);
+    console.log('✅ XML status:', response.status);
+    console.log('✅ XML headers:', response.headers);
+    console.log('✅ XML body:', response.body);
+
+    const blob = response.body ?? new Blob([], { type: 'text/xml' });
+
+    console.log('📦 XML blob final:', blob);
+    console.log('📦 XML blob size:', blob.size);
+    console.log('📦 XML blob type:', blob.type);
+
+    if (blob.size === 0) {
+      console.warn('⚠️ El blob XML viene vacío');
+    }
+
+    this.openBlob(blob, `${xmlDocumentType}${request.documentNumber}.xml`);
+
+    console.log('🚀 XML abierto correctamente');
+  } catch (error) {
+    console.error('❌ Error al abrir XML:', error);
+    throw error;
+  }
 }
 
 private getMockXml(request: DocumentFileRequest): Blob {
