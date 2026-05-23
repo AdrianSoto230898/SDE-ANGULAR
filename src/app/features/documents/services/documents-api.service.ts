@@ -1216,7 +1216,1867 @@ getGridPage(request: DocumentGridPageRequest): Promise<DocumentGridPageResponse>
         B2SHSysId: "SDE",
         DescCliente: "INGENIERIA Y MAQUINARIA DE GUADALUP E"
       }
+    }, 
+  {
+    "documentType": "NS",
+    "errorMessage": "",
+    "documentId": "1155812",
+    "pdfOk": "2026-04-28 16:33:00.000",
+    "invoiceClass": "",
+    "documentNumber": "316070340006",
+    "documentPackageId": "316070340006",
+    "confirmed": "",
+    "pdfFile": "NS316070340006.xls",
+    "sentOk": "",
+    "printedOk": "",
+    "packagedOk": "",
+    "salesOrganization": "﻿157700817",
+    "icon": "ifNA,,,,,,,,,,,,,,,,",
+    "orderNumber": "0000228361",
+    "dynamicItems": {
+      "num_cte_sol": "3000001358",
+      "nro_doc_despacho": "316070340006",
+      "num_proveedor": "",
+      "desc_cliente_sol": "USINAS SIDERURGICAS DE MINAS GERAIS S/A. USIMINAS",
+      "nro_pedido": "0000228361",
+      "desc_cliente_consig": "USINAS SIDERURGICAS DE MINAS GERAIS S/A. USIMINAS",
+      "num_cte_consig": "3000001358",
+      "desc_proveedor": "",
+      "fecha_doc": "2026-04-10 00:00:00.000",
+      "cod_org_venta_key": "﻿157700817",
+      "NSHDocId": "316070340006",
+      "NSHSociedad": "TM01"
     }
+  },
+  {
+    "documentType": "NS",
+    "errorMessage": "System.Data.SqlClient.SqlException (0x80131904): Imposible generar SN, el cliente no esta configurado    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)    at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)    at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()    at System.Data.SqlClient.SqlDataReader.get_MetaData()    at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)    at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmd",
+    "documentId": "1154622",
+    "pdfOk": "2026-02-18 14:23:00.000",
+    "invoiceClass": "",
+    "documentNumber": "200005023180",
+    "documentPackageId": "200005023180",
+    "confirmed": "",
+    "pdfFile": "NS200005023180.txt",
+    "sentOk": "2026-02-18 14:23:00.000",
+    "printedOk": "",
+    "packagedOk": "",
+    "salesOrganization": "157702086",
+    "icon": "ifNA,",
+    "orderNumber": "0301725356",
+    "dynamicItems": {
+      "num_cte_sol": "H000850000",
+      "nro_doc_despacho": "200005023180",
+      "num_proveedor": "",
+      "desc_cliente_sol": "GENERAL MOTORS DE MEXICO",
+      "nro_pedido": "0301725356",
+      "desc_cliente_consig": "VITTI LOGISTICS S DE R L DE C V",
+      "num_cte_consig": "4800001728",
+      "desc_proveedor": "3 CG GROUP S DE RL DE CV",
+      "fecha_doc": "2026-02-18 00:00:00.000",
+      "cod_org_venta_key": "157702086",
+      "NSHDocId": "200005023180",
+      "NSHSociedad": "TM01"
+    }
+  },
+  {
+    "documentType": "NS",
+    "errorMessage": "System.Data.SqlClient.SqlException (0x80131904): Imposible generar SN, el cliente no esta configurado    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)    at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)    at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()    at System.Data.SqlClient.SqlDataReader.get_MetaData()    at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)    at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmd",
+    "documentId": "1154428",
+    "pdfOk": "2026-02-18 18:22:00.000",
+    "invoiceClass": "",
+    "documentNumber": "200005023194",
+    "documentPackageId": "200005023194",
+    "confirmed": "",
+    "pdfFile": "NS200005023194.txt",
+    "sentOk": "2026-02-18 18:23:00.000",
+    "printedOk": "",
+    "packagedOk": "",
+    "salesOrganization": "157702086",
+    "icon": "ifNA,",
+    "orderNumber": "0301724903",
+    "dynamicItems": {
+      "num_cte_sol": "H000850000",
+      "nro_doc_despacho": "200005023194",
+      "num_proveedor": "",
+      "desc_cliente_sol": "GENERAL MOTORS DE MEXICO",
+      "nro_pedido": "0301724903",
+      "desc_cliente_consig": "VITTI LOGISTICS S DE R L DE C V",
+      "num_cte_consig": "4800001728",
+      "desc_proveedor": "3 CG GROUP S DE RL DE CV",
+      "fecha_doc": "2026-02-18 00:00:00.000",
+      "cod_org_venta_key": "157702086",
+      "NSHDocId": "200005023194",
+      "NSHSociedad": "TM01"
+    }
+  },
+  {
+    "documentType": "NS",
+    "errorMessage": "System.Data.SqlClient.SqlException (0x80131904): Imposible generar SN, el cliente no esta configurado    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)    at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)    at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()    at System.Data.SqlClient.SqlDataReader.get_MetaData()    at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)    at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmd",
+    "documentId": "1154927",
+    "pdfOk": "2026-02-18 19:16:00.000",
+    "invoiceClass": "",
+    "documentNumber": "200005023199",
+    "documentPackageId": "200005023199",
+    "confirmed": "",
+    "pdfFile": "NS200005023199.txt",
+    "sentOk": "2026-02-18 19:18:00.000",
+    "printedOk": "",
+    "packagedOk": "",
+    "salesOrganization": "173491950",
+    "icon": "ifNA,",
+    "orderNumber": "0301724845",
+    "dynamicItems": {
+      "num_cte_sol": "H000850000",
+      "nro_doc_despacho": "200005023199",
+      "num_proveedor": "",
+      "desc_cliente_sol": "GENERAL MOTORS DE MEXICO",
+      "nro_pedido": "0301724845",
+      "desc_cliente_consig": "VITTI LOGISTICS S DE R L DE C V",
+      "num_cte_consig": "4800001728",
+      "desc_proveedor": "TRANSPORTADORA TRES GENERACIONES",
+      "fecha_doc": "2026-02-18 00:00:00.000",
+      "cod_org_venta_key": "173491950",
+      "NSHDocId": "200005023199",
+      "NSHSociedad": "TM01"
+    }
+  },
+  {
+    "documentType": "NS",
+    "errorMessage": "System.Data.SqlClient.SqlException (0x80131904): Imposible generar SN, el cliente no esta configurado    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)    at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)    at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()    at System.Data.SqlClient.SqlDataReader.get_MetaData()    at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)    at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmd",
+    "documentId": "1155601",
+    "pdfOk": "2026-04-15 00:51:00.000",
+    "invoiceClass": "",
+    "documentNumber": "200005026269",
+    "documentPackageId": "200005026269",
+    "confirmed": "",
+    "pdfFile": "NS200005026269.txt",
+    "sentOk": "2026-04-15 00:52:00.000",
+    "printedOk": "",
+    "packagedOk": "",
+    "salesOrganization": "157702086",
+    "icon": "ifNA,",
+    "orderNumber": "0301758352",
+    "dynamicItems": {
+      "num_cte_sol": "H000850000",
+      "nro_doc_despacho": "200005026269",
+      "num_proveedor": "",
+      "desc_cliente_sol": "GENERAL MOTORS DE MEXICO",
+      "nro_pedido": "0301758352",
+      "desc_cliente_consig": "VITTI LOGISTICS S DE R L DE C V",
+      "num_cte_consig": "4800001728",
+      "desc_proveedor": "3 CG GROUP S DE RL DE CV",
+      "fecha_doc": "2026-04-15 00:00:00.000",
+      "cod_org_venta_key": "157702086",
+      "NSHDocId": "200005026269",
+      "NSHSociedad": "TM01"
+    }
+  },
+  {
+    "documentType": "NS",
+    "errorMessage": "System.Data.SqlClient.SqlException (0x80131904): Imposible generar SN, el cliente no esta configurado    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)    at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)    at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()    at System.Data.SqlClient.SqlDataReader.get_MetaData()    at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)    at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmd",
+    "documentId": "1155673",
+    "pdfOk": "2026-04-15 12:23:00.000",
+    "invoiceClass": "",
+    "documentNumber": "200005026298",
+    "documentPackageId": "200005026298",
+    "confirmed": "",
+    "pdfFile": "NS200005026298.txt",
+    "sentOk": "2026-04-15 12:24:00.000",
+    "printedOk": "",
+    "packagedOk": "",
+    "salesOrganization": "157702086",
+    "icon": "ifNA,",
+    "orderNumber": "0301758352",
+    "dynamicItems": {
+      "num_cte_sol": "H000850000",
+      "nro_doc_despacho": "200005026298",
+      "num_proveedor": "",
+      "desc_cliente_sol": "GENERAL MOTORS DE MEXICO",
+      "nro_pedido": "0301758352",
+      "desc_cliente_consig": "VITTI LOGISTICS S DE R L DE C V",
+      "num_cte_consig": "4800001728",
+      "desc_proveedor": "3 CG GROUP S DE RL DE CV",
+      "fecha_doc": "2026-04-15 00:00:00.000",
+      "cod_org_venta_key": "157702086",
+      "NSHDocId": "200005026298",
+      "NSHSociedad": "TM01"
+    }
+  },
+  {
+    "documentType": "NS",
+    "errorMessage": "System.Data.SqlClient.SqlException (0x80131904): Imposible generar SN, el cliente no esta configurado    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)    at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)    at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()    at System.Data.SqlClient.SqlDataReader.get_MetaData()    at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)    at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmd",
+    "documentId": "1155066",
+    "pdfOk": "2026-02-21 07:21:00.000",
+    "invoiceClass": "",
+    "documentNumber": "200005023365",
+    "documentPackageId": "200005023365",
+    "confirmed": "",
+    "pdfFile": "NS200005023365.txt",
+    "sentOk": "2026-02-21 07:22:00.000",
+    "printedOk": "",
+    "packagedOk": "",
+    "salesOrganization": "173491950",
+    "icon": "ifNA,",
+    "orderNumber": "0301725283",
+    "dynamicItems": {
+      "num_cte_sol": "H000850000",
+      "nro_doc_despacho": "200005023365",
+      "num_proveedor": "",
+      "desc_cliente_sol": "GENERAL MOTORS DE MEXICO",
+      "nro_pedido": "0301725283",
+      "desc_cliente_consig": "VITTI LOGISTICS S DE R L DE C V",
+      "num_cte_consig": "4800001728",
+      "desc_proveedor": "MIGUEL WONG CRUZ",
+      "fecha_doc": "2026-02-21 00:00:00.000",
+      "cod_org_venta_key": "173491950",
+      "NSHDocId": "200005023365",
+      "NSHSociedad": "TM01"
+    }
+  },
+  {
+    "documentType": "NS",
+    "errorMessage": "",
+    "documentId": "1154383",
+    "pdfOk": "2026-02-23 12:12:00.000",
+    "invoiceClass": "",
+    "documentNumber": "000004969007",
+    "documentPackageId": "000004969007",
+    "confirmed": "",
+    "pdfFile": "ASNFi0004969007.xls",
+    "sentOk": "2026-02-23 12:56:00.000",
+    "printedOk": "",
+    "packagedOk": "",
+    "salesOrganization": "157700851",
+    "icon": "ifNA,,,,,,,,,,,,,,,",
+    "orderNumber": "0000228223",
+    "dynamicItems": {
+      "num_cte_sol": "6800000170",
+      "nro_doc_despacho": "000004969007",
+      "num_proveedor": "",
+      "desc_cliente_sol": "PLM STEEL TUBES, LLC",
+      "nro_pedido": "0000228223",
+      "desc_cliente_consig": "PLM STEEL TUBES",
+      "num_cte_consig": "4800004474",
+      "desc_proveedor": "AUTO TRANSPORTES DE CARGA RUIZ HNOS",
+      "fecha_doc": "2026-02-07 00:00:00.000",
+      "cod_org_venta_key": "157700851",
+      "NSHDocId": "000004969007",
+      "NSHSociedad": "TM01"
+    }
+  },
+  {
+    "documentType": "NS",
+    "errorMessage": "System.Data.SqlClient.SqlException (0x80131904): Imposible generar SN, el cliente no esta configurado    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)    at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)    at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()    at System.Data.SqlClient.SqlDataReader.get_MetaData()    at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)    at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmd",
+    "documentId": "1155625",
+    "pdfOk": "2026-04-15 05:37:00.000",
+    "invoiceClass": "",
+    "documentNumber": "200005026278",
+    "documentPackageId": "200005026278",
+    "confirmed": "",
+    "pdfFile": "NS200005026278.txt",
+    "sentOk": "2026-04-15 05:39:00.000",
+    "printedOk": "",
+    "packagedOk": "",
+    "salesOrganization": "157702086",
+    "icon": "ifNA,",
+    "orderNumber": "0301758352",
+    "dynamicItems": {
+      "num_cte_sol": "H000850000",
+      "nro_doc_despacho": "200005026278",
+      "num_proveedor": "",
+      "desc_cliente_sol": "GENERAL MOTORS DE MEXICO",
+      "nro_pedido": "0301758352",
+      "desc_cliente_consig": "VITTI LOGISTICS S DE R L DE C V",
+      "num_cte_consig": "4800001728",
+      "desc_proveedor": "3 CG GROUP S DE RL DE CV",
+      "fecha_doc": "2026-04-15 00:00:00.000",
+      "cod_org_venta_key": "157702086",
+      "NSHDocId": "200005026278",
+      "NSHSociedad": "TM01"
+    }
+  },
+  {
+    "documentType": "NS",
+    "errorMessage": "System.Data.SqlClient.SqlException (0x80131904): No hay XML de Calidad    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)    at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)    at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()    at System.Data.SqlClient.SqlDataReader.get_MetaData()    at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)    at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavi",
+    "documentId": "1154970",
+    "pdfOk": "2026-02-20 18:22:00.000",
+    "invoiceClass": "",
+    "documentNumber": "200005023317",
+    "documentPackageId": "200005023317",
+    "confirmed": "",
+    "pdfFile": "NS200005023317.txt",
+    "sentOk": "2026-02-20 18:23:00.000",
+    "printedOk": "",
+    "packagedOk": "",
+    "salesOrganization": "157701767",
+    "icon": "ifNA,",
+    "orderNumber": "0301724897",
+    "dynamicItems": {
+      "num_cte_sol": "N000100702",
+      "nro_doc_despacho": "200005023317",
+      "num_proveedor": "",
+      "desc_cliente_sol": "GENERAL MOTORS DE MEXICO S DE RL CV GM FLEX N GATE",
+      "nro_pedido": "0301724897",
+      "desc_cliente_consig": "MISA NATIONAL PROCESSING SA DE CV",
+      "num_cte_consig": "N000121691",
+      "desc_proveedor": "AUTO TRANSPORTES MODERNOS SA DE CV",
+      "fecha_doc": "2026-02-20 00:00:00.000",
+      "cod_org_venta_key": "157701767",
+      "NSHDocId": "200005023317",
+      "NSHSociedad": "TM01"
+    }
+  },
+  {
+    "documentType": "NS",
+    "errorMessage": "System.Data.SqlClient.SqlException (0x80131904): Imposible generar SN, el cliente no esta configurado    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)    at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)    at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()    at System.Data.SqlClient.SqlDataReader.get_MetaData()    at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)    at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmd",
+    "documentId": "1154476",
+    "pdfOk": "2026-02-18 21:48:00.000",
+    "invoiceClass": "",
+    "documentNumber": "200005023202",
+    "documentPackageId": "200005023202",
+    "confirmed": "",
+    "pdfFile": "NS200005023202.xls",
+    "sentOk": "2026-02-18 21:50:00.000",
+    "printedOk": "",
+    "packagedOk": "",
+    "salesOrganization": "173492382",
+    "icon": "ifNA",
+    "orderNumber": "0301724901",
+    "dynamicItems": {
+      "num_cte_sol": "N000100707",
+      "nro_doc_despacho": "200005023202",
+      "num_proveedor": "",
+      "desc_cliente_sol": "GENERAL MOTORS DE MEXICO S DE RL CV GM INMETMATIC",
+      "nro_pedido": "0301724901",
+      "desc_cliente_consig": "INMETMATIC, S.A. DE C.V.",
+      "num_cte_consig": "N000110219",
+      "desc_proveedor": "TRANSPORTES MONTERROSA SA de CV",
+      "fecha_doc": "2026-02-18 00:00:00.000",
+      "cod_org_venta_key": "173492382",
+      "NSHDocId": "200005023202",
+      "NSHSociedad": "TM01"
+    }
+  },
+  {
+    "documentType": "NS",
+    "errorMessage": "System.Data.SqlClient.SqlException (0x80131904): No hay XML de Calidad    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)    at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)    at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()    at System.Data.SqlClient.SqlDataReader.get_MetaData()    at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)    at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavi",
+    "documentId": "1154786",
+    "pdfOk": "2026-02-19 02:46:00.000",
+    "invoiceClass": "",
+    "documentNumber": "200005023218",
+    "documentPackageId": "200005023218",
+    "confirmed": "",
+    "pdfFile": "NS200005023218.txt",
+    "sentOk": "2026-02-19 02:46:00.000",
+    "printedOk": "",
+    "packagedOk": "",
+    "salesOrganization": "157700851",
+    "icon": "ifNA,",
+    "orderNumber": "0301709064",
+    "dynamicItems": {
+      "num_cte_sol": "N000100711",
+      "nro_doc_despacho": "200005023218",
+      "num_proveedor": "",
+      "desc_cliente_sol": "GENERAL MOTORS DE MEXICO S DE RL CV GM MARTINREA SILAO",
+      "nro_pedido": "0301709064",
+      "desc_cliente_consig": "MARTINREA DEVELOPMENTS DE MEXICO SA DE CV",
+      "num_cte_consig": "N000120001",
+      "desc_proveedor": "SETRAMEX TRANSPORTES SA DE CV",
+      "fecha_doc": "2026-02-19 00:00:00.000",
+      "cod_org_venta_key": "157700851",
+      "NSHDocId": "200005023218",
+      "NSHSociedad": "TM01"
+    }
+  },
+  {
+    "documentType": "NS",
+    "errorMessage": "System.Data.SqlClient.SqlException (0x80131904): No hay XML de Calidad    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)    at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)    at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()    at System.Data.SqlClient.SqlDataReader.get_MetaData()    at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)    at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavi",
+    "documentId": "1154493",
+    "pdfOk": "2026-02-21 19:17:00.000",
+    "invoiceClass": "",
+    "documentNumber": "200005023389",
+    "documentPackageId": "200005023389",
+    "confirmed": "",
+    "pdfFile": "NS200005023389.xls",
+    "sentOk": "2026-02-21 19:17:00.000",
+    "printedOk": "",
+    "packagedOk": "",
+    "salesOrganization": "173492382",
+    "icon": "ifNA,",
+    "orderNumber": "0301726379",
+    "dynamicItems": {
+      "num_cte_sol": "N000100716",
+      "nro_doc_despacho": "200005023389",
+      "num_proveedor": "",
+      "desc_cliente_sol": "GENERAL MOTORS DE MEXICO S DE RL CV GM SAN LUIS METAL FORMING",
+      "nro_pedido": "0301726379",
+      "desc_cliente_consig": "LAGERMEX SILAO SA DE CV",
+      "num_cte_consig": "N000110606",
+      "desc_proveedor": "LOGISTICA DE TRANSPORTE PJH",
+      "fecha_doc": "2026-02-21 00:00:00.000",
+      "cod_org_venta_key": "173492382",
+      "NSHDocId": "200005023389",
+      "NSHSociedad": "TM01"
+    }
+  },
+  {
+    "documentType": "NS",
+    "errorMessage": "System.Data.SqlClient.SqlException (0x80131904): Imposible generar SN, el cliente no esta configurado    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)    at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)    at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()    at System.Data.SqlClient.SqlDataReader.get_MetaData()    at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)    at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmd",
+    "documentId": "1154730",
+    "pdfOk": "2026-02-20 22:38:00.000",
+    "invoiceClass": "",
+    "documentNumber": "200005023334",
+    "documentPackageId": "200005023334",
+    "confirmed": "",
+    "pdfFile": "NS200005023334.txt",
+    "sentOk": "2026-02-20 22:38:00.000",
+    "printedOk": "",
+    "packagedOk": "",
+    "salesOrganization": "157702086",
+    "icon": "ifNA",
+    "orderNumber": "0301725313",
+    "dynamicItems": {
+      "num_cte_sol": "H000850000",
+      "nro_doc_despacho": "200005023334",
+      "num_proveedor": "",
+      "desc_cliente_sol": "GENERAL MOTORS DE MEXICO, S. de R.L  DE C.V.",
+      "nro_pedido": "0301725313",
+      "desc_cliente_consig": "VITTI LOGISTICS S DE R L DE C V",
+      "num_cte_consig": "4800001728",
+      "desc_proveedor": "3 CG GROUP S DE RL DE CV",
+      "fecha_doc": "2026-02-20 00:00:00.000",
+      "cod_org_venta_key": "157702086",
+      "NSHDocId": "200005023334",
+      "NSHSociedad": "TM01"
+    }
+  },
+  {
+    "documentType": "NS",
+    "errorMessage": "System.Data.SqlClient.SqlException (0x80131904): No hay XML de Calidad    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)    at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)    at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()    at System.Data.SqlClient.SqlDataReader.get_MetaData()    at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)    at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavi",
+    "documentId": "1155660",
+    "pdfOk": "2026-04-15 11:03:00.000",
+    "invoiceClass": "",
+    "documentNumber": "200005026292",
+    "documentPackageId": "200005026292",
+    "confirmed": "",
+    "pdfFile": "NS200005026292.txt",
+    "sentOk": "2026-04-15 11:04:00.000",
+    "printedOk": "",
+    "packagedOk": "",
+    "salesOrganization": "173492382",
+    "icon": "ifNA",
+    "orderNumber": "0301760738",
+    "dynamicItems": {
+      "num_cte_sol": "N000100716",
+      "nro_doc_despacho": "200005026292",
+      "num_proveedor": "",
+      "desc_cliente_sol": "GENERAL MOTORS DE MEXICO S DE RL CV GM SAN LUIS METAL FORMING",
+      "nro_pedido": "0301760738",
+      "desc_cliente_consig": "SAN LUIS METAL FORMING,  S.A. DE C.V.",
+      "num_cte_consig": "N000110604",
+      "desc_proveedor": "LOGISTICA DE TRANSPORTE PJH",
+      "fecha_doc": "2026-04-15 00:00:00.000",
+      "cod_org_venta_key": "173492382",
+      "NSHDocId": "200005026292",
+      "NSHSociedad": "TM01"
+    }
+  },
+  {
+    "documentType": "NS",
+    "errorMessage": "System.Data.SqlClient.SqlException (0x80131904): No hay XML de Calidad    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)    at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)    at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()    at System.Data.SqlClient.SqlDataReader.get_MetaData()    at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)    at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavi",
+    "documentId": "1155717",
+    "pdfOk": "2026-04-15 20:21:00.000",
+    "invoiceClass": "",
+    "documentNumber": "200005026313",
+    "documentPackageId": "200005026313",
+    "confirmed": "",
+    "pdfFile": "NS200005026313.txt",
+    "sentOk": "2026-04-15 20:22:00.000",
+    "printedOk": "",
+    "packagedOk": "",
+    "salesOrganization": "173492396",
+    "icon": "ifNA,",
+    "orderNumber": "0301745496",
+    "dynamicItems": {
+      "num_cte_sol": "N000100701",
+      "nro_doc_despacho": "200005026313",
+      "num_proveedor": "",
+      "desc_cliente_sol": "GENERAL MOTORS DE MEXICO S DE RL CV GM ESTAMPADOS MAGNA",
+      "nro_pedido": "0301745496",
+      "desc_cliente_consig": "ESTAMPADOS MAGNA S.A. DE C.V.",
+      "num_cte_consig": "N000110069",
+      "desc_proveedor": "SERVICIOS URBANOS Y CONSTRUCCIONES",
+      "fecha_doc": "2026-04-15 00:00:00.000",
+      "cod_org_venta_key": "173492396",
+      "NSHDocId": "200005026313",
+      "NSHSociedad": "TM01"
+    }
+  },
+  {
+    "documentType": "NS",
+    "errorMessage": "System.Data.SqlClient.SqlException (0x80131904): Imposible generar SN, el cliente no esta configurado    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)    at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)    at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()    at System.Data.SqlClient.SqlDataReader.get_MetaData()    at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)    at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmd",
+    "documentId": "1154697",
+    "pdfOk": "2026-02-20 21:57:00.000",
+    "invoiceClass": "",
+    "documentNumber": "200005023327",
+    "documentPackageId": "200005023327",
+    "confirmed": "",
+    "pdfFile": "NS200005023327.txt",
+    "sentOk": "2026-02-20 21:59:00.000",
+    "printedOk": "",
+    "packagedOk": "",
+    "salesOrganization": "157701767",
+    "icon": "ifNA",
+    "orderNumber": "0301735587",
+    "dynamicItems": {
+      "num_cte_sol": "H000850000",
+      "nro_doc_despacho": "200005023327",
+      "num_proveedor": "",
+      "desc_cliente_sol": "GENERAL MOTORS DE MEXICO, S. de R.L  DE C.V.",
+      "nro_pedido": "0301735587",
+      "desc_cliente_consig": "VITTI LOGISTICS S DE R L DE C V",
+      "num_cte_consig": "4800001728",
+      "desc_proveedor": "SETRAMEX TRANSPORTES SA DE CV",
+      "fecha_doc": "2026-02-20 00:00:00.000",
+      "cod_org_venta_key": "157701767",
+      "NSHDocId": "200005023327",
+      "NSHSociedad": "TM01"
+    }
+  },
+  {
+    "documentType": "NS",
+    "errorMessage": "System.Data.SqlClient.SqlException (0x80131904): Imposible generar SN, el cliente no esta configurado    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)    at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)    at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()    at System.Data.SqlClient.SqlDataReader.get_MetaData()    at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)    at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmd",
+    "documentId": "1155716",
+    "pdfOk": "2026-04-15 19:27:00.000",
+    "invoiceClass": "",
+    "documentNumber": "200005026312",
+    "documentPackageId": "200005026312",
+    "confirmed": "",
+    "pdfFile": "NS200005026312.txt",
+    "sentOk": "2026-04-15 19:28:00.000",
+    "printedOk": "",
+    "packagedOk": "",
+    "salesOrganization": "157702086",
+    "icon": "ifNA",
+    "orderNumber": "0301758380",
+    "dynamicItems": {
+      "num_cte_sol": "H000850000",
+      "nro_doc_despacho": "200005026312",
+      "num_proveedor": "",
+      "desc_cliente_sol": "GENERAL MOTORS DE MEXICO, S. de R.L  DE C.V.",
+      "nro_pedido": "0301758380",
+      "desc_cliente_consig": "VITTI LOGISTICS S DE R L DE C V",
+      "num_cte_consig": "4800001728",
+      "desc_proveedor": "3 CG GROUP S DE RL DE CV",
+      "fecha_doc": "2026-04-15 00:00:00.000",
+      "cod_org_venta_key": "157702086",
+      "NSHDocId": "200005026312",
+      "NSHSociedad": "TM01"
+    }
+  },
+  {
+    "documentType": "NS",
+    "errorMessage": "System.Data.SqlClient.SqlException (0x80131904): Imposible generar SN, el cliente no esta configurado    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)    at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)    at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()    at System.Data.SqlClient.SqlDataReader.get_MetaData()    at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)    at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmd",
+    "documentId": "1154586",
+    "pdfOk": "2026-02-22 15:10:00.000",
+    "invoiceClass": "",
+    "documentNumber": "200005023396",
+    "documentPackageId": "200005023396",
+    "confirmed": "",
+    "pdfFile": "NS200005023396.txt",
+    "sentOk": "2026-02-22 15:11:00.000",
+    "printedOk": "",
+    "packagedOk": "",
+    "salesOrganization": "157700851",
+    "icon": "ifNA,",
+    "orderNumber": "0301725669",
+    "dynamicItems": {
+      "num_cte_sol": "H000850000",
+      "nro_doc_despacho": "200005023396",
+      "num_proveedor": "",
+      "desc_cliente_sol": "GENERAL MOTORS DE MEXICO",
+      "nro_pedido": "0301725669",
+      "desc_cliente_consig": "VITTI LOGISTICS S DE R L DE C V",
+      "num_cte_consig": "4800001728",
+      "desc_proveedor": "TRANSPORTADORA TRES GENERACIONES",
+      "fecha_doc": "2026-02-22 00:00:00.000",
+      "cod_org_venta_key": "157700851",
+      "NSHDocId": "200005023396",
+      "NSHSociedad": "TM01"
+    }
+  },
+  {
+    "documentType": "NS",
+    "errorMessage": "System.Data.SqlClient.SqlException (0x80131904): Imposible generar SN, el cliente no esta configurado    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)    at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)    at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()    at System.Data.SqlClient.SqlDataReader.get_MetaData()    at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)    at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmd",
+    "documentId": "1154717",
+    "pdfOk": "2026-02-20 22:21:00.000",
+    "invoiceClass": "",
+    "documentNumber": "200005023329",
+    "documentPackageId": "200005023329",
+    "confirmed": "",
+    "pdfFile": "NS200005023329.txt",
+    "sentOk": "2026-02-20 22:22:00.000",
+    "printedOk": "",
+    "packagedOk": "",
+    "salesOrganization": "157702086",
+    "icon": "ifNA",
+    "orderNumber": "0301725678",
+    "dynamicItems": {
+      "num_cte_sol": "H000850000",
+      "nro_doc_despacho": "200005023329",
+      "num_proveedor": "",
+      "desc_cliente_sol": "GENERAL MOTORS DE MEXICO, S. de R.L  DE C.V.",
+      "nro_pedido": "0301725678",
+      "desc_cliente_consig": "VITTI LOGISTICS S DE R L DE C V",
+      "num_cte_consig": "4800001728",
+      "desc_proveedor": "3 CG GROUP S DE RL DE CV",
+      "fecha_doc": "2026-02-20 00:00:00.000",
+      "cod_org_venta_key": "157702086",
+      "NSHDocId": "200005023329",
+      "NSHSociedad": "TM01"
+    }
+  },
+  {
+    "documentType": "NS",
+    "errorMessage": "System.Data.SqlClient.SqlException (0x80131904): No hay XML de Calidad    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)    at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)    at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()    at System.Data.SqlClient.SqlDataReader.get_MetaData()    at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)    at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavi",
+    "documentId": "1155030",
+    "pdfOk": "2026-02-19 23:51:00.000",
+    "invoiceClass": "",
+    "documentNumber": "200005023262",
+    "documentPackageId": "200005023262",
+    "confirmed": "",
+    "pdfFile": "NS200005023262.txt",
+    "sentOk": "",
+    "printedOk": "",
+    "packagedOk": "",
+    "salesOrganization": "157701767",
+    "icon": "ifNA,",
+    "orderNumber": "0301725248",
+    "dynamicItems": {
+      "num_cte_sol": "6800000026",
+      "nro_doc_despacho": "200005023262",
+      "num_proveedor": "",
+      "desc_cliente_sol": "GENERAL MOTORS DE MEXICO",
+      "nro_pedido": "0301725248",
+      "desc_cliente_consig": "ADIENT MX AUTOMOTRIZ S DE RL DE CV",
+      "num_cte_consig": "4800000876",
+      "desc_proveedor": "Martha Patricia Galvan Guevara",
+      "fecha_doc": "2026-02-19 00:00:00.000",
+      "cod_org_venta_key": "157701767",
+      "NSHDocId": "200005023262",
+      "NSHSociedad": "TM01"
+    }
+  },
+  {
+    "documentType": "NS",
+    "errorMessage": "System.Data.SqlClient.SqlException (0x80131904): Imposible generar SN, el cliente no esta configurado    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)    at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)    at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()    at System.Data.SqlClient.SqlDataReader.get_MetaData()    at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)    at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmd",
+    "documentId": "1155066",
+    "pdfOk": "2026-02-21 07:21:00.000",
+    "invoiceClass": "",
+    "documentNumber": "200005023365",
+    "documentPackageId": "200005023365",
+    "confirmed": "",
+    "pdfFile": "NS200005023365.txt",
+    "sentOk": "2026-02-21 07:22:00.000",
+    "printedOk": "",
+    "packagedOk": "",
+    "salesOrganization": "173491950",
+    "icon": "ifNA",
+    "orderNumber": "0301725666",
+    "dynamicItems": {
+      "num_cte_sol": "H000850000",
+      "nro_doc_despacho": "200005023365",
+      "num_proveedor": "",
+      "desc_cliente_sol": "GENERAL MOTORS DE MEXICO, S. de R.L  DE C.V.",
+      "nro_pedido": "0301725666",
+      "desc_cliente_consig": "VITTI LOGISTICS S DE R L DE C V",
+      "num_cte_consig": "4800001728",
+      "desc_proveedor": "MIGUEL WONG CRUZ",
+      "fecha_doc": "2026-02-21 00:00:00.000",
+      "cod_org_venta_key": "173491950",
+      "NSHDocId": "200005023365",
+      "NSHSociedad": "TM01"
+    }
+  },
+  {
+    "documentType": "NS",
+    "errorMessage": "System.Data.SqlClient.SqlException (0x80131904): Imposible generar SN, el cliente no esta configurado    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)    at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)    at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()    at System.Data.SqlClient.SqlDataReader.get_MetaData()    at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)    at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmd",
+    "documentId": "1154937",
+    "pdfOk": "2026-02-19 18:49:00.000",
+    "invoiceClass": "",
+    "documentNumber": "200005023252",
+    "documentPackageId": "200005023252",
+    "confirmed": "",
+    "pdfFile": "NS200005023252.txt",
+    "sentOk": "2026-02-19 18:50:00.000",
+    "printedOk": "",
+    "packagedOk": "",
+    "salesOrganization": "157702086",
+    "icon": "ifNA",
+    "orderNumber": "0301725358",
+    "dynamicItems": {
+      "num_cte_sol": "H000850000",
+      "nro_doc_despacho": "200005023252",
+      "num_proveedor": "",
+      "desc_cliente_sol": "GENERAL MOTORS DE MEXICO, S. de R.L  DE C.V.",
+      "nro_pedido": "0301725358",
+      "desc_cliente_consig": "VITTI LOGISTICS S DE R L DE C V",
+      "num_cte_consig": "4800001728",
+      "desc_proveedor": "3 CG GROUP S DE RL DE CV",
+      "fecha_doc": "2026-02-19 00:00:00.000",
+      "cod_org_venta_key": "157702086",
+      "NSHDocId": "200005023252",
+      "NSHSociedad": "TM01"
+    }
+  },
+  {
+    "documentType": "NS",
+    "errorMessage": "System.Data.SqlClient.SqlException (0x80131904): No hay XML de Calidad    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)    at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)    at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()    at System.Data.SqlClient.SqlDataReader.get_MetaData()    at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)    at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavi",
+    "documentId": "1154830",
+    "pdfOk": "2026-02-18 13:13:00.000",
+    "invoiceClass": "",
+    "documentNumber": "200005023173",
+    "documentPackageId": "200005023173",
+    "confirmed": "",
+    "pdfFile": "NS200005023173.txt",
+    "sentOk": "2026-02-18 13:15:00.000",
+    "printedOk": "",
+    "packagedOk": "",
+    "salesOrganization": "157702086",
+    "icon": "ifNA,",
+    "orderNumber": "0301736811",
+    "dynamicItems": {
+      "num_cte_sol": "N000100701",
+      "nro_doc_despacho": "200005023173",
+      "num_proveedor": "",
+      "desc_cliente_sol": "GENERAL MOTORS DE MEXICO S DE RL CV GM ESTAMPADOS MAGNA",
+      "nro_pedido": "0301736811",
+      "desc_cliente_consig": "ESTAMPADOS MAGNA SA DE CV",
+      "num_cte_consig": "N000110069",
+      "desc_proveedor": "3 CG GROUP S DE RL DE CV",
+      "fecha_doc": "2026-02-18 00:00:00.000",
+      "cod_org_venta_key": "157702086",
+      "NSHDocId": "200005023173",
+      "NSHSociedad": "TM01"
+    }
+  },
+  {
+    "documentType": "NS",
+    "errorMessage": "System.Data.SqlClient.SqlException (0x80131904): No hay XML de Calidad    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)    at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)    at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()    at System.Data.SqlClient.SqlDataReader.get_MetaData()    at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)    at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavi",
+    "documentId": "1154590",
+    "pdfOk": "2026-02-19 00:55:00.000",
+    "invoiceClass": "",
+    "documentNumber": "200005023212",
+    "documentPackageId": "200005023212",
+    "confirmed": "",
+    "pdfFile": "NS200005023212.txt",
+    "sentOk": "2026-02-19 00:55:00.000",
+    "printedOk": "",
+    "packagedOk": "",
+    "salesOrganization": "157701767",
+    "icon": "ifNA",
+    "orderNumber": "0301735683",
+    "dynamicItems": {
+      "num_cte_sol": "N000100716",
+      "nro_doc_despacho": "200005023212",
+      "num_proveedor": "",
+      "desc_cliente_sol": "GENERAL MOTORS DE MEXICO S DE RL CV GM SAN LUIS METAL FORMING",
+      "nro_pedido": "0301735683",
+      "desc_cliente_consig": "SAN LUIS METAL FORMING,  S.A. DE C.V.",
+      "num_cte_consig": "N000110604",
+      "desc_proveedor": "AUTO TRANSPORTES MODERNOS SA DE CV",
+      "fecha_doc": "2026-02-19 00:00:00.000",
+      "cod_org_venta_key": "157701767",
+      "NSHDocId": "200005023212",
+      "NSHSociedad": "TM01"
+    }
+  },
+  {
+    "documentType": "NS",
+    "errorMessage": "System.Data.SqlClient.SqlException (0x80131904): No hay XML de Calidad    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)    at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)    at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()    at System.Data.SqlClient.SqlDataReader.get_MetaData()    at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)    at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavi",
+    "documentId": "1155052",
+    "pdfOk": "2026-02-18 03:41:00.000",
+    "invoiceClass": "",
+    "documentNumber": "200005023147",
+    "documentPackageId": "200005023147",
+    "confirmed": "",
+    "pdfFile": "NS200005023147.txt",
+    "sentOk": "2026-02-18 03:42:00.000",
+    "printedOk": "",
+    "packagedOk": "",
+    "salesOrganization": "173492382",
+    "icon": "ifNA",
+    "orderNumber": "0301726511",
+    "dynamicItems": {
+      "num_cte_sol": "N000100716",
+      "nro_doc_despacho": "200005023147",
+      "num_proveedor": "",
+      "desc_cliente_sol": "GENERAL MOTORS DE MEXICO S DE RL CV GM SAN LUIS METAL FORMING",
+      "nro_pedido": "0301726511",
+      "desc_cliente_consig": "SAN LUIS METAL FORMING,  S.A. DE C.V.",
+      "num_cte_consig": "N000110604",
+      "desc_proveedor": "AUTO EXPRESS DIA SA DE CV",
+      "fecha_doc": "2026-02-18 00:00:00.000",
+      "cod_org_venta_key": "173492382",
+      "NSHDocId": "200005023147",
+      "NSHSociedad": "TM01"
+    }
+  },
+  {
+    "documentType": "NS",
+    "errorMessage": "System.Data.SqlClient.SqlException (0x80131904): No hay XML de Calidad    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)    at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)    at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()    at System.Data.SqlClient.SqlDataReader.get_MetaData()    at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)    at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavi",
+    "documentId": "1154814",
+    "pdfOk": "2026-02-18 15:28:00.000",
+    "invoiceClass": "",
+    "documentNumber": "200005023182",
+    "documentPackageId": "200005023182",
+    "confirmed": "",
+    "pdfFile": "NS200005023182.txt",
+    "sentOk": "2026-02-18 15:29:00.000",
+    "printedOk": "",
+    "packagedOk": "",
+    "salesOrganization": "173492382",
+    "icon": "ifNA,",
+    "orderNumber": "0301724902",
+    "dynamicItems": {
+      "num_cte_sol": "N000100702",
+      "nro_doc_despacho": "200005023182",
+      "num_proveedor": "",
+      "desc_cliente_sol": "GENERAL MOTORS DE MEXICO S DE RL CV GM FLEX N GATE",
+      "nro_pedido": "0301724902",
+      "desc_cliente_consig": "MISA NATIONAL PROCESSING SA DE CV",
+      "num_cte_consig": "N000121691",
+      "desc_proveedor": "TRANSPORTES MONTERROSA SA de CV",
+      "fecha_doc": "2026-02-18 00:00:00.000",
+      "cod_org_venta_key": "173492382",
+      "NSHDocId": "200005023182",
+      "NSHSociedad": "TM01"
+    }
+  },
+  {
+    "documentType": "NS",
+    "errorMessage": "System.Data.SqlClient.SqlException (0x80131904): Imposible generar SN, el cliente no esta configurado    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)    at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)    at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()    at System.Data.SqlClient.SqlDataReader.get_MetaData()    at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)    at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmd",
+    "documentId": "1154468",
+    "pdfOk": "2026-02-18 11:03:00.000",
+    "invoiceClass": "",
+    "documentNumber": "200005023169",
+    "documentPackageId": "200005023169",
+    "confirmed": "",
+    "pdfFile": "NS200005023169.txt",
+    "sentOk": "2026-02-18 11:04:00.000",
+    "printedOk": "",
+    "packagedOk": "",
+    "salesOrganization": "157702086",
+    "icon": "ifNA,",
+    "orderNumber": "0301724769",
+    "dynamicItems": {
+      "num_cte_sol": "H000850000",
+      "nro_doc_despacho": "200005023169",
+      "num_proveedor": "",
+      "desc_cliente_sol": "GENERAL MOTORS DE MEXICO",
+      "nro_pedido": "0301724769",
+      "desc_cliente_consig": "VITTI LOGISTICS S DE R L DE C V",
+      "num_cte_consig": "4800001728",
+      "desc_proveedor": "3 CG GROUP S DE RL DE CV",
+      "fecha_doc": "2026-02-18 00:00:00.000",
+      "cod_org_venta_key": "157702086",
+      "NSHDocId": "200005023169",
+      "NSHSociedad": "TM01"
+    }
+  },
+  {
+    "documentType": "NS",
+    "errorMessage": "System.Data.SqlClient.SqlException (0x80131904): Imposible generar SN, el cliente no esta configurado    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)    at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)    at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()    at System.Data.SqlClient.SqlDataReader.get_MetaData()    at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)    at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmd",
+    "documentId": "1155601",
+    "pdfOk": "2026-04-15 00:51:00.000",
+    "invoiceClass": "",
+    "documentNumber": "200005026269",
+    "documentPackageId": "200005026269",
+    "confirmed": "",
+    "pdfFile": "NS200005026269.txt",
+    "sentOk": "2026-04-15 00:52:00.000",
+    "printedOk": "",
+    "packagedOk": "",
+    "salesOrganization": "157702086",
+    "icon": "ifNA",
+    "orderNumber": "0301758352",
+    "dynamicItems": {
+      "num_cte_sol": "H000850000",
+      "nro_doc_despacho": "200005026269",
+      "num_proveedor": "",
+      "desc_cliente_sol": "GENERAL MOTORS DE MEXICO, S. de R.L  DE C.V.",
+      "nro_pedido": "0301758352",
+      "desc_cliente_consig": "VITTI LOGISTICS S DE R L DE C V",
+      "num_cte_consig": "4800001728",
+      "desc_proveedor": "3 CG GROUP S DE RL DE CV",
+      "fecha_doc": "2026-04-15 00:00:00.000",
+      "cod_org_venta_key": "157702086",
+      "NSHDocId": "200005026269",
+      "NSHSociedad": "TM01"
+    }
+  },
+  {
+    "documentType": "NS",
+    "errorMessage": "System.Data.SqlClient.SqlException (0x80131904): Imposible generar SN, el cliente no esta configurado    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)    at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)    at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()    at System.Data.SqlClient.SqlDataReader.get_MetaData()    at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)    at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmd",
+    "documentId": "1154797",
+    "pdfOk": "2026-02-18 03:32:00.000",
+    "invoiceClass": "",
+    "documentNumber": "200005023146",
+    "documentPackageId": "200005023146",
+    "confirmed": "",
+    "pdfFile": "NS200005023146.txt",
+    "sentOk": "2026-02-18 03:34:00.000",
+    "printedOk": "",
+    "packagedOk": "",
+    "salesOrganization": "157702086",
+    "icon": "ifNA,",
+    "orderNumber": "0301724747",
+    "dynamicItems": {
+      "num_cte_sol": "H000850000",
+      "nro_doc_despacho": "200005023146",
+      "num_proveedor": "",
+      "desc_cliente_sol": "GENERAL MOTORS DE MEXICO",
+      "nro_pedido": "0301724747",
+      "desc_cliente_consig": "VITTI LOGISTICS S DE R L DE C V",
+      "num_cte_consig": "4800001728",
+      "desc_proveedor": "3 CG GROUP S DE RL DE CV",
+      "fecha_doc": "2026-02-18 00:00:00.000",
+      "cod_org_venta_key": "157702086",
+      "NSHDocId": "200005023146",
+      "NSHSociedad": "TM01"
+    }
+  },
+  {
+    "documentType": "NS",
+    "errorMessage": "System.Data.SqlClient.SqlException (0x80131904): Imposible generar SN, el cliente no esta configurado    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)    at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)    at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()    at System.Data.SqlClient.SqlDataReader.get_MetaData()    at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)    at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmd",
+    "documentId": "1155635",
+    "pdfOk": "2026-04-15 09:27:00.000",
+    "invoiceClass": "",
+    "documentNumber": "200005026284",
+    "documentPackageId": "200005026284",
+    "confirmed": "",
+    "pdfFile": "NS200005026284.txt",
+    "sentOk": "2026-04-15 09:28:00.000",
+    "printedOk": "",
+    "packagedOk": "",
+    "salesOrganization": "157702086",
+    "icon": "ifNA,",
+    "orderNumber": "0301758300",
+    "dynamicItems": {
+      "num_cte_sol": "H000850000",
+      "nro_doc_despacho": "200005026284",
+      "num_proveedor": "",
+      "desc_cliente_sol": "GENERAL MOTORS DE MEXICO",
+      "nro_pedido": "0301758300",
+      "desc_cliente_consig": "VITTI LOGISTICS S DE R L DE C V",
+      "num_cte_consig": "4800001728",
+      "desc_proveedor": "3 CG GROUP S DE RL DE CV",
+      "fecha_doc": "2026-04-15 00:00:00.000",
+      "cod_org_venta_key": "157702086",
+      "NSHDocId": "200005026284",
+      "NSHSociedad": "TM01"
+    }
+  },
+  {
+    "documentType": "NS",
+    "errorMessage": "System.Data.SqlClient.SqlException (0x80131904): Imposible generar SN, el cliente no esta configurado    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)    at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)    at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()    at System.Data.SqlClient.SqlDataReader.get_MetaData()    at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)    at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmd",
+    "documentId": "1155708",
+    "pdfOk": "2026-04-15 17:39:00.000",
+    "invoiceClass": "",
+    "documentNumber": "200005026310",
+    "documentPackageId": "200005026310",
+    "confirmed": "",
+    "pdfFile": "NS200005026310.txt",
+    "sentOk": "2026-04-15 17:40:00.000",
+    "printedOk": "",
+    "packagedOk": "",
+    "salesOrganization": "157702086",
+    "icon": "ifNA,",
+    "orderNumber": "0301741799",
+    "dynamicItems": {
+      "num_cte_sol": "H000850000",
+      "nro_doc_despacho": "200005026310",
+      "num_proveedor": "",
+      "desc_cliente_sol": "GENERAL MOTORS DE MEXICO",
+      "nro_pedido": "0301741799",
+      "desc_cliente_consig": "VITTI LOGISTICS S DE R L DE C V",
+      "num_cte_consig": "4800001728",
+      "desc_proveedor": "3 CG GROUP S DE RL DE CV",
+      "fecha_doc": "2026-04-15 00:00:00.000",
+      "cod_org_venta_key": "157702086",
+      "NSHDocId": "200005026310",
+      "NSHSociedad": "TM01"
+    }
+  },
+  {
+    "documentType": "NS",
+    "errorMessage": "System.Data.SqlClient.SqlException (0x80131904): Imposible generar SN, el cliente no esta configurado    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)    at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)    at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()    at System.Data.SqlClient.SqlDataReader.get_MetaData()    at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)    at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmd",
+    "documentId": "1155708",
+    "pdfOk": "2026-04-15 17:39:00.000",
+    "invoiceClass": "",
+    "documentNumber": "200005026310",
+    "documentPackageId": "200005026310",
+    "confirmed": "",
+    "pdfFile": "NS200005026310.txt",
+    "sentOk": "2026-04-15 17:40:00.000",
+    "printedOk": "",
+    "packagedOk": "",
+    "salesOrganization": "157702086",
+    "icon": "ifNA",
+    "orderNumber": "0301758269",
+    "dynamicItems": {
+      "num_cte_sol": "H000850000",
+      "nro_doc_despacho": "200005026310",
+      "num_proveedor": "",
+      "desc_cliente_sol": "GENERAL MOTORS DE MEXICO, S. de R.L  DE C.V.",
+      "nro_pedido": "0301758269",
+      "desc_cliente_consig": "VITTI LOGISTICS S DE R L DE C V",
+      "num_cte_consig": "4800001728",
+      "desc_proveedor": "3 CG GROUP S DE RL DE CV",
+      "fecha_doc": "2026-04-15 00:00:00.000",
+      "cod_org_venta_key": "157702086",
+      "NSHDocId": "200005026310",
+      "NSHSociedad": "TM01"
+    }
+  },
+  {
+    "documentType": "NS",
+    "errorMessage": "System.Data.SqlClient.SqlException (0x80131904): Imposible generar SN, el cliente no esta configurado    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)    at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)    at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()    at System.Data.SqlClient.SqlDataReader.get_MetaData()    at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)    at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmd",
+    "documentId": "1154547",
+    "pdfOk": "2026-02-19 17:49:00.000",
+    "invoiceClass": "",
+    "documentNumber": "200005023248",
+    "documentPackageId": "200005023248",
+    "confirmed": "",
+    "pdfFile": "NS200005023248.txt",
+    "sentOk": "2026-02-19 17:50:00.000",
+    "printedOk": "",
+    "packagedOk": "",
+    "salesOrganization": "157702086",
+    "icon": "ifNA",
+    "orderNumber": "0301725530",
+    "dynamicItems": {
+      "num_cte_sol": "H000850000",
+      "nro_doc_despacho": "200005023248",
+      "num_proveedor": "",
+      "desc_cliente_sol": "GENERAL MOTORS DE MEXICO, S. de R.L  DE C.V.",
+      "nro_pedido": "0301725530",
+      "desc_cliente_consig": "VITTI LOGISTICS S DE R L DE C V",
+      "num_cte_consig": "4800001728",
+      "desc_proveedor": "3 CG GROUP S DE RL DE CV",
+      "fecha_doc": "2026-02-19 00:00:00.000",
+      "cod_org_venta_key": "157702086",
+      "NSHDocId": "200005023248",
+      "NSHSociedad": "TM01"
+    }
+  },
+  {
+    "documentType": "NS",
+    "errorMessage": "System.Data.SqlClient.SqlException (0x80131904): Imposible generar SN, el cliente no esta configurado    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)    at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)    at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()    at System.Data.SqlClient.SqlDataReader.get_MetaData()    at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)    at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmd",
+    "documentId": "1154623",
+    "pdfOk": "2026-02-18 15:02:00.000",
+    "invoiceClass": "",
+    "documentNumber": "200005023181",
+    "documentPackageId": "200005023181",
+    "confirmed": "",
+    "pdfFile": "NS200005023181.txt",
+    "sentOk": "2026-02-18 15:02:00.000",
+    "printedOk": "",
+    "packagedOk": "",
+    "salesOrganization": "157702086",
+    "icon": "ifNA",
+    "orderNumber": "0301725655",
+    "dynamicItems": {
+      "num_cte_sol": "H000850000",
+      "nro_doc_despacho": "200005023181",
+      "num_proveedor": "",
+      "desc_cliente_sol": "GENERAL MOTORS DE MEXICO, S. de R.L  DE C.V.",
+      "nro_pedido": "0301725655",
+      "desc_cliente_consig": "VITTI LOGISTICS S DE R L DE C V",
+      "num_cte_consig": "4800001728",
+      "desc_proveedor": "3 CG GROUP S DE RL DE CV",
+      "fecha_doc": "2026-02-18 00:00:00.000",
+      "cod_org_venta_key": "157702086",
+      "NSHDocId": "200005023181",
+      "NSHSociedad": "TM01"
+    }
+  },
+  {
+    "documentType": "NS",
+    "errorMessage": "System.Data.SqlClient.SqlException (0x80131904): No hay XML de Calidad    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)    at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)    at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()    at System.Data.SqlClient.SqlDataReader.get_MetaData()    at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)    at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavi",
+    "documentId": "1155030",
+    "pdfOk": "2026-02-19 23:51:00.000",
+    "invoiceClass": "",
+    "documentNumber": "200005023262",
+    "documentPackageId": "200005023262",
+    "confirmed": "",
+    "pdfFile": "NS200005023262.txt",
+    "sentOk": "",
+    "printedOk": "",
+    "packagedOk": "",
+    "salesOrganization": "157701767",
+    "icon": "ifNA,",
+    "orderNumber": "0301725223",
+    "dynamicItems": {
+      "num_cte_sol": "6800000026",
+      "nro_doc_despacho": "200005023262",
+      "num_proveedor": "",
+      "desc_cliente_sol": "GENERAL MOTORS DE MEXICO",
+      "nro_pedido": "0301725223",
+      "desc_cliente_consig": "ADIENT MX AUTOMOTRIZ S DE RL DE CV",
+      "num_cte_consig": "4800000876",
+      "desc_proveedor": "Martha Patricia Galvan Guevara",
+      "fecha_doc": "2026-02-19 00:00:00.000",
+      "cod_org_venta_key": "157701767",
+      "NSHDocId": "200005023262",
+      "NSHSociedad": "TM01"
+    }
+  },
+  {
+    "documentType": "NS",
+    "errorMessage": "System.Data.SqlClient.SqlException (0x80131904): No hay XML de Calidad    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)    at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)    at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()    at System.Data.SqlClient.SqlDataReader.get_MetaData()    at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)    at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavi",
+    "documentId": "1154812",
+    "pdfOk": "2026-02-18 23:07:00.000",
+    "invoiceClass": "",
+    "documentNumber": "200005023207",
+    "documentPackageId": "200005023207",
+    "confirmed": "",
+    "pdfFile": "NS200005023207.txt",
+    "sentOk": "2026-02-18 23:08:00.000",
+    "printedOk": "",
+    "packagedOk": "",
+    "salesOrganization": "173492382",
+    "icon": "ifNA",
+    "orderNumber": "0301726611",
+    "dynamicItems": {
+      "num_cte_sol": "N000100716",
+      "nro_doc_despacho": "200005023207",
+      "num_proveedor": "",
+      "desc_cliente_sol": "GENERAL MOTORS DE MEXICO S DE RL CV GM SAN LUIS METAL FORMING",
+      "nro_pedido": "0301726611",
+      "desc_cliente_consig": "SAN LUIS METAL FORMING,  S.A. DE C.V.",
+      "num_cte_consig": "N000110604",
+      "desc_proveedor": "AUTO EXPRESS DIA SA DE CV",
+      "fecha_doc": "2026-02-18 00:00:00.000",
+      "cod_org_venta_key": "173492382",
+      "NSHDocId": "200005023207",
+      "NSHSociedad": "TM01"
+    }
+  },
+  {
+    "documentType": "NS",
+    "errorMessage": "System.Data.SqlClient.SqlException (0x80131904): No hay XML de Calidad Imposible generar SN, no existe el pedido para este cliente Invalid column name 'NSDTFColada'. Ambiguous column name 'TFColada'.    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)    at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)    at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()    at System.Data.SqlClient.SqlDataReader.get_MetaData()    at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCac",
+    "documentId": "1155745",
+    "pdfOk": "2026-04-15 15:05:00.000",
+    "invoiceClass": "",
+    "documentNumber": "200005026306",
+    "documentPackageId": "200005026306",
+    "confirmed": "",
+    "pdfFile": "NS200005026306.txt",
+    "sentOk": "2026-04-15 15:06:00.000",
+    "printedOk": "",
+    "packagedOk": "",
+    "salesOrganization": "173491950",
+    "icon": "ifNA,",
+    "orderNumber": "0301758256",
+    "dynamicItems": {
+      "num_cte_sol": "N000100720",
+      "nro_doc_despacho": "200005026306",
+      "num_proveedor": "",
+      "desc_cliente_sol": "GENERAL MOTORS DE MEXICO S DE RL CV GM KIRCHHOFF",
+      "nro_pedido": "0301758256",
+      "desc_cliente_consig": "KIRCHHOFF AUTOMOTIVE MEXICO SA DE C V",
+      "num_cte_consig": "N000121705",
+      "desc_proveedor": "PHES TRANSPORTES SA DE CV",
+      "fecha_doc": "2026-04-15 00:00:00.000",
+      "cod_org_venta_key": "173491950",
+      "NSHDocId": "200005026306",
+      "NSHSociedad": "TM01"
+    }
+  },
+  {
+    "documentType": "NS",
+    "errorMessage": "System.Data.SqlClient.SqlException (0x80131904): No hay XML de Calidad    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)    at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)    at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()    at System.Data.SqlClient.SqlDataReader.get_MetaData()    at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)    at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavi",
+    "documentId": "1154758",
+    "pdfOk": "2026-02-19 13:54:00.000",
+    "invoiceClass": "",
+    "documentNumber": "200005023230",
+    "documentPackageId": "200005023230",
+    "confirmed": "",
+    "pdfFile": "NS200005023230.txt",
+    "sentOk": "2026-02-19 13:55:00.000",
+    "printedOk": "",
+    "packagedOk": "",
+    "salesOrganization": "157701767",
+    "icon": "ifNA,",
+    "orderNumber": "0301715663",
+    "dynamicItems": {
+      "num_cte_sol": "N000100701",
+      "nro_doc_despacho": "200005023230",
+      "num_proveedor": "",
+      "desc_cliente_sol": "GENERAL MOTORS DE MEXICO S DE RL CV GM ESTAMPADOS MAGNA",
+      "nro_pedido": "0301715663",
+      "desc_cliente_consig": "ESTAMPADOS MAGNA S.A. DE C.V.",
+      "num_cte_consig": "N000110069",
+      "desc_proveedor": "TRANSCARGA DEL NORTE S.A. DE C.V.",
+      "fecha_doc": "2026-02-19 00:00:00.000",
+      "cod_org_venta_key": "157701767",
+      "NSHDocId": "200005023230",
+      "NSHSociedad": "TM01"
+    }
+  },
+  {
+    "documentType": "NS",
+    "errorMessage": "System.Data.SqlClient.SqlException (0x80131904): No hay XML de Calidad    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)    at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)    at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()    at System.Data.SqlClient.SqlDataReader.get_MetaData()    at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)    at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavi",
+    "documentId": "1154912",
+    "pdfOk": "2026-02-20 13:43:00.000",
+    "invoiceClass": "",
+    "documentNumber": "200005023295",
+    "documentPackageId": "200005023295",
+    "confirmed": "",
+    "pdfFile": "NS200005023295.txt",
+    "sentOk": "2026-02-20 13:44:00.000",
+    "printedOk": "",
+    "packagedOk": "",
+    "salesOrganization": "157701767",
+    "icon": "ifNA,",
+    "orderNumber": "0301725282",
+    "dynamicItems": {
+      "num_cte_sol": "N000100709",
+      "nro_doc_despacho": "200005023295",
+      "num_proveedor": "",
+      "desc_cliente_sol": "GENERAL MOTORS DE MEXICO S DE RL CV GM LEAR",
+      "nro_pedido": "0301725282",
+      "desc_cliente_consig": "GILL QUERETARO S DE RL DE CV .",
+      "num_cte_consig": "N000127162",
+      "desc_proveedor": "TEM LOGISTICA SA DE CV",
+      "fecha_doc": "2026-02-20 00:00:00.000",
+      "cod_org_venta_key": "157701767",
+      "NSHDocId": "200005023295",
+      "NSHSociedad": "TM01"
+    }
+  },
+  {
+    "documentType": "NS",
+    "errorMessage": "System.Data.SqlClient.SqlException (0x80131904): Imposible generar SN, el cliente no esta configurado    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)    at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)    at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()    at System.Data.SqlClient.SqlDataReader.get_MetaData()    at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)    at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmd",
+    "documentId": "1154647",
+    "pdfOk": "2026-02-18 09:33:00.000",
+    "invoiceClass": "",
+    "documentNumber": "200005023164",
+    "documentPackageId": "200005023164",
+    "confirmed": "",
+    "pdfFile": "NS200005023164.txt",
+    "sentOk": "2026-02-18 09:35:00.000",
+    "printedOk": "",
+    "packagedOk": "",
+    "salesOrganization": "157702086",
+    "icon": "ifNA",
+    "orderNumber": "0301725123",
+    "dynamicItems": {
+      "num_cte_sol": "H000850000",
+      "nro_doc_despacho": "200005023164",
+      "num_proveedor": "",
+      "desc_cliente_sol": "GENERAL MOTORS DE MEXICO, S. de R.L  DE C.V.",
+      "nro_pedido": "0301725123",
+      "desc_cliente_consig": "VITTI LOGISTICS S DE R L DE C V",
+      "num_cte_consig": "4800001728",
+      "desc_proveedor": "3 CG GROUP S DE RL DE CV",
+      "fecha_doc": "2026-02-18 00:00:00.000",
+      "cod_org_venta_key": "157702086",
+      "NSHDocId": "200005023164",
+      "NSHSociedad": "TM01"
+    }
+  },
+  {
+    "documentType": "NS",
+    "errorMessage": "System.Data.SqlClient.SqlException (0x80131904): No hay XML de Calidad    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)    at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)    at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()    at System.Data.SqlClient.SqlDataReader.get_MetaData()    at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)    at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavi",
+    "documentId": "1154493",
+    "pdfOk": "2026-02-21 19:17:00.000",
+    "invoiceClass": "",
+    "documentNumber": "200005023389",
+    "documentPackageId": "200005023389",
+    "confirmed": "",
+    "pdfFile": "NS200005023389.xls",
+    "sentOk": "2026-02-21 19:17:00.000",
+    "printedOk": "",
+    "packagedOk": "",
+    "salesOrganization": "173492382",
+    "icon": "ifNA",
+    "orderNumber": "0301710304",
+    "dynamicItems": {
+      "num_cte_sol": "N000100716",
+      "nro_doc_despacho": "200005023389",
+      "num_proveedor": "",
+      "desc_cliente_sol": "GENERAL MOTORS DE MEXICO S DE RL CV GM SAN LUIS METAL FORMING",
+      "nro_pedido": "0301710304",
+      "desc_cliente_consig": "LAGERMEX SILAO, S.A. DE C.V.",
+      "num_cte_consig": "N000110606",
+      "desc_proveedor": "LOGISTICA DE TRANSPORTE PJH",
+      "fecha_doc": "2026-02-21 00:00:00.000",
+      "cod_org_venta_key": "173492382",
+      "NSHDocId": "200005023389",
+      "NSHSociedad": "TM01"
+    }
+  },
+  {
+    "documentType": "NS",
+    "errorMessage": "",
+    "documentId": "1155406",
+    "pdfOk": "2026-04-09 15:11:00.000",
+    "invoiceClass": "",
+    "documentNumber": "200005025410",
+    "documentPackageId": "200005025410",
+    "confirmed": "",
+    "pdfFile": "NS200005025410.txt",
+    "sentOk": "2026-04-09 15:14:00.000",
+    "printedOk": "",
+    "packagedOk": "",
+    "salesOrganization": "157701767",
+    "icon": "ifNA,,,,,,,,,,,,,,,,",
+    "orderNumber": "0301740553",
+    "dynamicItems": {
+      "num_cte_sol": "6800000109",
+      "nro_doc_despacho": "200005025410",
+      "num_proveedor": "",
+      "desc_cliente_sol": "FORD MOTOR COMPANY",
+      "nro_pedido": "0301740553",
+      "desc_cliente_consig": "NASG",
+      "num_cte_consig": "N000127181",
+      "desc_proveedor": "AUTO TRANSPORTES MODERNOS SA DE CV",
+      "fecha_doc": "2026-03-30 00:00:00.000",
+      "cod_org_venta_key": "157701767",
+      "NSHDocId": "200005025410",
+      "NSHSociedad": "TM01"
+    }
+  },
+  {
+    "documentType": "NS",
+    "errorMessage": "System.Data.SqlClient.SqlException (0x80131904): No hay XML de Calidad    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)    at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)    at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()    at System.Data.SqlClient.SqlDataReader.get_MetaData()    at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)    at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavi",
+    "documentId": "1155612",
+    "pdfOk": "2026-04-15 02:53:00.000",
+    "invoiceClass": "",
+    "documentNumber": "200005026273",
+    "documentPackageId": "200005026273",
+    "confirmed": "",
+    "pdfFile": "NS200005026273.txt",
+    "sentOk": "2026-04-15 02:54:00.000",
+    "printedOk": "",
+    "packagedOk": "",
+    "salesOrganization": "157701767",
+    "icon": "ifNA,",
+    "orderNumber": "0301765358",
+    "dynamicItems": {
+      "num_cte_sol": "N000100710",
+      "nro_doc_despacho": "200005026273",
+      "num_proveedor": "",
+      "desc_cliente_sol": "GENERAL MOTORS DE MEXICO S DE RL CV GM MARTINREA RAMOS ARIZPE",
+      "nro_pedido": "0301765358",
+      "desc_cliente_consig": "ESTAMPADOS MARTINREA",
+      "num_cte_consig": "N000110067",
+      "desc_proveedor": "GRUPO TRANSPORTISTA Y LOGISTICO",
+      "fecha_doc": "2026-04-15 00:00:00.000",
+      "cod_org_venta_key": "157701767",
+      "NSHDocId": "200005026273",
+      "NSHSociedad": "TM01"
+    }
+  },
+  {
+    "documentType": "NS",
+    "errorMessage": "System.Data.SqlClient.SqlException (0x80131904): No hay XML de Calidad    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)    at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)    at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()    at System.Data.SqlClient.SqlDataReader.get_MetaData()    at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)    at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavi",
+    "documentId": "1154679",
+    "pdfOk": "2026-02-21 22:45:00.000",
+    "invoiceClass": "",
+    "documentNumber": "200005023391",
+    "documentPackageId": "200005023391",
+    "confirmed": "",
+    "pdfFile": "NS200005023391.txt",
+    "sentOk": "2026-02-21 22:46:00.000",
+    "printedOk": "",
+    "packagedOk": "",
+    "salesOrganization": "157700851",
+    "icon": "ifNA,",
+    "orderNumber": "0301737336",
+    "dynamicItems": {
+      "num_cte_sol": "N000100757",
+      "nro_doc_despacho": "200005023391",
+      "num_proveedor": "",
+      "desc_cliente_sol": "GENERAL MOTORS DE MEXICO S DE RL CV",
+      "nro_pedido": "0301737336",
+      "desc_cliente_consig": "F&P MFG DE MEXICO SA DE C",
+      "num_cte_consig": "N000123834",
+      "desc_proveedor": "SETRAMEX TRANSPORTES SA DE CV",
+      "fecha_doc": "2026-02-21 00:00:00.000",
+      "cod_org_venta_key": "157700851",
+      "NSHDocId": "200005023391",
+      "NSHSociedad": "TM01"
+    }
+  },
+  {
+    "documentType": "NS",
+    "errorMessage": "System.Data.SqlClient.SqlException (0x80131904): No hay XML de Calidad    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)    at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)    at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()    at System.Data.SqlClient.SqlDataReader.get_MetaData()    at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)    at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavi",
+    "documentId": "1154694",
+    "pdfOk": "2026-02-20 10:25:00.000",
+    "invoiceClass": "",
+    "documentNumber": "200005023284",
+    "documentPackageId": "200005023284",
+    "confirmed": "",
+    "pdfFile": "NS200005023284.txt",
+    "sentOk": "2026-02-20 10:26:00.000",
+    "printedOk": "",
+    "packagedOk": "",
+    "salesOrganization": "173492396",
+    "icon": "ifNA,",
+    "orderNumber": "0301725777",
+    "dynamicItems": {
+      "num_cte_sol": "N000100711",
+      "nro_doc_despacho": "200005023284",
+      "num_proveedor": "",
+      "desc_cliente_sol": "GENERAL MOTORS DE MEXICO S DE RL CV GM MARTINREA SILAO",
+      "nro_pedido": "0301725777",
+      "desc_cliente_consig": "MARTINREA DEVELOPMENTS DE MEXICO SA DE CV",
+      "num_cte_consig": "N000120001",
+      "desc_proveedor": "SETRAMEX TRANSPORTES SA DE CV",
+      "fecha_doc": "2026-02-20 00:00:00.000",
+      "cod_org_venta_key": "173492396",
+      "NSHDocId": "200005023284",
+      "NSHSociedad": "TM01"
+    }
+  },
+  {
+    "documentType": "NS",
+    "errorMessage": "System.Data.SqlClient.SqlException (0x80131904): No hay XML de Calidad    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)    at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)    at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()    at System.Data.SqlClient.SqlDataReader.get_MetaData()    at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)    at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavi",
+    "documentId": "1154553",
+    "pdfOk": "2026-02-19 18:12:00.000",
+    "invoiceClass": "",
+    "documentNumber": "200005023251",
+    "documentPackageId": "200005023251",
+    "confirmed": "",
+    "pdfFile": "NS200005023251.txt",
+    "sentOk": "2026-02-19 18:13:00.000",
+    "printedOk": "",
+    "packagedOk": "",
+    "salesOrganization": "173491950",
+    "icon": "ifNA",
+    "orderNumber": "0301737315",
+    "dynamicItems": {
+      "num_cte_sol": "N000100716",
+      "nro_doc_despacho": "200005023251",
+      "num_proveedor": "",
+      "desc_cliente_sol": "GENERAL MOTORS DE MEXICO S DE RL CV GM SAN LUIS METAL FORMING",
+      "nro_pedido": "0301737315",
+      "desc_cliente_consig": "SAN LUIS METAL FORMING,  S.A. DE C.V.",
+      "num_cte_consig": "N000110604",
+      "desc_proveedor": "CEM LOGISTIC Y CARRIERS SA DE CV",
+      "fecha_doc": "2026-02-19 00:00:00.000",
+      "cod_org_venta_key": "173491950",
+      "NSHDocId": "200005023251",
+      "NSHSociedad": "TM01"
+    }
+  },
+  {
+    "documentType": "NS",
+    "errorMessage": "System.Data.SqlClient.SqlException (0x80131904): No hay XML de Calidad    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)    at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)    at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()    at System.Data.SqlClient.SqlDataReader.get_MetaData()    at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)    at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavi",
+    "documentId": "1154609",
+    "pdfOk": "2026-02-19 17:43:00.000",
+    "invoiceClass": "",
+    "documentNumber": "200005023247",
+    "documentPackageId": "200005023247",
+    "confirmed": "",
+    "pdfFile": "NS200005023247.txt",
+    "sentOk": "2026-02-19 17:48:00.000",
+    "printedOk": "",
+    "packagedOk": "",
+    "salesOrganization": "157702086",
+    "icon": "ifNA,",
+    "orderNumber": "0301724547",
+    "dynamicItems": {
+      "num_cte_sol": "N000100701",
+      "nro_doc_despacho": "200005023247",
+      "num_proveedor": "",
+      "desc_cliente_sol": "GENERAL MOTORS DE MEXICO S DE RL CV GM ESTAMPADOS MAGNA",
+      "nro_pedido": "0301724547",
+      "desc_cliente_consig": "ESTAMPADOS MAGNA S.A. DE C.V.",
+      "num_cte_consig": "N000110069",
+      "desc_proveedor": "3 CG GROUP S DE RL DE CV",
+      "fecha_doc": "2026-02-19 00:00:00.000",
+      "cod_org_venta_key": "157702086",
+      "NSHDocId": "200005023247",
+      "NSHSociedad": "TM01"
+    }
+  },
+  {
+    "documentType": "NS",
+    "errorMessage": "",
+    "documentId": "1155171",
+    "pdfOk": "2026-05-20 09:06:00.000",
+    "invoiceClass": "",
+    "documentNumber": "000004992134",
+    "documentPackageId": "000004992134",
+    "confirmed": "",
+    "pdfFile": "NS000004992134.txt",
+    "sentOk": "2026-05-20 09:12:00.000",
+    "printedOk": "",
+    "packagedOk": "",
+    "salesOrganization": "157700851",
+    "icon": "ifNA,,,,,,,,,,,,,,,,",
+    "orderNumber": "0301721634",
+    "dynamicItems": {
+      "num_cte_sol": "H000269318",
+      "nro_doc_despacho": "000004992134",
+      "num_proveedor": "",
+      "desc_cliente_sol": "VENTURE STEEL DE MEXICO",
+      "nro_pedido": "0301721634",
+      "desc_cliente_consig": "VENTURE STEEL DE MEXICO",
+      "num_cte_consig": "H000269318",
+      "desc_proveedor": "SERVIEXPRESS JC",
+      "fecha_doc": "2026-03-05 00:00:00.000",
+      "cod_org_venta_key": "157700851",
+      "NSHDocId": "000004992134",
+      "NSHSociedad": "TM01"
+    }
+  },
+  {
+    "documentType": "NS",
+    "errorMessage": "System.Data.SqlClient.SqlException (0x80131904): Imposible generar SN, el cliente no esta configurado    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)    at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)    at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()    at System.Data.SqlClient.SqlDataReader.get_MetaData()    at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)    at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmd",
+    "documentId": "1155738",
+    "pdfOk": "2026-04-15 22:39:00.000",
+    "invoiceClass": "",
+    "documentNumber": "200005026317",
+    "documentPackageId": "200005026317",
+    "confirmed": "",
+    "pdfFile": "NS200005026317.txt",
+    "sentOk": "2026-04-15 22:41:00.000",
+    "printedOk": "",
+    "packagedOk": "",
+    "salesOrganization": "157701767",
+    "icon": "ifNA,",
+    "orderNumber": "0301758584",
+    "dynamicItems": {
+      "num_cte_sol": "H000850000",
+      "nro_doc_despacho": "200005026317",
+      "num_proveedor": "",
+      "desc_cliente_sol": "GENERAL MOTORS DE MEXICO",
+      "nro_pedido": "0301758584",
+      "desc_cliente_consig": "VITTI LOGISTICS S DE R L DE C V",
+      "num_cte_consig": "4800001728",
+      "desc_proveedor": "HERNANDO ROMO GARZA",
+      "fecha_doc": "2026-04-15 00:00:00.000",
+      "cod_org_venta_key": "157701767",
+      "NSHDocId": "200005026317",
+      "NSHSociedad": "TM01"
+    }
+  },
+  {
+    "documentType": "NS",
+    "errorMessage": "System.Data.SqlClient.SqlException (0x80131904): Imposible generar SN, el cliente no esta configurado    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)    at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)    at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()    at System.Data.SqlClient.SqlDataReader.get_MetaData()    at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)    at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmd",
+    "documentId": "1154718",
+    "pdfOk": "2026-02-20 22:21:00.000",
+    "invoiceClass": "",
+    "documentNumber": "200005023330",
+    "documentPackageId": "200005023330",
+    "confirmed": "",
+    "pdfFile": "NS200005023330.txt",
+    "sentOk": "2026-02-20 22:22:00.000",
+    "printedOk": "",
+    "packagedOk": "",
+    "salesOrganization": "157702086",
+    "icon": "ifNA,",
+    "orderNumber": "0301725677",
+    "dynamicItems": {
+      "num_cte_sol": "H000850000",
+      "nro_doc_despacho": "200005023330",
+      "num_proveedor": "",
+      "desc_cliente_sol": "GENERAL MOTORS DE MEXICO",
+      "nro_pedido": "0301725677",
+      "desc_cliente_consig": "VITTI LOGISTICS S DE R L DE C V",
+      "num_cte_consig": "4800001728",
+      "desc_proveedor": "3 CG GROUP S DE RL DE CV",
+      "fecha_doc": "2026-02-20 00:00:00.000",
+      "cod_org_venta_key": "157702086",
+      "NSHDocId": "200005023330",
+      "NSHSociedad": "TM01"
+    }
+  },
+  {
+    "documentType": "NS",
+    "errorMessage": "System.Data.SqlClient.SqlException (0x80131904): Imposible generar SN, el cliente no esta configurado    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)    at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)    at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()    at System.Data.SqlClient.SqlDataReader.get_MetaData()    at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)    at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmd",
+    "documentId": "1155034",
+    "pdfOk": "2026-02-20 00:35:00.000",
+    "invoiceClass": "",
+    "documentNumber": "200005023263",
+    "documentPackageId": "200005023263",
+    "confirmed": "",
+    "pdfFile": "NS200005023263.xls",
+    "sentOk": "2026-02-20 00:36:00.000",
+    "printedOk": "",
+    "packagedOk": "",
+    "salesOrganization": "157701767",
+    "icon": "ifNA",
+    "orderNumber": "0301724957",
+    "dynamicItems": {
+      "num_cte_sol": "N000100707",
+      "nro_doc_despacho": "200005023263",
+      "num_proveedor": "",
+      "desc_cliente_sol": "GENERAL MOTORS DE MEXICO S DE RL CV GM INMETMATIC",
+      "nro_pedido": "0301724957",
+      "desc_cliente_consig": "INMETMATIC, S.A. DE C.V.",
+      "num_cte_consig": "N000110219",
+      "desc_proveedor": "AUTO TRANSPORTES MODERNOS SA DE CV",
+      "fecha_doc": "2026-02-20 00:00:00.000",
+      "cod_org_venta_key": "157701767",
+      "NSHDocId": "200005023263",
+      "NSHSociedad": "TM01"
+    }
+  },
+  {
+    "documentType": "NS",
+    "errorMessage": "System.Data.SqlClient.SqlException (0x80131904): Imposible generar SN, el cliente no esta configurado    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)    at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)    at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()    at System.Data.SqlClient.SqlDataReader.get_MetaData()    at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)    at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmd",
+    "documentId": "1154692",
+    "pdfOk": "2026-02-22 20:59:00.000",
+    "invoiceClass": "",
+    "documentNumber": "200005023403",
+    "documentPackageId": "200005023403",
+    "confirmed": "",
+    "pdfFile": "NS200005023403.txt",
+    "sentOk": "2026-02-22 21:02:00.000",
+    "printedOk": "",
+    "packagedOk": "",
+    "salesOrganization": "157701767",
+    "icon": "ifNA",
+    "orderNumber": "0301725279",
+    "dynamicItems": {
+      "num_cte_sol": "H000850000",
+      "nro_doc_despacho": "200005023403",
+      "num_proveedor": "",
+      "desc_cliente_sol": "GENERAL MOTORS DE MEXICO, S. de R.L  DE C.V.",
+      "nro_pedido": "0301725279",
+      "desc_cliente_consig": "VITTI LOGISTICS S DE R L DE C V",
+      "num_cte_consig": "4800001728",
+      "desc_proveedor": "RAMIRO MONTEMAYOR GONZALEZ",
+      "fecha_doc": "2026-02-22 00:00:00.000",
+      "cod_org_venta_key": "157701767",
+      "NSHDocId": "200005023403",
+      "NSHSociedad": "TM01"
+    }
+  },
+  {
+    "documentType": "NS",
+    "errorMessage": "System.Data.SqlClient.SqlException (0x80131904): Imposible generar SN, el cliente no esta configurado    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)    at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)    at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()    at System.Data.SqlClient.SqlDataReader.get_MetaData()    at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)    at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmd",
+    "documentId": "1154671",
+    "pdfOk": "2026-02-21 02:40:00.000",
+    "invoiceClass": "",
+    "documentNumber": "200005023355",
+    "documentPackageId": "200005023355",
+    "confirmed": "",
+    "pdfFile": "NS200005023355.txt",
+    "sentOk": "2026-02-21 02:41:00.000",
+    "printedOk": "",
+    "packagedOk": "",
+    "salesOrganization": "157701767",
+    "icon": "ifNA",
+    "orderNumber": "0301737567",
+    "dynamicItems": {
+      "num_cte_sol": "H000850000",
+      "nro_doc_despacho": "200005023355",
+      "num_proveedor": "",
+      "desc_cliente_sol": "GENERAL MOTORS DE MEXICO, S. de R.L  DE C.V.",
+      "nro_pedido": "0301737567",
+      "desc_cliente_consig": "VITTI LOGISTICS S DE R L DE C V",
+      "num_cte_consig": "4800001728",
+      "desc_proveedor": "HERNANDO ROMO GARZA",
+      "fecha_doc": "2026-02-21 00:00:00.000",
+      "cod_org_venta_key": "157701767",
+      "NSHDocId": "200005023355",
+      "NSHSociedad": "TM01"
+    }
+  },
+  {
+    "documentType": "NS",
+    "errorMessage": "System.Data.SqlClient.SqlException (0x80131904): Imposible generar SN, el cliente no esta configurado    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)    at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)    at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()    at System.Data.SqlClient.SqlDataReader.get_MetaData()    at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)    at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmd",
+    "documentId": "1154698",
+    "pdfOk": "2026-02-20 21:58:00.000",
+    "invoiceClass": "",
+    "documentNumber": "200005023328",
+    "documentPackageId": "200005023328",
+    "confirmed": "",
+    "pdfFile": "NS200005023328.txt",
+    "sentOk": "2026-02-20 21:59:00.000",
+    "printedOk": "",
+    "packagedOk": "",
+    "salesOrganization": "157701767",
+    "icon": "ifNA",
+    "orderNumber": "0301737362",
+    "dynamicItems": {
+      "num_cte_sol": "H000850000",
+      "nro_doc_despacho": "200005023328",
+      "num_proveedor": "",
+      "desc_cliente_sol": "GENERAL MOTORS DE MEXICO, S. de R.L  DE C.V.",
+      "nro_pedido": "0301737362",
+      "desc_cliente_consig": "VITTI LOGISTICS S DE R L DE C V",
+      "num_cte_consig": "4800001728",
+      "desc_proveedor": "SETRAMEX TRANSPORTES SA DE CV",
+      "fecha_doc": "2026-02-20 00:00:00.000",
+      "cod_org_venta_key": "157701767",
+      "NSHDocId": "200005023328",
+      "NSHSociedad": "TM01"
+    }
+  },
+  {
+    "documentType": "NS",
+    "errorMessage": "",
+    "documentId": "1155366",
+    "pdfOk": "2026-03-26 10:11:00.000",
+    "invoiceClass": "",
+    "documentNumber": "200005025168",
+    "documentPackageId": "200005025168",
+    "confirmed": "",
+    "pdfFile": "NS200005025168.txt",
+    "sentOk": "2026-03-26 10:14:00.000",
+    "printedOk": "",
+    "packagedOk": "",
+    "salesOrganization": "157701767",
+    "icon": "ifNA,,,,,,,,,,,,,,,,",
+    "orderNumber": "0301719963",
+    "dynamicItems": {
+      "num_cte_sol": "6800000110",
+      "nro_doc_despacho": "200005025168",
+      "num_proveedor": "",
+      "desc_cliente_sol": "FORD MOTOR COMPANY",
+      "nro_pedido": "0301719963",
+      "desc_cliente_consig": "PWO MEXICO",
+      "num_cte_consig": "4800001587",
+      "desc_proveedor": "SETRAMEX TRANSPORTES SA DE CV",
+      "fecha_doc": "2026-03-26 00:00:00.000",
+      "cod_org_venta_key": "157701767",
+      "NSHDocId": "200005025168",
+      "NSHSociedad": "TM01"
+    }
+  },
+  {
+    "documentType": "NS",
+    "errorMessage": "System.Data.SqlClient.SqlException (0x80131904): No hay XML de Calidad    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)    at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)    at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()    at System.Data.SqlClient.SqlDataReader.get_MetaData()    at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)    at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavi",
+    "documentId": "1154594",
+    "pdfOk": "2026-02-18 23:55:00.000",
+    "invoiceClass": "",
+    "documentNumber": "200005023209",
+    "documentPackageId": "200005023209",
+    "confirmed": "",
+    "pdfFile": "NS200005023209.txt",
+    "sentOk": "2026-02-18 23:56:00.000",
+    "printedOk": "",
+    "packagedOk": "",
+    "salesOrganization": "157702086",
+    "icon": "ifNA,",
+    "orderNumber": "0301719619",
+    "dynamicItems": {
+      "num_cte_sol": "N000100710",
+      "nro_doc_despacho": "200005023209",
+      "num_proveedor": "",
+      "desc_cliente_sol": "GENERAL MOTORS DE MEXICO S DE RL CV GM MARTINREA RAMOS ARIZPE",
+      "nro_pedido": "0301719619",
+      "desc_cliente_consig": "ESTAMPADOS MARTINREA",
+      "num_cte_consig": "N000110067",
+      "desc_proveedor": "3 CG GROUP S DE RL DE CV",
+      "fecha_doc": "2026-02-18 00:00:00.000",
+      "cod_org_venta_key": "157702086",
+      "NSHDocId": "200005023209",
+      "NSHSociedad": "TM01"
+    }
+  },
+  {
+    "documentType": "NS",
+    "errorMessage": "System.Data.SqlClient.SqlException (0x80131904): Imposible generar SN, el cliente no esta configurado    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)    at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)    at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()    at System.Data.SqlClient.SqlDataReader.get_MetaData()    at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)    at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmd",
+    "documentId": "1154986",
+    "pdfOk": "2026-02-22 18:37:00.000",
+    "invoiceClass": "",
+    "documentNumber": "200005023402",
+    "documentPackageId": "200005023402",
+    "confirmed": "",
+    "pdfFile": "NS200005023402.txt",
+    "sentOk": "2026-02-22 18:38:00.000",
+    "printedOk": "",
+    "packagedOk": "",
+    "salesOrganization": "157701767",
+    "icon": "ifNA,",
+    "orderNumber": "0301724862",
+    "dynamicItems": {
+      "num_cte_sol": "N000100702",
+      "nro_doc_despacho": "200005023402",
+      "num_proveedor": "",
+      "desc_cliente_sol": "GENERAL MOTORS DE MEXICO S DE RL CV GM FLEX N GATE",
+      "nro_pedido": "0301724862",
+      "desc_cliente_consig": "ARCELORMITTAL TUBULAR PRODUCTS",
+      "num_cte_consig": "4800002483",
+      "desc_proveedor": "SERVIEXPRESS JC",
+      "fecha_doc": "2026-02-22 00:00:00.000",
+      "cod_org_venta_key": "157701767",
+      "NSHDocId": "200005023402",
+      "NSHSociedad": "TM01"
+    }
+  },
+  {
+    "documentType": "NS",
+    "errorMessage": "System.Data.SqlClient.SqlException (0x80131904): Imposible generar SN, el cliente no esta configurado    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)    at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)    at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)    at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()    at System.Data.SqlClient.SqlDataReader.get_MetaData()    at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)    at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmd",
+    "documentId": "1154771",
+    "pdfOk": "2026-02-21 02:40:00.000",
+    "invoiceClass": "",
+    "documentNumber": "200005023354",
+    "documentPackageId": "200005023354",
+    "confirmed": "",
+    "pdfFile": "NS200005023354.txt",
+    "sentOk": "2026-02-21 02:41:00.000",
+    "printedOk": "",
+    "packagedOk": "",
+    "salesOrganization": "157701767",
+    "icon": "ifNA",
+    "orderNumber": "0301709824",
+    "dynamicItems": {
+      "num_cte_sol": "H000850000",
+      "nro_doc_despacho": "200005023354",
+      "num_proveedor": "",
+      "desc_cliente_sol": "GENERAL MOTORS DE MEXICO, S. de R.L  DE C.V.",
+      "nro_pedido": "0301709824",
+      "desc_cliente_consig": "VITTI LOGISTICS S DE R L DE C V",
+      "num_cte_consig": "4800001728",
+      "desc_proveedor": "HERNANDO ROMO GARZA",
+      "fecha_doc": "2026-02-21 00:00:00.000",
+      "cod_org_venta_key": "157701767",
+      "NSHDocId": "200005023354",
+      "NSHSociedad": "TM01"
+    }
+  },
+  {
+    "documentType": "NS",
+    "errorMessage": "",
+    "documentId": "1155366",
+    "pdfOk": "2026-03-26 10:11:00.000",
+    "invoiceClass": "",
+    "documentNumber": "200005025168",
+    "documentPackageId": "200005025168",
+    "confirmed": "",
+    "pdfFile": "NS200005025168.txt",
+    "sentOk": "2026-03-26 10:14:00.000",
+    "printedOk": "",
+    "packagedOk": "",
+    "salesOrganization": "157701767",
+    "icon": "ifNA,,,,,,,,,,,,,,,,",
+    "orderNumber": "0301753618",
+    "dynamicItems": {
+      "num_cte_sol": "6800000110",
+      "nro_doc_despacho": "200005025168",
+      "num_proveedor": "",
+      "desc_cliente_sol": "FORD MOTOR COMPANY",
+      "nro_pedido": "0301753618",
+      "desc_cliente_consig": "PWO MEXICO",
+      "num_cte_consig": "4800001587",
+      "desc_proveedor": "SETRAMEX TRANSPORTES SA DE CV",
+      "fecha_doc": "2026-03-26 00:00:00.000",
+      "cod_org_venta_key": "157701767",
+      "NSHDocId": "200005025168",
+      "NSHSociedad": "TM01"
+    }
+  }
 
   ];
 
@@ -1334,79 +3194,219 @@ if (!environment.production) {
   this.openBlob(blob, `${request.documentType}${request.documentNumber}.pdf`);
 }
 
-async openDocumentXml(request: DocumentFileRequest): Promise<void> {
-  const xmlDocumentType = this.getXmlDocumentType(request.documentType);
+// async openDocumentXml(request: DocumentFileRequest): Promise<void> {
+//   const xmlDocumentType = this.getXmlDocumentType(request.documentType);
 
-  console.log('📄 openDocumentXml - request original:', request);
-  console.log('📄 openDocumentXml - xmlDocumentType:', xmlDocumentType);
-  console.log('📄 environment.production:', environment.production);
+//   console.log('📄 openDocumentXml - request original:', request);
+//   console.log('📄 openDocumentXml - xmlDocumentType:', xmlDocumentType);
+//   console.log('📄 environment.production:', environment.production);
+
+//   if (!environment.production) {
+//     console.log('🧪 MODO MOCK XML');
+
+//     const blob = this.getMockXml(request);
+
+//     console.log('📦 Mock blob generado:', blob);
+//     console.log('📦 Mock blob size:', blob.size);
+//     console.log('📦 Mock blob type:', blob.type);
+
+//     this.openBlob(blob, `${xmlDocumentType}${request.documentNumber}.xml`);
+//     return;
+//   }
+
+//   const params = this.toHttpParams({
+//     documentType: xmlDocumentType,
+//     documentNumber: request.documentNumber,
+//     userId: request.userId ?? '',
+//     documentId: request.documentId ?? '',
+//     invoiceClass: request.invoiceClass ?? ''
+//   });
+
+//   console.log('🌐 XML params:', {
+//     documentType: xmlDocumentType,
+//     documentNumber: request.documentNumber,
+//     userId: request.userId ?? '',
+//     documentId: request.documentId ?? '',
+//     invoiceClass: request.invoiceClass ?? ''
+//   });
+
+//   const url = this.buildUrl('api/documentos/archivo');
+
+//   console.log('🌐 XML URL:', url);
+
+//   try {
+//     const response = await firstValueFrom(
+//       this.http.get(url, {
+//         params,
+//         observe: 'response',
+//         responseType: 'blob'
+//       })
+//     );
+
+//     console.log('✅ XML response completa:', response);
+//     console.log('✅ XML status:', response.status);
+//     console.log('✅ XML headers:', response.headers);
+//     console.log('✅ XML body:', response.body);
+
+//     const blob = response.body ?? new Blob([], { type: 'text/xml' });
+
+//     console.log('📦 XML blob final:', blob);
+//     console.log('📦 XML blob size:', blob.size);
+//     console.log('📦 XML blob type:', blob.type);
+
+//     if (blob.size === 0) {
+//       console.warn('⚠️ El blob XML viene vacío');
+//     }
+
+//     this.openBlob(blob, `${xmlDocumentType}${request.documentNumber}.xml`);
+
+//     console.log('🚀 XML abierto correctamente');
+//   } catch (error) {
+//     console.error('❌ Error al abrir XML:', error);
+//     throw error;
+//   }
+// }
+
+async openDocumentFile(
+  request: DocumentFileRequest,
+  options?: {
+    fileKind?: 'pdf' | 'xml' | 'txt' | 'excel' | 'zip' | 'csv' | 'auto';
+    forceDocumentType?: string;
+    fileName?: string;
+  }
+): Promise<void> {
+  const fileKind = options?.fileKind ?? 'auto';
+
+  const documentType =
+    options?.forceDocumentType ??
+    request.documentType;
+
+  const extension = this.resolveExtension(fileKind, options?.fileName);
+
+  const fileName =
+    options?.fileName ??
+    `${documentType}${request.documentNumber}${extension}`;
+
+  console.log('📄 openDocumentFile - request:', request);
+  console.log('📄 fileKind:', fileKind);
+  console.log('📄 documentType final:', documentType);
+  console.log('📄 fileName final:', fileName);
+
+  if (!documentType) {
+    throw new Error('Tipo de documento vacío o no soportado.');
+  }
 
   if (!environment.production) {
-    console.log('🧪 MODO MOCK XML');
-
-    const blob = this.getMockXml(request);
-
-    console.log('📦 Mock blob generado:', blob);
-    console.log('📦 Mock blob size:', blob.size);
-    console.log('📦 Mock blob type:', blob.type);
-
-    this.openBlob(blob, `${xmlDocumentType}${request.documentNumber}.xml`);
+    const blob = this.getMockFile(request, fileKind, fileName);
+    this.openBlob(blob, fileName);
     return;
   }
 
   const params = this.toHttpParams({
-    documentType: xmlDocumentType,
-    documentNumber: request.documentNumber,
-    userId: request.userId ?? '',
-    documentId: request.documentId ?? '',
-    invoiceClass: request.invoiceClass ?? ''
+  documentType,
+  documentNumber: request.documentNumber,
+  userId: request.userId ?? '',
+  documentId: request.documentId ?? '',
+  invoiceClass: request.invoiceClass ?? ''
+});
+
+console.log('📦 Params RAW:', {
+  documentType,
+  documentNumber: request.documentNumber,
+  userId: request.userId ?? '',
+  documentId: request.documentId ?? '',
+  invoiceClass: request.invoiceClass ?? ''
+});
+
+console.log('📦 HttpParams:', params.toString());
+
+const url = this.buildUrl('api/documentos/archivo');
+
+console.log('🌐 URL base:', url);
+
+console.log('🌐 URL completa:',
+  `${url}?${params.toString()}`
+);
+
+console.log('📄 fileKind:', fileKind);
+console.log('📄 fileName:', fileName);
+console.log('📄 mime esperado:',
+  this.resolveMimeType(fileKind, fileName)
+);
+
+try {
+
+  console.log('🚀 Ejecutando GET archivo...');
+
+  const response = await firstValueFrom(
+    this.http.get(url, {
+      params,
+      observe: 'response',
+      responseType: 'blob'
+    })
+  );
+
+  console.log('✅ Response completa:', response);
+
+  console.log('✅ Status:', response.status);
+  console.log('✅ StatusText:', response.statusText);
+
+  console.log('✅ Headers:',
+    response.headers.keys().reduce((acc, key) => {
+      acc[key] = response.headers.get(key);
+      return acc;
+    }, {} as any)
+  );
+
+  console.log('✅ Content-Type header:',
+    response.headers.get('content-type')
+  );
+
+  console.log('✅ Content-Disposition:',
+    response.headers.get('content-disposition')
+  );
+
+  console.log('✅ Body:', response.body);
+
+  const blob = response.body ?? new Blob([], {
+    type: this.resolveMimeType(fileKind, fileName)
   });
 
-  console.log('🌐 XML params:', {
-    documentType: xmlDocumentType,
-    documentNumber: request.documentNumber,
-    userId: request.userId ?? '',
-    documentId: request.documentId ?? '',
-    invoiceClass: request.invoiceClass ?? ''
-  });
+  console.log('📦 Blob final:', blob);
 
-  const url = this.buildUrl('api/documentos/archivo');
+  console.log('📦 Blob size:', blob.size);
 
-  console.log('🌐 XML URL:', url);
+  console.log('📦 Blob type:', blob.type);
 
-  try {
-    const response = await firstValueFrom(
-      this.http.get(url, {
-        params,
-        observe: 'response',
-        responseType: 'blob'
-      })
-    );
+  console.log('📦 Blob instanceof Blob:',
+    blob instanceof Blob
+  );
 
-    console.log('✅ XML response completa:', response);
-    console.log('✅ XML status:', response.status);
-    console.log('✅ XML headers:', response.headers);
-    console.log('✅ XML body:', response.body);
-
-    const blob = response.body ?? new Blob([], { type: 'text/xml' });
-
-    console.log('📦 XML blob final:', blob);
-    console.log('📦 XML blob size:', blob.size);
-    console.log('📦 XML blob type:', blob.type);
-
-    if (blob.size === 0) {
-      console.warn('⚠️ El blob XML viene vacío');
-    }
-
-    this.openBlob(blob, `${xmlDocumentType}${request.documentNumber}.xml`);
-
-    console.log('🚀 XML abierto correctamente');
-  } catch (error) {
-    console.error('❌ Error al abrir XML:', error);
-    throw error;
+  if (blob.size === 0) {
+    console.warn('⚠️ El blob viene vacío');
   }
-}
 
+  console.log('🚀 Abriendo blob...');
+
+  this.openBlob(blob, fileName);
+
+  console.log('✅ Archivo abierto correctamente');
+
+} catch (error: any) {
+
+  console.error('❌ Error GET archivo:', error);
+
+  console.error('❌ Status:', error?.status);
+
+  console.error('❌ StatusText:', error?.statusText);
+
+  console.error('❌ URL:', error?.url);
+
+  console.error('❌ Error body:', error?.error);
+
+  throw error;
+}
+}
 private getMockXml(request: DocumentFileRequest): Blob {
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
@@ -1812,7 +3812,9 @@ private getMockDocumentGroup(code: string): string[] {
     // 🔹 ASN
     ASN: ['NS', 'NSC', 'NSF', 'NSS', 'NST', 'SN'],
 
-    DR: ['B2B','B2I','B2N','B2S']
+    DR: ['B2B','B2I','B2N','B2S'],
+
+    ACC: ['CC', 'NCC', 'MF', 'MS', 'MT' ]
   };
 
   return groups[code] || [];
@@ -2559,16 +4561,16 @@ private openBlob(blob: Blob, fileName: string): void {
   window.setTimeout(() => URL.revokeObjectURL(objectUrl), 60000);
 }
 
-private getXmlDocumentType(documentType: string): string {
-  const map: Record<string, string> = {
-    NCP: 'XCN',
-    CP: 'XCP',
-    NS: 'XNS',
-    SU: 'XSU'
-  };
+// private getXmlDocumentType(documentType: string): string {
+//   const map: Record<string, string> = {
+//     NCP: 'XCN',
+//     CP: 'XCP',
+//     NS: 'XNS',
+//     SU: 'XSU'
+//   };
 
-  return map[documentType] ?? documentType;
-}
+//   return map[documentType] ?? documentType;
+// }
 
 // getSendMailConfig(request: {
 //   docType: string;
@@ -2965,5 +4967,111 @@ async sendMail(
     console.groupEnd();
   }
 }
+
+private readonly xmlDocTypesFE = [
+  'FC', 'CI', 'NV', 'FS', 'NF', 'NCI',
+  'FT', 'FTE', 'TN', 'TCI', 'TNC',
+  'CRP', 'CCP'
+];
+
+getXmlDocumentType(docType: string): string {
+  const type = (docType ?? '').trim().toUpperCase();
+
+  if (this.xmlDocTypesFE.includes(type)) return 'FE';
+  if (type === 'RF') return 'RX';
+  if (type === 'CP') return 'XC';
+  if (type === 'TCP') return 'XCN';
+  if (type === 'NCP') return 'XCN';
+
+  return '';
+}
+
+private resolveExtension(
+  fileKind: string,
+  fileName?: string
+): string {
+  const name = (fileName ?? '').toLowerCase();
+
+  if (name.endsWith('.pdf')) return '.pdf';
+  if (name.endsWith('.xml')) return '.xml';
+  if (name.endsWith('.txt')) return '.txt';
+  if (name.endsWith('.zip')) return '.zip';
+  if (name.endsWith('.xls')) return '.xls';
+  if (name.endsWith('.xlsx')) return '.xlsx';
+
+  switch (fileKind) {
+    case 'xml': return '.xml';
+    case 'txt': return '.txt';
+    case 'excel': return '.xlsx';
+    case 'zip': return '.zip';
+    case 'pdf': return '.pdf';
+    default: return '';
+  }
+}
+private resolveMimeType(fileKind: string, fileName?: string): string {
+  const name = (fileName ?? '').toLowerCase();
+
+  if (name.endsWith('.pdf') || fileKind === 'pdf') {
+    return 'application/pdf';
+  }
+
+  if (name.endsWith('.xml') || fileKind === 'xml') {
+    return 'text/xml';
+  }
+
+  if (name.endsWith('.txt') || fileKind === 'txt') {
+    return 'text/plain';
+  }
+
+  if (name.endsWith('.zip') || fileKind === 'zip') {
+    return 'application/zip';
+  }
+
+  if (name.endsWith('.xls')) {
+    return 'application/vnd.ms-excel';
+  }
+
+  if (name.endsWith('.xlsx') || fileKind === 'excel') {
+    return 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
+  }
+
+  return 'application/octet-stream';
+}
+
+private getMockFile(
+  request: DocumentFileRequest,
+  fileKind: string,
+  fileName: string
+): Blob {
+  const mimeType = this.resolveMimeType(fileKind, fileName);
+
+  if (fileKind === 'xml' || fileName.toLowerCase().endsWith('.xml')) {
+    return new Blob(
+      [`<document><number>${request.documentNumber}</number></document>`],
+      { type: mimeType }
+    );
+  }
+
+  if (fileKind === 'txt' || fileName.toLowerCase().endsWith('.txt')) {
+    return new Blob(
+      [`Documento TXT mock\nNúmero: ${request.documentNumber}`],
+      { type: mimeType }
+    );
+  }
+
+  return new Blob(
+    [`Archivo mock: ${fileName}`],
+    { type: mimeType }
+  );
+}
+
+// canShowXml(row: any): boolean {
+//   const docType = row.docType ?? row.documentType ?? '';
+//   const pdfOk = row.doPDFOk ?? row.pdfOk;
+
+//   return !!pdfOk &&
+//          pdfOk.toString().trim() !== '' &&
+//          this.getXmlDocumentType(docType) !== '';
+// }
 
 }

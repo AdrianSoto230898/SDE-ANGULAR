@@ -37,7 +37,10 @@ export class CustomTableComponent {
 
   // ----- Inputs convertidos a signals (para que los computed reaccionen)
   private rowsSig = signal<any[]>([]);
-  @Input() set rows(v: any[] | null | undefined) { this.rowsSig.set(v ?? []); }
+  @Input() set rows(v: any[] | null | undefined) {
+  this.rowsSig.set(v ?? []);
+  this.pageSig.set(1);
+}
 
   private clientSearchSig = signal(true);
   @Input() set clientSearch(v: boolean | null | undefined) { this.clientSearchSig.set(!!v); }
@@ -49,7 +52,11 @@ export class CustomTableComponent {
   @Input() set page(v: number | null | undefined) { this.pageSig.set(Number(v) || 1); }
 
   public perPageSig = signal(5);
-  @Input() set itemsPerPage(v: number | null | undefined) { this.perPageSig.set(Number(v) || 5); }
+@Input() set itemsPerPage(v: number | null | undefined) {
+  const n = Number(v) || 5;
+  this.perPageSig.set(n);
+  this.pageSig.set(1);
+}
 
   // ----- Outputs
   @Output() pageChange = new EventEmitter<number>();
@@ -76,6 +83,10 @@ export class CustomTableComponent {
 @Output() toggleOne = new EventEmitter<{ row: any; checked: boolean }>();
 
 @Output() xml = new EventEmitter<any>();
+@Output() excel = new EventEmitter<any>();
+@Output() csv = new EventEmitter<any>();
+@Output() zip = new EventEmitter<any>();
+@Output() txt = new EventEmitter<any>();
 
   // ----- Estado de búsqueda
   textSearch = signal('');
@@ -131,14 +142,16 @@ onSearchInput(v: string) {
   this.searchChange.emit(v);
 }
 
-  setItemsPerPage(v: any) {
-    const n = Number(v);
-    if (!isNaN(n)) {
-      this.perPageSig.set(n);
-      this.itemsPerPageChange.emit(n);
-      this.pageSig.set(1);
-    }
+setItemsPerPage(v: any) {
+  const n = Number(v);
+
+  if (!isNaN(n) && n > 0) {
+    this.pageSig.set(1);
+    this.perPageSig.set(n);
+    this.itemsPerPageChange.emit(n);
+    this.pageChange.emit(1);
   }
+}
 
   setPage(p: number) {
     const next = Math.min(Math.max(1, p), this.totalPages());
@@ -185,4 +198,32 @@ onToggleAll(checked: boolean) {
 onToggleOne(row: any, checked: boolean) {
   this.toggleOne.emit({ row, checked });
 }
+
+onFileAction(action: any, row: any) {
+  const value = [
+    action?.action,
+    action?.type,
+    action?.title,
+    action?.icon,
+    row?.fileName,
+    row?.pdfFile,
+    row?.mimeName,
+    row?.mimeType,
+    row?.contentType
+  ].filter(Boolean).join(' ').toLowerCase();
+
+  if (value.includes('.txt') || value.includes('txt') || value.includes('text/plain')) {
+    this.print.emit(row);
+    return;
+  }
+
+  if (value.includes('.xml') || value.includes('xml')) {
+    this.xml.emit(row);
+    return;
+  }
+
+  this.view.emit(row);
+}
+
+
 }

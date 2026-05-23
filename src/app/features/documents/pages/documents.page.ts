@@ -69,7 +69,7 @@ export class DocumentsPage {
   readonly draftFilters = signal<Record<string, string>>({});
   readonly submittedFilters = signal<Record<string, string>>({});
   readonly pageIndex = signal(0);
-  readonly pageSize = signal(25);
+  readonly pageSize = signal(50);
   readonly sortColumn = signal('');
   readonly sortDirection = signal<'asc' | 'desc'>('asc');
   readonly selectedRows = signal<Record<string, boolean>>({});
@@ -85,7 +85,8 @@ export class DocumentsPage {
 
   readonly groupedHeaders = signal<DocumentField[]>([]);
 readonly groupedFilterHeaders = signal<DocumentField[]>([]);
-
+readonly page = signal(1);
+// readonly pageSize = signal(50);
 
 readonly showSendModal = signal(false);
 readonly sendMailForm = signal<SendMailConfigResponse | null>(null);
@@ -135,12 +136,12 @@ readonly sendMailForm = signal<SendMailConfigResponse | null>(null);
     params: () => ({
       
       documentType: this.selectedDocumentType(),
-      dateFrom: this.submittedDateFrom(),
-      dateTo: this.submittedDateTo(),
+      dateFrom: this.formatDateForApi(this.submittedDateFrom()),
+      dateTo: this.formatDateForApi(this.submittedDateTo()),
       filters: this.submittedFilters(),
       userId: this.currentUserEmail(),
       sqlWhere: '',
-      start: this.pageIndex() * this.pageSize(),
+      start: (this.page() - 1) * this.pageSize(),
       length: this.pageSize(),
       sortColumn: this.sortColumn(),
       sortDirection: this.sortDirection()
@@ -610,7 +611,14 @@ async downloadSelectedDocuments(
   type: 'Multi' | 'Pdf'
 ): Promise<void> {
 
-  const selectedItems = this.selectedMultifileItems();
+  const selectedItems = this.selectedMultifileItems()
+  .filter((x: any) => {
+    const row = this.gridRows().find(r =>
+      String(r.documentId) === String(x.id)
+    );
+
+    return row && this.hasDocumentLoaded(row);
+  });
 
   if (selectedItems.length === 0) {
 
@@ -1000,23 +1008,27 @@ async setDocumentTypeFromMenu(type: string): Promise<void> {
   private buildExportRequest() {
     return {
       documentType: this.selectedDocumentType(),
-      dateFrom: this.submittedDateFrom(),
-      dateTo: this.submittedDateTo(),
+      dateFrom: this.formatDateForApi(this.submittedDateFrom()),
+      dateTo: this.formatDateForApi(this.submittedDateTo()),
       filters: this.submittedFilters(),
       sqlWhere: '',
       userId: this.currentUserEmail()
     };
   }
 
-  private buildFileRequest(item: DocumentGridItem) {
-    return {
-      documentType: this.selectedDocumentType(),
-      documentNumber: item.documentNumber,
-      documentId: item.documentId,
-      invoiceClass: item.invoiceClass,
-      userId: this.currentUserEmail()
-    };
-  }
+private buildFileRequest(item: DocumentGridItem) {
+  return {
+    documentType:
+      (item as any).docType ??
+      item.documentType ??
+      this.selectedDocumentType(),
+
+    documentNumber: item.documentNumber ?? '',
+    documentId: item.documentId ?? '',
+    invoiceClass: item.invoiceClass ?? '',
+    userId: this.currentUserEmail()
+  };
+}
 
 private getFilterKey(field: DocumentField): string {
   return field.id;
@@ -1290,22 +1302,28 @@ getStatusActions(item: any) {
   const printedOk = item.doPrintedOk ?? item.printedOk;
   const packagedOk = item.doPackagedOk ?? item.packagedOk;
 
-const fileType = this.getFileType(pdfFile);
-
+  const fileType = this.getFileType(pdfFile);
 if (pdfOk) {
   actions.push({
-    type: 'file',
+    type: fileType,
     icon:
       fileType === 'excel' ? 'ph ph-file-xls' :
       fileType === 'xml' ? 'ph ph-file-code' :
       fileType === 'zip' ? 'ph ph-file-zip' :
+      fileType === 'txt' ? 'ph ph-file-text' :
       'ph ph-file-pdf',
+
     title: pdfFile ?? pdfOk,
-    action: 'view'
+
+    action:
+      fileType === 'xml' ? 'xml' :
+      fileType === 'excel' ? 'excel' :
+      fileType === 'txt' ? 'txt' :
+      'view'
   });
 }
 
-  if (pdfOk && this.canShowXml(docType)) {
+  if (this.canShowXml(item)) {
     actions.push({
       type: 'xml',
       icon: 'ph ph-file-code',
@@ -1365,47 +1383,181 @@ private readonly XML_DOCUMENT_TYPE_MAP: Record<string, string> = {
   CCP: 'XCCP'
 };
 
-private getXmlDocumentType(documentType: string): string {
-  if (documentType.startsWith('X')) return documentType;
-  return this.XML_DOCUMENT_TYPE_MAP[documentType] ?? '';
+// private getXmlDocumentType(documentType: string): string {
+//   if (documentType.startsWith('X')) return documentType;
+//   return this.XML_DOCUMENT_TYPE_MAP[documentType] ?? '';
+// }
+
+getFileType(fileName: string | null | undefined): string {
+  const value = (fileName ?? '').toLowerCase().trim();
+
+  if (value.endsWith('.txt')) return 'txt';
+  if (value.endsWith('.xml')) return 'xml';
+  if (value.endsWith('.zip')) return 'zip';
+  if (value.endsWith('.xls')) return 'excel';
+  if (value.endsWith('.xlsx')) return 'excel';
+  if (value.endsWith('.pdf')) return 'pdf';
+
+  return 'pdf';
 }
 
-getFileType(fileName: string): string {
-  if (!fileName) return 'unknown';
+// private canShowXml(documentType: string): boolean {
+//   return !!this.getXmlDocumentType(documentType);
+// }
 
-  const ext = fileName.split('.').pop()?.toLowerCase();
+// async onOpenXml(row: any): Promise<void> {
+//   const item = row._rowRef as DocumentGridItem;
 
-  if (ext === 'pdf') return 'pdf';
-  if (ext === 'xml') return 'xml';
-  if (ext === 'xls' || ext === 'xlsx') return 'excel';
-  if (ext === 'zip') return 'zip';
+//   try {
+//     const request = this.buildXmlFileRequest(item);
 
-  return 'other';
-}
+//     await this.documentsApi.openDocumentFile(request, {
+//       fileKind: 'xml',
+//       fileName: `${request.documentType}${request.documentNumber}.xml`
+//     });
 
-private canShowXml(documentType: string): boolean {
-  return !!this.getXmlDocumentType(documentType);
-}
-
+//   } catch (error) {
+//     this.handleActionError(
+//       'No fue posible abrir el XML del documento.',
+//       error
+//     );
+//   }
+// }
 async onOpenXml(row: any): Promise<void> {
   const item = row._rowRef as DocumentGridItem;
 
   try {
-    await this.documentsApi.openDocumentXml(this.buildXmlFileRequest(item));
+    const request = this.buildXmlFileRequest(item);
+
+    await this.documentsApi.openDocumentFile(request, {
+      fileKind: 'xml',
+      forceDocumentType: request.documentType,
+      fileName: `${request.documentType}${request.documentNumber}.xml`
+    });
+
   } catch (error) {
-    this.handleActionError('No fue posible abrir el XML del documento.', error);
+    this.handleActionError(
+      'No fue posible abrir el XML del documento.',
+      error
+    );
   }
 }
+async onOpenExcel(row: any): Promise<void> {
+  const item = row._rowRef as DocumentGridItem;
 
+  try {
+    await this.documentsApi.openDocumentFile(
+      this.buildFileRequest(item),
+      {
+        fileKind: 'excel',
+        fileName:
+          (item as any).doPDFFile ??
+          (item as any).pdfFile ??
+          `${item.documentNumber}.xlsx`
+      }
+    );
+
+  } catch (error) {
+    this.handleActionError(
+      'No fue posible abrir el archivo Excel.',
+      error
+    );
+  }
+}
+async onOpenTxt(row: any): Promise<void> {
+  const item = row._rowRef as DocumentGridItem;
+
+  try {
+
+    await this.documentsApi.openDocumentFile(
+      this.buildFileRequest(item),
+      {
+        fileKind: 'txt',
+        fileName:
+          (item as any).doPDFFile ??
+          (item as any).pdfFile ??
+          `${item.documentNumber}.txt`
+      }
+    );
+
+  } catch (error) {
+
+    this.handleActionError(
+      'No fue posible abrir el archivo TXT.',
+      error
+    );
+
+  }
+}
+async onOpenCsv(row: any): Promise<void> {
+  const item = row._rowRef as DocumentGridItem;
+
+  try {
+
+    await this.documentsApi.openDocumentFile(
+      this.buildFileRequest(item),
+      {
+        fileKind: 'csv',
+        fileName:
+          (item as any).doPDFFile ??
+          (item as any).pdfFile ??
+          `${item.documentNumber}.csv`
+      }
+    );
+
+  } catch (error) {
+
+    this.handleActionError(
+      'No fue posible abrir el archivo CSV.',
+      error
+    );
+
+  }
+}
+async onOpenZip(row: any): Promise<void> {
+  const item = row._rowRef as DocumentGridItem;
+
+  try {
+
+    await this.documentsApi.openDocumentFile(
+      this.buildFileRequest(item),
+      {
+        fileKind: 'zip',
+        fileName:
+          (item as any).doPDFFile ??
+          (item as any).pdfFile ??
+          `${item.documentNumber}.zip`
+      }
+    );
+
+  } catch (error) {
+
+    this.handleActionError(
+      'No fue posible abrir el archivo ZIP.',
+      error
+    );
+
+  }
+}
 private buildXmlFileRequest(item: DocumentGridItem) {
-  const originalType = ((item as any).docType ?? this.selectedDocumentType()).toString();
+  const originalType = (
+    (item as any).docType ??
+    item.documentType ??
+    this.selectedDocumentType() ??
+    ''
+  ).toString();
+
   const xmlType = this.getXmlDocumentType(originalType);
+
+  if (!xmlType) {
+    throw new Error(`El tipo ${originalType} no soporta XML.`);
+  }
 
   return {
     documentType: xmlType,
-    documentNumber: item.documentNumber,
-    documentId: item.documentId,
-    invoiceClass: item.invoiceClass,
+    documentNumber: item.documentNumber ?? '',
+    documentId: item.documentId ?? '',
+    invoiceClass: item.invoiceClass ?? '',
     userId: this.currentUserEmail()
   };
 }
@@ -1529,6 +1681,23 @@ readonly selectedDocumentsForMassive = computed(() =>
     })
     .filter(x => !!x.doId && !!x.doNumber)
 );
+readonly selectedDocumentsWithStatus = computed(() =>
+  this.gridRows()
+    .filter((item: any) => this.isRowSelected(item))
+    .filter((item: any) => this.hasDocumentLoaded(item)) // 👈 SOLO con estatus
+    .map((item: any) => {
+      const docType = item.docType ?? item.documentType ?? this.selectedDocumentType();
+      const doId = item.doId ?? item.documentId;
+      const doNumber = item.doNumber ?? item.documentNumber;
+
+      return {
+        docType,
+        doId,
+        doNumber
+      };
+    })
+    .filter(x => !!x.doId && !!x.doNumber)
+);
 
 // async downloadMassiveSelected(): Promise<void> {
 //   const documents = this.selectedDocumentsForMassive();
@@ -1580,8 +1749,7 @@ readonly selectedDocumentsForMassive = computed(() =>
 // }
 
 async sendMassiveSelected(): Promise<void> {
-  const documents = this.selectedDocumentsForMassive();
-
+const documents = this.selectedDocumentsWithStatus();
   if (documents.length === 0) {
     this.actionMessage.set({
       kind: 'info',
@@ -1825,6 +1993,48 @@ async generateLegacyPdfSelected(): Promise<void> {
 
     console.groupEnd();
   }
+}
+
+private readonly xmlDocTypesFE = [
+  'FC', 'CI', 'NV', 'FS', 'NF', 'NCI',
+  'FT', 'FTE', 'TN', 'TCI', 'TNC',
+  'CRP', 'CCP'
+];
+
+getXmlDocumentType(docType: string): string {
+  const type = (docType ?? '').trim().toUpperCase();
+
+  if (this.xmlDocTypesFE.includes(type)) return 'FE';
+  if (type === 'RF') return 'RX';
+  if (type === 'CP') return 'XC';
+  if (type === 'TCP') return 'XCN';
+  if (type === 'NCP') return 'XCN';
+
+  return '';
+}
+
+canShowXml(row: any): boolean {
+  const docType = row.docType ?? row.documentType;
+  const pdfOk = row.doPDFOk ?? row.pdfOk;
+
+  return this.hasValue(pdfOk) && this.getXmlDocumentType(docType) !== '';
+}
+
+private hasDocumentLoaded(item: any): boolean {
+
+  const pdfOk = item.doPDFOk ?? item.pdfOk;
+
+  const pdfFile = item.doPDFFile ?? item.pdfFile;
+
+  return this.hasValue(pdfOk) || this.hasValue(pdfFile);
+}
+
+private formatDateForApi(date: string): string {
+
+  if (!date) return '';
+
+  return date.replaceAll('-', '');
+
 }
 
 }

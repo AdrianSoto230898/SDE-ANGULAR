@@ -379,22 +379,27 @@
 
       </div>
 
-      <!-- TABLA -->
-      <app-custom-table
-        [columns]="tableColumns()"
-        [rows]="tableRows()"
-        [loading]="gridResource.isLoading()"
-        [itemsPerPage]="pageSize()"
-        [itemsPerPageOptions]="[10, 25, 50]"
-        searchPlaceholder="Buscar en resultados..."
-        (view)="onTableView($event)"
-        (edit)="onTableEdit($event)"
-        (xml)="onOpenXml($event)"
-        (print)="onPrintDocument($event)"
-        (toggleAll)="toggleAllRows($event)"
-        (toggleOne)="toggleRow($any($event).row._rowRef, $any($event).checked)">
-      </app-custom-table>
-
+   <app-custom-table
+  [columns]="tableColumns()"
+  [rows]="tableRows()"
+  [loading]="gridResource.isLoading()"
+  [itemsPerPage]="pageSize()"
+  [itemsPerPageOptions]="[10, 25, 50]"
+  [page]="page()"
+  searchPlaceholder="Buscar en resultados..."
+  (pageChange)="page.set($event)"
+  (itemsPerPageChange)="page.set(1); pageSize.set($event)"
+  (view)="onTableView($event)"
+  (edit)="onTableEdit($event)"
+  (xml)="onOpenXml($event)"
+  (excel)="onOpenExcel($event)"
+  (txt)="onOpenTxt($event)"
+  (csv)="onOpenCsv($event)"
+  (zip)="onOpenZip($event)"
+  (print)="onPrintDocument($event)"
+  (toggleAll)="toggleAllRows($event)"
+  (toggleOne)="toggleRow($any($event).row._rowRef, $any($event).checked)">
+</app-custom-table>
       <!-- SEND MODAL -->
       <app-send-mail-modal
         [visible]="showSendModal()"
