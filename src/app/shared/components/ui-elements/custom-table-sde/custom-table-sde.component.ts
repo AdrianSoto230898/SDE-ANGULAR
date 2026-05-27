@@ -45,12 +45,12 @@ export interface ActionBarItem {
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => CustomTableComponent),
+      useExisting: forwardRef(() => CustomTableSdeComponent ),
       multi: true,
     },
   ],
 })
-export class CustomTableComponent {
+export class CustomTableSdeComponent  {
   // ----- Inputs “normales”
   @Input() title = '';
   @Input() emptyText = 'Sin registros para mostrar';

@@ -57,7 +57,6 @@
    class="flex items-center gap-2 px-2.5 py-2 rounded-lg text-neutral-600 dark:text-neutral-300 hover:bg-white dark:hover:bg-neutral-700 transition-colors text-sm">
   Documentos Relacionados
 </a> -->
-</a>
 <a [routerLink]="'/documents'"
    [queryParams]="{ type: 'ACO' }"
    routerLinkActive="bg-white dark:bg-neutral-700 text-neutral-900 dark:text-white"
@@ -67,37 +66,7 @@
 
   </div>
 </div>
-    <!-- Reportes (EXPANDIBLE) -->
-  <div class="sidebar-group">
-  <button type="button" (click)="toggle(reportsGroup.id)"
-    class="w-full flex items-center gap-3 px-3 py-2 rounded-full text-neutral-600 dark:text-neutral-300 hover:bg-white dark:hover:bg-neutral-700 transition-colors">
-    
-    <span class="ph ph-files text-lg"></span>
-    <span class="text-sm font-medium flex-1 text-left">Reportes</span>
-    
-    <span class="ph ph-caret-down text-sm transition-transform"
-      [class.rotate-180]="isOpen(reportsGroup)">
-    </span>
-  </button>
 
-  <div class="ml-4 mt-1 pl-3 border-l border-neutral-200 dark:border-neutral-700 space-y-1"
-    [class.hidden]="!isOpen(reportsGroup)">
-<a
-  [routerLink]="'/reportes/remisiones'"
-  routerLinkActive="bg-white text-neutral-900 dark:bg-neutral-600 dark:text-white shadow-sm"
-  [routerLinkActiveOptions]="{
-    paths: 'subset',
-    queryParams: 'ignored',
-    fragment: 'ignored',
-    matrixParams: 'ignored'
-  }"
-  class="group flex items-center gap-3 px-3 py-2 rounded-full text-neutral-600 dark:text-neutral-300 hover:bg-white dark:hover:bg-neutral-600 transition"
->
-  <span class="icon-[solar--document-text-linear] text-[18px]"></span>
-  <span class="text-xs font-medium">Consulta de Remisiones</span>
-</a>
-  </div>
-</div>
   </nav>
 </div>
 

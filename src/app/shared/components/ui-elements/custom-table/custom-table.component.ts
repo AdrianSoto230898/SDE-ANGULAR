@@ -44,7 +44,7 @@ export class CustomTableComponent {
     }
 }
 
-  private serverPaginationSig = signal(false);
+  public serverPaginationSig = signal(false);
   @Input() set serverPagination(v: boolean | null | undefined) { this.serverPaginationSig.set(!!v); }
 
   private totalItemsSig = signal(0);

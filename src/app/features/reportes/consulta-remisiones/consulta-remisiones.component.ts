@@ -21,7 +21,7 @@ import { firstValueFrom } from 'rxjs';
 import {
   ActionBarItem,
   ColumnDef,
-  CustomTableComponent,
+  CustomTableSdeComponent,
 } from '../../../shared/components/ui-elements/custom-table-sde/custom-table-sde.component';
 
 import { CustomInputComponent } from '../../../shared/components/ui-elements/custom-input/custom-input.component';
@@ -65,15 +65,14 @@ type StoredFilters = {
 @Component({
   selector: 'app-consulta-remisiones',
   standalone: true,
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    RouterLink,
-    CustomInputComponent,
-    CustomTableComponent,
-
-    InfoDialogComponent,
-  ],
+imports: [
+  CommonModule,
+  ReactiveFormsModule,
+  RouterLink,
+  CustomInputComponent,
+  CustomTableSdeComponent,
+  InfoDialogComponent,
+],
   templateUrl: './consulta-remisiones.component.html',
   styleUrls: [],
 })
@@ -83,7 +82,7 @@ export class ConsultaRemisionesComponent {
   private router = inject(Router);
   private local = inject(LocalService);
 
-  @ViewChild(CustomTableComponent) table!: CustomTableComponent;
+  @ViewChild(CustomTableSdeComponent) table!: CustomTableSdeComponent;
 
   // @ViewChild('excelDialog', { static: false })
   // excelDialog!: ElementRef<HTMLDialogElement>;
