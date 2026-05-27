@@ -38,9 +38,20 @@ export class CustomTableComponent {
   // ----- Inputs convertidos a signals (para que los computed reaccionen)
   private rowsSig = signal<any[]>([]);
   @Input() set rows(v: any[] | null | undefined) {
-  this.rowsSig.set(v ?? []);
-  this.pageSig.set(1);
+    this.rowsSig.set(v ?? []);
+    if (!this.serverPaginationSig()) {
+      this.pageSig.set(1);
+    }
 }
+
+  private serverPaginationSig = signal(false);
+  @Input() set serverPagination(v: boolean | null | undefined) { this.serverPaginationSig.set(!!v); }
+
+  private totalItemsSig = signal(0);
+  @Input() set totalItems(v: number | null | undefined) {
+    const total = Number(v) || 0;
+    this.totalItemsSig.set(total);
+  }
 
   private clientSearchSig = signal(true);
   @Input() set clientSearch(v: boolean | null | undefined) { this.clientSearchSig.set(!!v); }
@@ -118,11 +129,31 @@ filtered = computed(() => {
   });
 });
 
+  displayTotal = computed(() => {
+    if (this.serverPaginationSig()) {
+      return this.totalItemsSig() > 0 ? this.totalItemsSig() : this.rowsSig().length;
+    }
+
+    return this.filtered().length;
+  });
+
   totalPages = computed(() =>
-    Math.max(1, Math.ceil(this.filtered().length / this.perPageSig()))
+    Math.max(1, Math.ceil(this.displayTotal() / this.perPageSig()))
+  );
+
+  currentStart = computed(() =>
+    this.displayTotal() === 0 ? 0 : ((this.pageSig() - 1) * this.perPageSig()) + 1
+  );
+
+  currentEnd = computed(() =>
+    Math.min(this.displayTotal(), this.pageSig() * this.perPageSig())
   );
 
   paginated = computed(() => {
+    if (this.serverPaginationSig()) {
+      return this.filtered();
+    }
+
     const start = (this.pageSig() - 1) * this.perPageSig();
     return this.filtered().slice(start, start + this.perPageSig());
   });

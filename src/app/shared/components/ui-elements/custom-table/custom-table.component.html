@@ -296,7 +296,9 @@
         @for (opt of itemsPerPageOptions; track opt) {
         <option [ngValue]="opt">{{ opt }}</option>
         }
+        @if (!serverPaginationSig()) {
         <option [ngValue]="filtered().length">Todos</option>
+        }
       </select>
 
       <span class="absolute inset-y-0 right-2 pointer-events-none flex items-center">
@@ -309,12 +311,10 @@
 
   <div class="text-xs text-neutral-500 dark:text-neutral-300">
     Registros:
-    {{ filtered().length === 0 ? 0 : ((pageSig()-1)*perPageSig()) + 1 }}
+    {{ currentStart() }}
     a
-    {{
-      (pageSig()*perPageSig() > filtered().length ? filtered().length : pageSig()*perPageSig())
-    }}
-    de {{ filtered().length }}
+    {{ currentEnd() }}
+    de {{ displayTotal() }}
   </div>
 
   <div class="inline-flex">
