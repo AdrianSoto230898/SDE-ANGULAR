@@ -1,0 +1,401 @@
+<div class="border border-neutral-200 dark:border-neutral-800 rounded-2xl">
+  <!-- Header / título -->
+  <div class="flex flex-col sm:flex-row p-2 items-center gap-4 border-b border-neutral-200 dark:border-neutral-700">
+    <!-- <span class="icon-[famicons--open-outline] text-base"></span> -->
+    @if (hasActionBars) {
+    <div class="justify-self-start w-full sm:w-auto">
+      <div class="border border-neutral-200 dark:border-neutral-800 rounded-xl px-1 py-1
+             w-full sm:w-auto inline-flex items-center">
+
+        <div class="w-full sm:w-auto sm:flex sm:items-center sm:gap-2" [ngClass]="hasActionBars
+          ? 'grid grid-cols-2 gap-2 place-items-center sm:grid-cols-0'
+          : 'grid grid-cols-1 gap-2 place-items-center sm:grid-cols-0'">
+
+          <!-- Menú 1 -->
+          <div class="w-full sm:w-auto flex justify-center">
+            <div class="inline-flex items-center gap-2 px-3 h-9 rounded-full
+                   bg-white dark:bg-neutral-950 text-xs
+                   text-neutral-700 dark:text-neutral-300">
+
+              <span>{{ actionTitle1 }}</span>
+
+              <div class="dropdown dropdown-bottom">
+                <button tabindex="0" class="flex items-center justify-center
+                       h-8 w-8 p-1 rounded-full cursor-pointer
+                       hover:bg-neutral-200 dark:hover:bg-neutral-700
+                       transition-colors">
+                  <span class="icon-[clarity--ellipsis-vertical-line] text-sm"></span>
+                </button>
+
+                <ul tabindex="0" class="dropdown-content p-2 mt-1 border border-neutral-200 dark:border-neutral-700
+                       bg-white dark:bg-neutral-950 rounded-box w-44 shadow-sm max-h-58 overflow-y-auto">
+
+                  @for (a of ActionsNav; track a.id) {
+                  <li class="mb-1 last:mb-0">
+                    <a (click)="onActionClick(a)" class="text-xs flex items-center gap-2 px-3 h-8 rounded-full
+                               text-neutral-700 dark:text-neutral-300
+                               hover:bg-neutral-200 dark:hover:bg-neutral-700 cursor-pointer">
+                      @if(a.icon){ <span class="{{a.icon}} text-sm"></span> }
+                      {{ a.label }}
+                    </a>
+                  </li>
+                  }
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Menú 2 -->
+          @if (hasActionBars2) {
+          <div class="w-full sm:w-auto flex justify-center">
+            <div class="inline-flex items-center gap-2 px-3 h-9 rounded-full
+                     bg-white dark:bg-neutral-950 text-xs
+                     text-neutral-700 dark:text-neutral-300">
+
+              <span>{{ actionTitle2 }}</span>
+
+              <div class="dropdown dropdown-bottom">
+                <button tabindex="0" class="flex items-center justify-center
+                         h-8 w-8 p-1 rounded-full cursor-pointer
+                         hover:bg-neutral-200 dark:hover:bg-neutral-700
+                         transition-colors">
+                  <span class="icon-[clarity--ellipsis-vertical-line] text-sm"></span>
+                </button>
+
+                <ul tabindex="0" class="dropdown-content p-2 mt-1 border border-neutral-200 dark:border-neutral-700
+                         bg-white dark:bg-neutral-950 rounded-box w-44 shadow-sm max-h-58 overflow-y-auto">
+
+                  @for (a of Actions; track a.id) {
+                  <li class="mb-1 last:mb-0">
+                    <a (click)="onActionClick(a)" class="text-xs flex items-center gap-2 px-3 h-8 rounded-full
+                               text-neutral-700 dark:text-neutral-300
+                               hover:bg-neutral-200 dark:hover:bg-neutral-700 cursor-pointer">
+                      @if(a.icon){ <span class="{{a.icon}} text-sm"></span> }
+                      {{ a.label }}
+                    </a>
+                  </li>
+                  }
+                </ul>
+              </div>
+            </div>
+          </div>
+          }
+        </div>
+      </div>
+    </div>
+    }
+
+
+
+    <div class="inline-flex w-full sm:w-auto sm:ms-auto gap-2 items-center">
+      <!-- Slot para botones personalizados -->
+      <ng-content select="[table-header-buttons]"></ng-content>
+
+      <ng-content select="[table-header-buttons]"></ng-content>
+
+      @if (enableSearch) {
+      <div class="relative w-full">
+        <input type="text" [placeholder]="searchPlaceholder"
+          class="rounded-xl pl-4 pr-10 py-2 h-11 border text-neutral-600 dark:text-neutral-300 border-neutral-200 dark:border-neutral-800 focus:ring-0 focus:outline-none focus:border-primary dark:focus:border-primary-hover w-full sm:w-[300px] text-xs"
+          [ngModel]="textSearch()" (ngModelChange)="onSearchInput($event)" />
+        <span class="absolute inset-y-0 right-3 flex items-center pointer-events-none text-neutral-300">
+          <span class="icon-[material-symbols--search-rounded] text-xl"></span>
+        </span>
+      </div>
+      }
+      @if (enableExport) {
+      <div class="tooltip tooltip-left" data-tip="Exportar">
+        <button type="button" [disabled]="!hasData()"
+          class="h-10 w-10 shrink-0 rounded-full border border-neutral-300 dark:border-neutral-700 ms-2 bg-transparent hover:bg-neutral-200 dark:hover:bg-neutral-800 flex items-center justify-center transition disabled:opacity-50 text-neutral-700 dark:text-neutral-300 hover:text-black dark:hover:text-white"
+          (click)="exportToExcel()">
+          <span class="icon-[mdi--microsoft-excel] text-xl"></span>
+        </button>
+      </div>
+      }
+    </div>
+  </div>
+
+  <!-- Tabla -->
+  <div class="overflow-x-auto" [style.max-height]="maxBodyHeight" [style.min-height]="minBodyHeight">
+    <table class="w-full selection:bg-ternium/10 selection:text-ternium">
+      <thead>
+        <tr
+          class="h-11 border-b border-neutral-200 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-900 sticky top-0 z-10 shadow-sm">
+          @if (selectableSig()) {
+          <th class="px-4 py-0 text-left">
+            <input #masterBox type="checkbox"
+              class="checkbox checkbox-primary checkbox-sm border border-neutral-200 dark:border-neutral-700"
+              [checked]="allSelectedOnScope()" [indeterminate]="someSelectedOnScope()"
+              (change)="toggleAll(masterBox.checked)" />
+          </th>
+          } @for (c of columns; track c.key) {
+          <th class="px-4 py-2 text-left text-xs font-medium text-neutral-500 dark:text-neutral-400
+                           capitalize tracking-wider whitespace-nowrap {{ c.widthClass }} {{ c.headClass }}"
+            [class.text-center]="c.align === 'center'" [class.text-right]="c.align === 'right'">
+
+            <div class="flex items-center justify-between gap-2 group">
+              <span class="truncate" [title]="c.header">{{ c.header }}</span>
+
+              @if (c.key !== 'acciones' && c.type !== 'actions') {
+              <div class="dropdown dropdown-bottom group-hover:visible" [class.invisible]="!hasFilterOrSort(c.key)"
+                [class.dropdown-end]="!$first && !$last ? false : $last" [class.dropdown-start]="$first">
+                <div tabindex="0" role="button"
+                  class="btn btn-ghost btn-xs btn-circle h-6 w-6 min-h-0 bg-transparent hover:bg-neutral-200 dark:hover:bg-neutral-800 flex items-center justify-center text-neutral-500 dark:text-neutral-400"
+                  (click)="$event.stopPropagation()">
+                  <span class="icon-[cuida--filter-outline] text-sm" [class.text-primary]="hasFilterOrSort(c.key)"
+                    [class.font-bold]="hasFilterOrSort(c.key)"></span>
+                </div>
+                <div tabindex="0"
+                  class="dropdown-content z-[20] menu p-3 shadow-lg bg-white dark:bg-neutral-900 rounded-box w-60 border border-neutral-200 dark:border-neutral-700 cursor-default text-neutral-700 dark:text-neutral-200"
+                  (click)="$event.stopPropagation()">
+
+                  <!-- Ordenamiento -->
+                  <div class="flex flex-col gap-2 mb-3">
+                    <span
+                      class="text-[10px] font-bold uppercase text-neutral-500 dark:text-neutral-400 tracking-wider">Ordenar</span>
+                    <div class="join w-full grid grid-cols-3">
+                      <button
+                        class="join-item btn btn-xs bg-neutral-100 dark:bg-neutral-800 border-neutral-300 dark:border-neutral-600 hover:bg-neutral-200 dark:hover:bg-neutral-700 text-neutral-600 dark:text-neutral-300"
+                        [class.btn-active]="isSort(c.key, 'asc')" [class.bg-primary]="isSort(c.key, 'asc')"
+                        [class.text-white]="isSort(c.key, 'asc')" [class.dark:text-white]="isSort(c.key, 'asc')"
+                        (click)="setSort(c.key, 'asc')">
+                        <span class="icon-[solar--sort-from-bottom-to-top-linear] text-base"></span>
+                      </button>
+                      <button
+                        class="join-item btn btn-xs bg-neutral-100 dark:bg-neutral-800 border-neutral-300 dark:border-neutral-600 hover:bg-neutral-200 dark:hover:bg-neutral-700 text-neutral-600 dark:text-neutral-300"
+                        [class.btn-active]="isSort(c.key, 'desc')" [class.bg-primary]="isSort(c.key, 'desc')"
+                        [class.text-white]="isSort(c.key, 'desc')" [class.dark:text-white]="isSort(c.key, 'desc')"
+                        (click)="setSort(c.key, 'desc')">
+                        <span class="icon-[solar--sort-from-top-to-bottom-linear] text-base"></span>
+                      </button>
+                      <button
+                        class="join-item btn btn-xs bg-neutral-100 dark:bg-neutral-800 border-neutral-300 dark:border-neutral-600 hover:bg-neutral-200 dark:hover:bg-neutral-700 text-neutral-600 dark:text-neutral-300"
+                        (click)="setSort(c.key, null)" title="Quitar orden">
+                        <span class="icon-[solar--close-circle-linear] text-base"></span>
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- Filtrado -->
+                  <div class="flex flex-col gap-2">
+                    <span
+                      class="text-[10px] font-bold uppercase text-neutral-500 dark:text-neutral-400 tracking-wider">Filtrar</span>
+                    <input type="text" placeholder="Buscar..."
+                      class="w-full text-xs px-2 py-1.5 rounded-xl border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-600 dark:text-neutral-300 focus:outline-none focus:border-primary placeholder:text-neutral-400 dark:placeholder:text-neutral-500"
+                      [value]="columnFilters()[c.key] || ''"
+                      (input)="updateColumnFilter(c.key, $any($event.target).value)" />
+                  </div>
+
+                </div>
+              </div>
+              }
+            </div>
+          </th>
+          }
+        </tr>
+      </thead>
+
+      @if (loading) {
+      <tbody>
+        @for (i of [].constructor(skeletonRows); track $index) {
+        <tr>
+          @if (selectableSig()) {
+          <td class="px-4 py-2">
+            <div class="animate-pulse">
+              <div class="h-4 w-4 rounded bg-neutral-200 dark:bg-neutral-800"></div>
+            </div>
+          </td>
+          } @for (c of columns; track c.key) {
+
+          <td class="px-4 py-2 {{ c.widthClass }} {{
+              c.cellClass
+            }} whitespace-nowrap">
+            @if (c.key === 'acciones') {
+            <div class="flex items-center gap-1">
+              @for (a of (c.actions ?? []); track a.id) {
+              <div class="animate-pulse">
+                <div class="p-2 rounded-full w-8 h-8 bg-neutral-200 dark:bg-neutral-950"></div>
+              </div>
+              }
+            </div>
+            } @else {
+            <div class="animate-pulse">
+              <div class="h-3 w-24 bg-neutral-200 dark:bg-neutral-800 rounded-full"></div>
+            </div>
+            }
+          </td>
+          }
+        </tr>
+        }
+      </tbody>
+      } @else {
+      <tbody>
+        @for (row of paginated(); track $index) {
+        <tr class="animate-fadeIn transition-colors duration-150 hover:bg-neutral-100 dark:hover:bg-neutral-900/50">
+          @if (selectableSig()) {
+          <td class="px-4 py-0 align-middle border-b border-neutral-200 dark:border-neutral-800">
+            <div class="min-h-[44px] flex items-center">
+              <input #rowBox type="checkbox"
+                class="checkbox checkbox-primary checkbox-sm border border-neutral-200 dark:border-neutral-700"
+                [checked]="isSelected(row)" (click)="$event.stopPropagation()"
+                (change)="toggleRow(row, rowBox.checked)" />
+            </div>
+          </td>
+          } @for (c of columns; track c.key) {
+          <td class="px-4 py-0 align-middle border-b border-neutral-200 dark:border-neutral-800 {{
+              c.widthClass
+            }}" [class.text-center]="c.align === 'center'" [class.text-right]="c.align === 'right'"
+            (click)="onRowClick(row)">
+            <div class="min-h-[44px] flex items-center gap-2">
+              @if (c.key === 'acciones') {
+              <div class="flex items-center gap-1">
+                @for (a of (c.actions ?? []); track a) {
+                @if (a.label) {
+                <button type="button" (click)="a.click(row)"
+                  class="px-3 py-1 rounded-full text-xs font-medium bg-primary text-white hover:bg-primary-600 transition-colors shadow-sm flex items-center gap-1">
+                  @if(a.icon){ <span [class]="a.icon"></span> }
+                  {{ a.label }}
+                </button>
+                } @else {
+                @if(a.id==='view'){
+                <button type="button" (click)="view.emit(row)"
+                  class="p-2 rounded-full w-8 h-8 text-neutral-700 dark:text-neutral-200 hover:text-primary hover:bg-neutral-100 hover:dark:bg-neutral-950 dark:hover:text-primary"
+                  title="Ver">
+                  <span class="icon-[ci--monitor] text-base"></span>
+                </button>
+                } @else if(a.id==='edit'){
+                <button type="button" (click)="edit.emit(row)"
+                  class="p-2 rounded-full w-8 h-8 text-neutral-700 dark:text-neutral-200 hover:text-primary hover:bg-neutral-100 hover:dark:bg-neutral-950 dark:hover:text-primary"
+                  title="Editar">
+                  <span class="icon-[ci--edit-pencil-02] text-base"></span>
+                </button>
+                } @else if(a.id==='delete'){
+                <button type="button" (click)="delete.emit(row)"
+                  class="p-2 rounded-full w-8 h-8 text-neutral-700 dark:text-neutral-200 hover:text-primary hover:bg-neutral-100 hover:dark:bg-neutral-950 dark:hover:text-primary"
+                  title="Eliminar">
+                  <span class="icon-[material-symbols--delete-outline-rounded]"></span>
+                </button>
+                } @else {
+
+                <button type="button" (click)="$event.stopPropagation(); a.click(row)"
+                  class="p-2 rounded-full w-8 h-8 text-neutral-700 dark:text-neutral-200 hover:text-primary hover:bg-neutral-100 hover:dark:bg-neutral-950 dark:hover:text-primary"
+                  title="Eliminar">
+                  <span class="icon-[material-symbols--delete-outline-rounded]"></span>
+                </button>
+                }
+                @if(a.id !== 'view' && a.id !== 'edit' && a.id !== 'delete') {
+                <button type="button" (click)="a.click(row)"
+                  class="p-2 rounded-full w-8 h-8 text-neutral-700 dark:text-neutral-200 hover:text-primary hover:bg-neutral-100 hover:dark:bg-neutral-950 dark:hover:text-primary">
+                  @if(a.icon){ <span [class]="a.icon"></span> }
+                </button>
+                }
+                }
+                }
+              </div>
+              } @else if (c.type === 'boolean') {
+              <div class="flex items-center justify-center">
+                <span class="inline-block h-2 w-2 rounded-full" [class.bg-green-500]="row[c.key] === true"
+                  [class.bg-red-500]="row[c.key] !== true" [attr.title]="row[c.key] ? 'Activo' : 'Inactivo'"></span>
+              </div>
+              } @else if (c.type === 'date') {
+              <div class="whitespace-nowrap text-neutral-800 dark:text-neutral-200 text-xs">
+                {{ row[c.key] | date : "dd/MM/yyyy" }}
+              </div>
+              } @else if (c.type === 'currency') {
+              <div class="whitespace-nowrap text-neutral-800 dark:text-neutral-200 text-xs">
+                {{ row[c.key] | currency : "MXN" : "symbol-narrow" : "1.0-2" }}
+              </div>
+              } @else if (c.type === 'number') {
+              <div class="whitespace-nowrap text-neutral-800 dark:text-neutral-200 text-xs">
+                {{ row[c.key] | number : "1.0-2" }}
+              </div>
+              } @else if (c.truncate) {
+              <div class="block w-[280px] text-neutral-800 dark:text-neutral-200 text-xs truncate">
+                {{ row[c.key] }}
+              </div>
+              } @else {
+              <div class="whitespace-nowrap text-neutral-800 dark:text-neutral-200 text-xs">
+                {{ row[c.key] }}
+              </div>
+              }
+            </div>
+          </td>
+          }
+        </tr>
+        } @empty {
+        <tr>
+          <td [attr.colspan]="columns.length + (selectableSig() ? 1 : 0)" class="px-4 py-10 text-center">
+            <div class="flex flex-col items-center justify-center gap-2">
+              <span class="icon-[mdi--database-off-outline] text-2xl text-neutral-400"></span>
+              <p class="text-sm text-neutral-500 dark:text-neutral-400">
+                {{ emptyText }}
+              </p>
+              <p class="text-xs text-neutral-400" *ngIf="textSearch().trim()">
+                No se encontraron resultados para
+                <span class="font-medium text-neutral-600 dark:text-neutral-300">“{{ textSearch().trim() }}”</span>.
+              </p>
+              <p class="text-xs text-neutral-400">{{ emptyHint }}</p>
+            </div>
+          </td>
+        </tr>
+        }
+      </tbody>
+      }
+    </table>
+  </div>
+
+  <!-- Footer: select + conteo + navegación en UNA fila -->
+  <div
+    class="flex flex-col md:flex-row items-center justify-between px-4 py-3 gap-4 border-t border-neutral-200 dark:border-neutral-700">
+    <!-- Izquierda: registros por página -->
+    <div class="flex items-center gap-2 text-xs text-neutral-600 dark:text-neutral-300">
+      <span>Mostrar:</span>
+
+      <div class="relative">
+        <select
+          class="h-9 w-[84px] pl-3 pr-8 rounded-full border border-neutral-300 dark:border-neutral-700 bg-transparent text-neutral-600 dark:text-neutral-300 dark:bg-neutral-900 text-xs appearance-none focus:outline-none focus:ring-0 focus:border-primary dark:focus:border-primary-hover"
+          [ngModel]="perPageSig()" (ngModelChange)="setItemsPerPage($event)">
+          @for (opt of itemsPerPageOptions; track opt) {
+          <option [ngValue]="opt">{{ opt }}</option>
+          }
+          <option [ngValue]="filtered().length">Todos</option>
+        </select>
+
+        <!-- caret centrado -->
+        <span class="absolute inset-y-0 right-2 pointer-events-none flex items-center">
+          <span
+            class="icon-[solar--alt-arrow-down-line-duotone] text-[13px] text-neutral-700 dark:text-neutral-300"></span>
+        </span>
+      </div>
+
+      <span>por página</span>
+    </div>
+
+    <!-- Centro: rango mostrado -->
+    <div class="text-xs text-neutral-500 dark:text-neutral-300">
+      Registros: {{ (pageSig() - 1) * perPageSig() + 1 }} a
+      {{
+      pageSig() * perPageSig() > filtered().length
+      ? filtered().length
+      : pageSig() * perPageSig()
+      }}
+      de {{ filtered().length }}
+    </div>
+
+    <!-- Derecha: botones de paginación -->
+    <div class="inline-flex">
+      <div class="inline-flex rounded-md" role="group">
+        <button type="button"
+          class="flex items-center px-4 py-2 text-sm font-medium text-neutral-900 dark:text-neutral-300 bg-white dark:bg-neutral-900 border-y border-l border-primary rounded-s-full hover:bg-primary hover:text-white dark:hover:bg-primary hover:dark:text-white focus:z-10 focus:bg-primary focus:text-white disabled:opacity-50 cursor-pointer"
+          [disabled]="pageSig() === 1" (click)="prev()">
+          <span class="icon-[solar--alt-arrow-left-linear] text-base"></span>
+        </button>
+        <button type="button"
+          class="flex items-center px-4 py-1 text-sm font-medium text-neutral-900 dark:text-neutral-300 bg-white dark:bg-neutral-900 border border-primary rounded-e-full hover:bg-primary hover:text-white dark:hover:bg-primary hover:dark:text-white focus:z-10 focus:bg-primary focus:text-white disabled:opacity-50 cursor-pointer"
+          [disabled]="pageSig() === totalPages()" (click)="next()">
+          <span class="icon-[solar--alt-arrow-right-linear] text-base"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

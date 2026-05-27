@@ -30,6 +30,7 @@ export class SidebarPage implements OnInit {
 
   readonly configGroup = { id: 'config' };
   readonly documentsGroup = { id: 'documents' }; // 👈 AGRÉGALO AQUÍ
+  readonly reportsGroup = { id: 'reports' }; // 👈 AGRÉGALO AQUÍ
   openId: string | null = null;
 
   menu: MenuItem[] = [

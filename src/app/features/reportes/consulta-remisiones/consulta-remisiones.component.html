@@ -1,0 +1,310 @@
+<div class="flex-1 p-6">
+  <div class="w-full">
+    <!-- Header -->
+    <div class="bg-white dark:bg-neutral-950 p-6 rounded-2xl mb-4">
+      <div class="flex flex-nowrap items-center gap-3 sm:gap-4">
+        <button
+          [routerLink]="['/main']"
+          routerLinkActive="router-link-active"
+          class="w-16 h-10 rounded-full bg-transparent border border-solid border-ternium hover:bg-ternium text-ternium hover:text-white disabled:text-neutral-100 flex items-center justify-center disabled:opacity-50 transition duration-200 ease-in-out transform hover:scale-100 active:scale-95 cursor-pointer"
+        >
+          <span
+            class="icon-[solar--home-2-bold] text-xl"
+            aria-hidden="true"
+          ></span>
+        </button>
+
+        <div class="grow min-w-0">
+          <h2
+            class="text-sm sm:text-base font-semibold leading-none text-black dark:text-white truncate py-1"
+          >
+            {{ pageTitle() }}
+          </h2>
+
+          <p
+            class="mt-1 text-xs text-neutral-700 dark:text-neutral-200 truncate"
+          >
+            {{ pageSubtitle() }}
+          </p>
+        </div>
+
+        <div class="flex items-center gap-2 shrink-0">
+          <button
+            type="button"
+            class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-transparent hover:bg-neutral-200 dark:hover:bg-neutral-800 flex items-center justify-center transition duration-300 ease-in-out"
+            (click)="toggleFiltros()"
+          >
+            <span
+              [class]="
+                (filtrosAbiertos()
+                  ? 'icon-[solar--alt-arrow-up-linear]'
+                  : 'icon-[solar--alt-arrow-down-linear]') +
+                ' text-base sm:text-xl text-neutral-500 dark:text-neutral-300'
+              "
+              aria-hidden="true"
+            >
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card principal -->
+    <section class="bg-white dark:bg-neutral-950 p-6 rounded-2xl mb-4">
+      @if (filtrosAbiertos()) {
+        <section class="bg-white dark:bg-neutral-950 p-0 rounded-2xl mb-2">
+          @if (frm) {
+            <form [formGroup]="frm" (ngSubmit)="onBuscar()" class="space-y-4">
+              <div
+                class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-4 items-center"
+              >
+                <!-- Remisión -->
+                <div
+                  class="flex flex-col lg:col-span-2 md:col-span-2 col-span-1"
+                >
+                  <label
+                    class="block text-xs mb-2 text-neutral-500 flex items-center gap-1"
+                  >
+                    Remisión
+                    <button
+                      type="button"
+                      class="text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200"
+                      (click)="openInfoModal('remisionID')"
+                    >
+                      <span
+                        class="icon-[solar--info-circle-linear] text-xs text-neutral-500 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200 cursor-pointer"
+                      ></span>
+                    </button>
+                  </label>
+
+                  <div class="flex gap-2">
+                    <app-custom-input
+                      formControlName="remisionID"
+                      class="w-full h-12 rounded-full"
+                    />
+
+                    <!-- <div class="tooltip tooltip-top" data-tip="Importar">
+                      <button
+                        type="button"
+                        (click)="
+                          openExcelFor('remisionID', 'Remisiones', 'Remisión')
+                        "
+                        class="h-10 w-10 shrink-0 rounded-xl border border-neutral-300 dark:border-neutral-700 bg-transparent hover:bg-neutral-200 dark:hover:bg-neutral-800 flex items-center justify-center transition text-neutral-700 dark:text-neutral-300 hover:text-black dark:hover:text-white"
+                        aria-label="Importar remisiones"
+                      >
+                        <span
+                          class="icon-[flowbite--plus-outline] text-xl"
+                        ></span>
+                      </button>
+                    </div> -->
+                  </div>
+
+                  <div class="h-5 mt-1"></div>
+                </div>
+
+                <!-- Sociedad -->
+                <div
+                  class="flex flex-col lg:col-span-2 md:col-span-2 col-span-1"
+                >
+                  <label
+                    class="block text-xs mb-2 text-neutral-500 flex items-center gap-1"
+                  >
+                    Sociedad
+                    <button
+                      type="button"
+                      class="text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200"
+                      (click)="openInfoModal('sociedad')"
+                    >
+                      <span
+                        class="icon-[solar--info-circle-linear] text-xs text-neutral-500 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200 cursor-pointer"
+                      ></span>
+                    </button>
+                  </label>
+
+                  <app-custom-input
+                    formControlName="sociedad"
+                    class="w-full h-12 rounded-full"
+                  />
+
+                  <div class="h-5 mt-1"></div>
+                </div>
+
+                <!-- Cliente -->
+                <div
+                  class="flex flex-col lg:col-span-2 md:col-span-2 col-span-1"
+                >
+                  <label
+                    class="block text-xs mb-2 text-neutral-500 flex items-center gap-1"
+                  >
+                    Cliente
+                    <button
+                      type="button"
+                      class="text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200"
+                      (click)="openInfoModal('clienteId')"
+                    >
+                      <span
+                        class="icon-[solar--info-circle-linear] text-xs text-neutral-500 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200 cursor-pointer"
+                      ></span>
+                    </button>
+                  </label>
+
+                  <app-custom-input
+                    formControlName="clienteId"
+                    class="w-full h-12 rounded-full"
+                  />
+
+                  <div class="h-5 mt-1"></div>
+                </div>
+
+                <!-- Cliente Consignatario -->
+                <div
+                  class="flex flex-col lg:col-span-2 md:col-span-2 col-span-1"
+                >
+                  <label
+                    class="block text-xs mb-2 text-neutral-500 flex items-center gap-1"
+                  >
+                    Cliente Consignatario
+                    <button
+                      type="button"
+                      class="text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200"
+                      (click)="openInfoModal('clienteConsignatarioNumero')"
+                    >
+                      <span
+                        class="icon-[solar--info-circle-linear] text-xs text-neutral-500 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200 cursor-pointer"
+                      ></span>
+                    </button>
+                  </label>
+
+                  <app-custom-input
+                    formControlName="clienteConsignatarioNumero"
+                    class="w-full h-12 rounded-full"
+                  />
+
+                  <div class="h-5 mt-1"></div>
+                </div>
+
+                <!-- Fecha inicio -->
+                <div
+                  class="flex flex-col lg:col-span-2 md:col-span-2 col-span-1"
+                >
+                  <label
+                    class="block text-xs mb-2 text-neutral-500 flex items-center gap-1"
+                  >
+                    Fecha Inicio
+                    <button
+                      type="button"
+                      class="text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200"
+                      (click)="openInfoModal('fechaInicio')"
+                    >
+                      <span
+                        class="icon-[solar--info-circle-linear] text-xs text-neutral-500 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200 cursor-pointer"
+                      ></span>
+                    </button>
+                  </label>
+
+                  <input
+                    type="date"
+                    formControlName="fechaInicio"
+                    class="w-full h-10 px-4 rounded-full bg-white dark:bg-neutral-950 border border-neutral-300 dark:border-neutral-700 text-sm text-neutral-800 dark:text-neutral-200 outline-none focus:border-ternium"
+                  />
+
+                  <div class="h-5 mt-1"></div>
+                </div>
+
+                <!-- Fecha fin -->
+                <div
+                  class="flex flex-col lg:col-span-2 md:col-span-2 col-span-1"
+                >
+                  <label
+                    class="block text-xs mb-2 text-neutral-500 flex items-center gap-1"
+                  >
+                    Fecha Fin
+                    <button
+                      type="button"
+                      class="text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200"
+                      (click)="openInfoModal('fechaFin')"
+                    >
+                      <span
+                        class="icon-[solar--info-circle-linear] text-xs text-neutral-500 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200 cursor-pointer"
+                      ></span>
+                    </button>
+                  </label>
+
+                  <input
+                    type="date"
+                    formControlName="fechaFin"
+                    class="w-full h-10 px-4 rounded-full bg-white dark:bg-neutral-950 border border-neutral-300 dark:border-neutral-700 text-sm text-neutral-800 dark:text-neutral-200 outline-none focus:border-ternium"
+                  />
+
+                  <div class="h-5 mt-1"></div>
+                </div>
+              </div>
+
+              <!-- Botones -->
+              <div
+                class="grid grid-cols-3 sm:grid-cols-3 lg:grid-cols-6 gap-3 py-4 border-b border-neutral-200 dark:border-neutral-700"
+              >
+                <div
+                  class="tooltip tooltip-top lg:col-start-5 justify-self-end"
+                  data-tip="Limpiar"
+                >
+                  <button
+                    type="button"
+                    [disabled]="loading"
+                    (click)="onClearFilters()"
+                    class="h-10 w-10 aspect-square flex items-center justify-center rounded-full box-border bg-transparent border border-ternium text-ternium hover:bg-ternium hover:text-white transition disabled:opacity-50"
+                  >
+                    <span
+                      class="icon-[ant-design--clear-outlined] text-lg leading-none"
+                    ></span>
+                  </button>
+                </div>
+
+                <button
+                  type="submit"
+                  [disabled]="loading"
+                  class="px-6 h-[2.5rem] flex items-center justify-center text-white rounded-full shadow-none border-ternium bg-ternium hover:bg-ternium-hover hover:border-ternium-hover text-neutral-100 transition duration-200 ease-in-out transform active:scale-95 disabled:opacity-50 cursor-pointer lg:col-start-6"
+                >
+                  <span class="text-xs">Consultar</span>
+                </button>
+              </div>
+            </form>
+          } @else {
+            <div class="p-4 text-sm text-neutral-500">
+              Inicializando filtros...
+            </div>
+          }
+        </section>
+      }
+
+      <!-- Tabla -->
+<app-custom-table-sde
+  [columns]="columnsDef()"
+  [rows]="rows()"
+  [loading]="loading"
+  [selectable]="true"
+  [enableExport]="true"
+  [exportName]="exportFileName()"
+  [rowId]="rowIdForRemision"
+  [(selectedIds)]="selectedIds"
+  (selectionChange)="onSelectionRows($event)"
+  (selectedIdsChange)="onSelectionIds($event)"
+  emptyText="Sin remisiones para mostrar"
+  emptyHint="Ajusta los filtros o limpia la búsqueda."
+  [searchableKeys]="searchableKeys()"
+  [itemsPerPage]="itemsPerPage"
+  [itemsPerPageOptions]="[5, 10, 15]"
+  [page]="currentPage"
+  (itemsPerPageChange)="itemsPerPage = $event"
+  (pageChange)="currentPage = $event"
+  [clientSearch]="true"
+  [actionBars]="actionBars"
+  (action)="onActionTriggeredById($event.id)"
+>
+</app-custom-table-sde>
+    </section>
+
+
+    <app-info-dialog [infoData]="infoData" #infoModal></app-info-dialog>
+  </div>
+</div>

@@ -9,6 +9,7 @@ import { mainRoutes } from './features/main/main.routes';
 import { processesRoutes } from './features/processes/processes.routes';
 import { LayoutPagePage } from './layout/layout/layout.page';
 import { LayoutLoginComponent } from './layout/layout-login/layout-login.component';
+import { ReportesRoutes } from './features/reportes/reportes.routes';
 
 export const routes: Routes = [
   {
@@ -28,24 +29,30 @@ export const routes: Routes = [
     canActivate: [authGuard],
     children: documentsRoutes
   },
-  {
-    path: 'glossary',
-    component: LayoutPagePage,
-    canActivate: [authGuard],
-    children: glosaryRoutes
-  },
-  {
-    path: 'processes',
-    component: LayoutPagePage,
-    canActivate: [authGuard],
-    children: processesRoutes
-  },
-  {
-    path: 'article',
-    component: LayoutPagePage,
-    canActivate: [authGuard],
-    children: configurationRoutes
-  },
+{
+  path: 'reportes',
+  component: LayoutPagePage,
+  canActivate: [authGuard],
+  children: ReportesRoutes,
+},
+  // {
+  //   path: 'glossary',
+  //   component: LayoutPagePage,
+  //   canActivate: [authGuard],
+  //   children: glosaryRoutes
+  // },
+  // {
+  //   path: 'processes',
+  //   component: LayoutPagePage,
+  //   canActivate: [authGuard],
+  //   children: processesRoutes
+  // },
+  // {
+  //   path: 'article',
+  //   component: LayoutPagePage,
+  //   canActivate: [authGuard],
+  //   children: configurationRoutes
+  // },
   {
     path: '**',
     redirectTo: 'documents',

@@ -1,0 +1,38 @@
+<dialog #infoModal class="modal">
+    <div class="modal-box max-w-md bg-white dark:bg-neutral-900">
+        <form method="dialog">
+            <button
+                class="w-10 h-10 rounded-full bg-transparent absolute right-2 top-2 hover:bg-neutral-100 dark:hover:bg-neutral-800 flex items-center justify-center"
+                (click)="close()">
+                <span
+                    class="icon-[material-symbols--close-rounded] text-xl text-neutral-500 dark:text-neutral-300"></span>
+            </button>
+        </form>
+
+        <h3 class="text-sm font-semibold mb-3 text-black dark:text-white">
+            {{ infoData()?.title }}
+        </h3>
+
+        <div class="space-y-3 text-xs text-neutral-700 dark:text-neutral-300">
+            <!-- <p>
+        <span class="font-medium">¿Qué se requiere?</span><br />
+        {{ infoData()?.description }}
+      </p> -->
+
+            <div class="bg-neutral-100 dark:bg-neutral-800 rounded-lg p-3">
+                <p class="font-medium mb-1">Ejemplo:</p>
+                <code class="text-xs">{{ infoData()?.example }}</code>
+            </div>
+
+            @if (infoData()?.notes){
+            <p>
+                <span class="font-medium">Notas</span><br />
+                {{ infoData()?.notes }}
+            </p>
+            }
+        </div>
+    </div>
+    <form method="dialog" class="modal-backdrop">
+        <button (click)="close()">close</button>
+    </form>
+</dialog>
