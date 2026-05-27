@@ -34,7 +34,10 @@ export class DocumentsApiService {
         { code: 'REM', name: 'Remisión' },
         { code: 'NC', name: 'Nota de Crédito' },
         { code: 'ND', name: 'Nota de Débito' },
-        { code: 'PED', name: 'Pedido' }
+        { code: 'PED', name: 'Pedido' },
+        // ACO — Cartas Origen
+        { code: 'CO', name: 'Carta País Origen' },
+        { code: 'COC', name: 'Carta País Origen Colada' }
       ]);
     }
 
@@ -3076,6 +3079,281 @@ getGridPage(request: DocumentGridPageRequest): Promise<DocumentGridPageResponse>
       "NSHDocId": "200005025168",
       "NSHSociedad": "TM01"
     }
+  },
+
+  // ─────────────────────────────────────────────────────────────
+  // 🔹 ACO — Carta País Origen (CO)
+  // Campo identificador: nro_remision (según DocumetosBussines.cs líneas 489-491)
+  // ─────────────────────────────────────────────────────────────
+  {
+    documentType: 'CO',
+    errorMessage: '',
+    documentId: '1001234',
+    pdfOk: '2026-01-15 10:00:00.000',
+    invoiceClass: '',
+    documentNumber: '4900001234',
+    documentPackageId: '',
+    confirmed: 'Si',
+    pdfFile: 'CO4900001234.pdf',
+    sentOk: '2026-01-15 11:00:00.000',
+    printedOk: '',
+    packagedOk: '',
+    salesOrganization: 'TM01',
+    icon: 'ifOK',
+    orderNumber: '4900001234',
+    dynamicItems: {
+      nro_remision: '4900001234',
+      fecha_doc: '2026-01-15 00:00:00.000',
+      desc_cliente: 'ACEROS DEL NORTE SA DE CV',
+      num_cte_sol: 'H010001234',
+      sociedad: 'TM01'
+    }
+  },
+  {
+    documentType: 'CO',
+    errorMessage: '',
+    documentId: '1001235',
+    pdfOk: '',
+    invoiceClass: '',
+    documentNumber: '4900001235',
+    documentPackageId: '',
+    confirmed: 'Si',
+    pdfFile: '',
+    sentOk: '',
+    printedOk: '',
+    packagedOk: '',
+    salesOrganization: 'TM01',
+    icon: 'ifNA',
+    orderNumber: '4900001235',
+    dynamicItems: {
+      nro_remision: '4900001235',
+      fecha_doc: '2026-01-20 00:00:00.000',
+      desc_cliente: 'DISTRIBUIDORA METALURGICA SA',
+      num_cte_sol: 'H010001235',
+      sociedad: 'TM01'
+    }
+  },
+  {
+    documentType: 'CO',
+    errorMessage: '',
+    documentId: '1001236',
+    pdfOk: '2026-02-01 08:45:00.000',
+    invoiceClass: '',
+    documentNumber: '4900001236',
+    documentPackageId: '',
+    confirmed: 'Si',
+    pdfFile: 'CO4900001236.pdf',
+    sentOk: '',
+    printedOk: '',
+    packagedOk: '',
+    salesOrganization: 'TM01',
+    icon: 'ifOK',
+    orderNumber: '4900001236',
+    dynamicItems: {
+      nro_remision: '4900001236',
+      fecha_doc: '2026-02-01 00:00:00.000',
+      desc_cliente: 'TUBACERO SA DE CV',
+      num_cte_sol: 'H000146400',
+      sociedad: 'TM01'
+    }
+  },
+  {
+    documentType: 'CO',
+    errorMessage: '',
+    documentId: '1001237',
+    pdfOk: '2026-02-10 14:00:00.000',
+    invoiceClass: '',
+    documentNumber: '4900001237',
+    documentPackageId: '',
+    confirmed: 'Si',
+    pdfFile: 'CO4900001237.pdf',
+    sentOk: '2026-02-10 15:30:00.000',
+    printedOk: '',
+    packagedOk: '',
+    salesOrganization: 'TM01',
+    icon: 'ifOK',
+    orderNumber: '4900001237',
+    dynamicItems: {
+      nro_remision: '4900001237',
+      fecha_doc: '2026-02-10 00:00:00.000',
+      desc_cliente: 'NATIONAL MATERIAL OF MEXICO S DE RL',
+      num_cte_sol: 'H010505607',
+      sociedad: 'TM01'
+    }
+  },
+  {
+    documentType: 'CO',
+    errorMessage: '',
+    documentId: '1001238',
+    pdfOk: '',
+    invoiceClass: '',
+    documentNumber: '4900001238',
+    documentPackageId: '',
+    confirmed: 'Si',
+    pdfFile: '',
+    sentOk: '',
+    printedOk: '',
+    packagedOk: '',
+    salesOrganization: 'TM01',
+    icon: 'ifNA',
+    orderNumber: '4900001238',
+    dynamicItems: {
+      nro_remision: '4900001238',
+      fecha_doc: '2026-02-15 00:00:00.000',
+      desc_cliente: 'MIDWEST MFG - VALLEY',
+      num_cte_sol: 'E000781019',
+      sociedad: 'TM01'
+    }
+  },
+  {
+    documentType: 'CO',
+    errorMessage: '',
+    documentId: '1001239',
+    pdfOk: '2026-02-20 09:00:00.000',
+    invoiceClass: '',
+    documentNumber: '4900001239',
+    documentPackageId: '',
+    confirmed: 'Si',
+    pdfFile: 'CO4900001239.pdf',
+    sentOk: '',
+    printedOk: '',
+    packagedOk: '',
+    salesOrganization: 'TM01',
+    icon: 'ifOK',
+    orderNumber: '4900001239',
+    dynamicItems: {
+      nro_remision: '4900001239',
+      fecha_doc: '2026-02-20 00:00:00.000',
+      desc_cliente: 'ALMACEN VIEZCA ALTO DE NORIA',
+      num_cte_sol: 'H010504365',
+      sociedad: 'TM01'
+    }
+  },
+
+  // ─────────────────────────────────────────────────────────────
+  // 🔹 ACO — Carta País Origen Colada (COC)
+  // Campo identificador: nro_remision (igual que CO)
+  // COC incluye campo adicional 'colada' en dynamicItems
+  // ─────────────────────────────────────────────────────────────
+  {
+    documentType: 'COC',
+    errorMessage: '',
+    documentId: '2001234',
+    pdfOk: '2026-02-10 09:30:00.000',
+    invoiceClass: '',
+    documentNumber: '4900002234',
+    documentPackageId: '',
+    confirmed: 'Si',
+    pdfFile: 'COC4900002234.pdf',
+    sentOk: '',
+    printedOk: '',
+    packagedOk: '',
+    salesOrganization: 'TM01',
+    icon: 'ifOK',
+    orderNumber: '4900002234',
+    dynamicItems: {
+      nro_remision: '4900002234',
+      fecha_doc: '2026-02-10 00:00:00.000',
+      desc_cliente: 'TUBACERO SA DE CV',
+      num_cte_sol: 'H010002234',
+      colada: 'C-2026-0012'
+    }
+  },
+  {
+    documentType: 'COC',
+    errorMessage: '',
+    documentId: '2001235',
+    pdfOk: '',
+    invoiceClass: '',
+    documentNumber: '4900002235',
+    documentPackageId: '',
+    confirmed: 'Si',
+    pdfFile: '',
+    sentOk: '',
+    printedOk: '',
+    packagedOk: '',
+    salesOrganization: 'TM01',
+    icon: 'ifNA',
+    orderNumber: '4900002235',
+    dynamicItems: {
+      nro_remision: '4900002235',
+      fecha_doc: '2026-02-18 00:00:00.000',
+      desc_cliente: 'ACEROS DEL NORTE SA DE CV',
+      num_cte_sol: 'H010001234',
+      colada: 'C-2026-0015'
+    }
+  },
+  {
+    documentType: 'COC',
+    errorMessage: '',
+    documentId: '2001236',
+    pdfOk: '2026-03-01 11:00:00.000',
+    invoiceClass: '',
+    documentNumber: '4900002236',
+    documentPackageId: '',
+    confirmed: 'Si',
+    pdfFile: 'COC4900002236.pdf',
+    sentOk: '2026-03-01 12:00:00.000',
+    printedOk: '',
+    packagedOk: '',
+    salesOrganization: 'TM01',
+    icon: 'ifOK',
+    orderNumber: '4900002236',
+    dynamicItems: {
+      nro_remision: '4900002236',
+      fecha_doc: '2026-03-01 00:00:00.000',
+      desc_cliente: 'NATIONAL MATERIAL OF MEXICO S DE RL',
+      num_cte_sol: 'H010505607',
+      colada: 'C-2026-0021'
+    }
+  },
+  {
+    documentType: 'COC',
+    errorMessage: '',
+    documentId: '2001237',
+    pdfOk: '2026-03-05 08:00:00.000',
+    invoiceClass: '',
+    documentNumber: '4900002237',
+    documentPackageId: '',
+    confirmed: 'Si',
+    pdfFile: 'COC4900002237.pdf',
+    sentOk: '',
+    printedOk: '',
+    packagedOk: '',
+    salesOrganization: 'TM01',
+    icon: 'ifOK',
+    orderNumber: '4900002237',
+    dynamicItems: {
+      nro_remision: '4900002237',
+      fecha_doc: '2026-03-05 00:00:00.000',
+      desc_cliente: 'DISTRIBUIDORA METALURGICA SA',
+      num_cte_sol: 'H010001235',
+      colada: 'C-2026-0028'
+    }
+  },
+  {
+    documentType: 'COC',
+    errorMessage: '',
+    documentId: '2001238',
+    pdfOk: '',
+    invoiceClass: '',
+    documentNumber: '4900002238',
+    documentPackageId: '',
+    confirmed: 'Si',
+    pdfFile: '',
+    sentOk: '',
+    printedOk: '',
+    packagedOk: '',
+    salesOrganization: 'TM01',
+    icon: 'ifNA',
+    orderNumber: '4900002238',
+    dynamicItems: {
+      nro_remision: '4900002238',
+      fecha_doc: '2026-03-10 00:00:00.000',
+      desc_cliente: 'MIDWEST MFG - VALLEY',
+      num_cte_sol: 'E000781019',
+      colada: 'C-2026-0030'
+    }
   }
 
   ];
@@ -3126,15 +3404,14 @@ getGridPage(request: DocumentGridPageRequest): Promise<DocumentGridPageResponse>
   // 👇 resultado final
   console.log('DATA FINAL:', data);
 
-  // return {
-  //   recordsFiltered: data.length,
-  //   data
-  // } as unknown as DocumentGridPageResponse;
-
+  // 🔹 paginación
+  const start = request.start ?? 0;
+  const length = request.length ?? data.length;
+  const paginatedData = data.slice(start, start + length);
 
   return {
     recordsFiltered: data.length,
-    data
+    data: paginatedData
   } as unknown as DocumentGridPageResponse;
 }
 
@@ -3813,6 +4090,13 @@ private getMockDocumentGroup(code: string): string[] {
     ASN: ['NS', 'NSC', 'NSF', 'NSS', 'NST', 'SN'],
 
     DR: ['B2B','B2I','B2N','B2S'],
+
+    // 🔹 ACO — Agrupador Cartas Origen
+    // ⚠️ OMISIÓN ACO-001: el endpoint GET /api/documentos/agrupador?code=ACO existe
+    //    pero la entrada ACO no está en el diccionario de DocumentsController.GetAgrupador().
+    //    En modo producción retorna []. En modo mock funciona correctamente.
+    //    Tarea de backend: agregar ["ACO"] = new[] { "CO", "COC" } al diccionario.
+    ACO: ['CO', 'COC'],
 
     ACC: ['CC', 'NCC', 'MF', 'MS', 'MT' ]
   };
@@ -4522,7 +4806,127 @@ private getMockHeaders(documentType: string): DocumentField[] {
     searchField: "T",
     isAutoCompleteClient: false
   }
-]
+],
+
+    // ─────────────────────────────────────────────────
+    // 🔹 ACO — Cartas Origen (CO y COC)
+    // Headers estimados a partir de selDataFields('CO') / selDataFields('COC').
+    // Se resolverán automáticamente cuando la API esté conectada a BD.
+    CO: [
+      {
+        id: 'nro_remision',
+        documentTypeId: 'CO',
+        friendlyName: 'Nro. Remisión',
+        width: 110,
+        align: 2,
+        alignText: 'Center',
+        order: 1,
+        searchField: 'T',
+        isAutoCompleteClient: false
+      },
+      {
+        id: 'fecha_doc',
+        documentTypeId: 'CO',
+        friendlyName: 'Fecha Documento',
+        width: 90,
+        align: 2,
+        alignText: 'Center',
+        order: 2,
+        searchField: 'F',
+        isAutoCompleteClient: false
+      },
+      {
+        id: 'desc_cliente',
+        documentTypeId: 'CO',
+        friendlyName: 'Descripción Cliente',
+        width: 250,
+        align: 1,
+        alignText: 'Left',
+        order: 3,
+        searchField: 'T',
+        isAutoCompleteClient: false
+      },
+      {
+        id: 'num_cte_sol',
+        documentTypeId: 'CO',
+        friendlyName: 'No. Cliente',
+        width: 80,
+        align: 2,
+        alignText: 'Center',
+        order: 4,
+        searchField: 'T',
+        isAutoCompleteClient: false
+      },
+      {
+        id: 'sociedad',
+        documentTypeId: 'CO',
+        friendlyName: 'Sociedad',
+        width: 70,
+        align: 2,
+        alignText: 'Center',
+        order: 5,
+        searchField: 'T',
+        isAutoCompleteClient: false
+      }
+    ],
+
+    COC: [
+      {
+        id: 'nro_remision',
+        documentTypeId: 'COC',
+        friendlyName: 'Nro. Remisión',
+        width: 110,
+        align: 2,
+        alignText: 'Center',
+        order: 1,
+        searchField: 'T',
+        isAutoCompleteClient: false
+      },
+      {
+        id: 'fecha_doc',
+        documentTypeId: 'COC',
+        friendlyName: 'Fecha Documento',
+        width: 90,
+        align: 2,
+        alignText: 'Center',
+        order: 2,
+        searchField: 'F',
+        isAutoCompleteClient: false
+      },
+      {
+        id: 'desc_cliente',
+        documentTypeId: 'COC',
+        friendlyName: 'Descripción Cliente',
+        width: 250,
+        align: 1,
+        alignText: 'Left',
+        order: 3,
+        searchField: 'T',
+        isAutoCompleteClient: false
+      },
+      {
+        id: 'num_cte_sol',
+        documentTypeId: 'COC',
+        friendlyName: 'No. Cliente',
+        width: 80,
+        align: 2,
+        alignText: 'Center',
+        order: 4,
+        searchField: 'T',
+        isAutoCompleteClient: false
+      },
+      {
+        id: 'colada',
+        documentTypeId: 'COC',
+        friendlyName: 'Colada',
+        width: 80,
+        align: 2,
+        alignText: 'Center',
+        order: 5,
+        searchField: 'T',
+        isAutoCompleteClient: false
+      }
+    ]
   };
 
   return mockHeaders[documentType] || [];

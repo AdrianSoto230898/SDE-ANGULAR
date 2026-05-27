@@ -57,6 +57,12 @@
    class="flex items-center gap-2 px-2.5 py-2 rounded-lg text-neutral-600 dark:text-neutral-300 hover:bg-white dark:hover:bg-neutral-700 transition-colors text-sm">
   Documentos Relacionados
 </a>
+<a [routerLink]="'/documents'"
+   [queryParams]="{ type: 'ACO' }"
+   routerLinkActive="bg-white dark:bg-neutral-700 text-neutral-900 dark:text-white"
+   class="flex items-center gap-2 px-2.5 py-2 rounded-lg text-neutral-600 dark:text-neutral-300 hover:bg-white dark:hover:bg-neutral-700 transition-colors text-sm">
+  Cartas Origen
+</a>
 
   </div>
 </div>
