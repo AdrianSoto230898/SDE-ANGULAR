@@ -90,6 +90,7 @@ readonly page = signal(1);
 
 readonly showSendModal = signal(false);
 readonly sendMailForm = signal<SendMailConfigResponse | null>(null);
+  readonly useServerPagination = environment.production;
 
   private readonly DUMMY_DOCUMENT_TYPES: DocumentTypeOption[] = [
     { code: 'FAC', name: 'Factura' },
@@ -177,8 +178,8 @@ readonly visibleFields = computed(() =>
   readonly gridRows = computed(() => this.gridResource.value().data ?? []);
   readonly totalRecords = computed(() => this.gridResource.value().recordsFiltered ?? 0);
   readonly totalPages = computed(() => Math.max(1, Math.ceil(this.totalRecords() / this.pageSize()) || 1));
-  readonly startRecord = computed(() => this.totalRecords() === 0 ? 0 : this.pageIndex() * this.pageSize() + 1);
-  readonly endRecord = computed(() => Math.min(this.totalRecords(), (this.pageIndex() + 1) * this.pageSize()));
+  readonly startRecord = computed(() => this.totalRecords() === 0 ? 0 : (this.page() - 1) * this.pageSize() + 1);
+  readonly endRecord = computed(() => Math.min(this.totalRecords(), this.page() * this.pageSize()));
 
   readonly selectedMultifileItems = computed(() => this.gridRows()
     .filter((item: DocumentGridItem) => this.isRowSelected(item))
@@ -747,7 +748,7 @@ async downloadSelectedDocuments(
     this.submittedDateTo.set(today);
     this.draftFilters.set({});
     this.submittedFilters.set({});
-    this.pageIndex.set(0);
+    this.page.set(1);
     this.pageSize.set(25);
     this.sortColumn.set('');
     this.sortDirection.set('asc');
@@ -817,7 +818,7 @@ async setDocumentTypeFromMenu(type: string): Promise<void> {
     this.submittedDateFrom.set(this.draftDateFrom());
     this.submittedDateTo.set(this.draftDateTo());
     this.submittedFilters.set(this.cleanFilters(this.draftFilters()));
-    this.pageIndex.set(0);
+    this.page.set(1);
     this.selectedRows.set({});
     this.actionMessage.set(null);
     this.gridResource.reload();
@@ -881,24 +882,24 @@ async setDocumentTypeFromMenu(type: string): Promise<void> {
   changePageSize(value: string): void {
     const nextSize = Number.parseInt(value, 10);
     this.pageSize.set(Number.isNaN(nextSize) ? 25 : nextSize);
-    this.pageIndex.set(0);
+    this.page.set(1);
     this.gridResource.reload();
   }
 
   goToPreviousPage(): void {
-    if (this.pageIndex() === 0) {
+    if (this.page() <= 1) {
       return;
     }
 
-    this.pageIndex.update((value) => value - 1);
+    this.page.update((value) => Math.max(1, value - 1));
   }
 
   goToNextPage(): void {
-    if (this.pageIndex() + 1 >= this.totalPages()) {
+    if (this.page() >= this.totalPages()) {
       return;
     }
 
-    this.pageIndex.update((value) => value + 1);
+    this.page.update((value) => Math.min(this.totalPages(), value + 1));
   }
 
   toggleSort(field: DocumentField): void {
@@ -909,7 +910,7 @@ async setDocumentTypeFromMenu(type: string): Promise<void> {
       this.sortDirection.set('asc');
     }
 
-    this.pageIndex.set(0);
+    this.page.set(1);
     this.gridResource.reload();
   }
 
